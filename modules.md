@@ -92,6 +92,7 @@
 ### Functions
 
 - [create](modules.md#create)
+- [destroy](modules.md#destroy)
 - [open](modules.md#open)
 - [unwrap](modules.md#unwrap)
 
@@ -431,7 +432,8 @@ Options to configure when opening an existing wallet
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `httpResolverUrl?` | `string` | Specifies the URL the http resolver will use  **`defaultvalue`** https://uniresolver-api.mattr.global |
+| `httpResolverUrl?` | `string` | Specifies the full URL including path that http resolver will use  **`defaultvalue`** https://uniresolver-api.mattr.global/1.0/identifiers/ |
+| `walletId?` | `string` | Specifies the wallet ID to use |
 
 ___
 
@@ -618,18 +620,42 @@ ___
 
 ### create
 
-▸ `Const` **create**(): `Promise`<[Result](modules/result.md)<void, [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| [WalletAlreadyCreatedError](modules.md#walletalreadycreatederror)\>\>
+▸ `Const` **create**(`walletId?`): `Promise`<[Result](modules/result.md)<void, [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| [WalletAlreadyCreatedError](modules.md#walletalreadycreatederror)\>\>
 
 Generates new encryption keys and storage directories required for a wallet
 
 **`remarks`**
 This function must be called before trying to open the wallet
 
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `walletId?` | `string` | optional walletId for the create function |
+
 #### Returns
 
 `Promise`<[Result](modules/result.md)<void, [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| [WalletAlreadyCreatedError](modules.md#walletalreadycreatederror)\>\>
 
 A [Result](modules/result.md) containing void on ok and either a [WalletAlreadyCreatedError](modules.md#walletalreadycreatederror) or [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) on error
+
+___
+
+### destroy
+
+▸ `Const` **destroy**(`walletId?`): `Promise`<void\>
+
+Destroy a wallet
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `walletId?` | `string` | optional walletId for the destroy function |
+
+#### Returns
+
+`Promise`<void\>
 
 ___
 
