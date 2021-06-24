@@ -14,7 +14,7 @@
 
 ### didDocument
 
-• `Optional` `Readonly` **didDocument**: `DidDocument`
+• `Optional` `Readonly` **didDocument**: [DidDocument](diddocument.md)
 
 The resolved DID document.
 

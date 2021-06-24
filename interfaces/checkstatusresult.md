@@ -26,4 +26,4 @@ ___
 
 ### type
 
-• `Readonly` **type**: `RevocationList2020Status`
+• `Readonly` **type**: [RevocationList2020Status](../enums/credentialstatustype.md#revocationlist2020status)

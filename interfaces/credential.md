@@ -42,7 +42,7 @@ ___
 
 ### credentialSubject
 
-• `Readonly` **credentialSubject**: `string` \| `CredentialSubject` \| readonly `CredentialSubject`[]
+• `Readonly` **credentialSubject**: `string` \| [CredentialSubject](credentialsubject.md) \| readonly [CredentialSubject](credentialsubject.md)[]
 
 **`see`** https://www.w3.org/TR/vc-data-model/#credential-subject
 
@@ -66,7 +66,7 @@ ___
 
 ### issuer
 
-• `Readonly` **issuer**: `CredentialIssuer`
+• `Readonly` **issuer**: [CredentialIssuer](../modules.md#credentialissuer)
 
 **`see`** https://www.w3.org/TR/vc-data-model/#issuer
 

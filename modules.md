@@ -12,24 +12,32 @@
 ### Enumerations
 
 - [CredentialOfferType](enums/credentialoffertype.md)
+- [CredentialStatusType](enums/credentialstatustype.md)
 - [QueryType](enums/querytype.md)
 
 ### Interfaces
 
 - [CheckStatusResult](interfaces/checkstatusresult.md)
 - [Credential](interfaces/credential.md)
+- [CredentialExample](interfaces/credentialexample.md)
 - [CredentialFrame](interfaces/credentialframe.md)
 - [CredentialQueryByExample](interfaces/credentialquerybyexample.md)
 - [CredentialQueryByFrame](interfaces/credentialquerybyframe.md)
+- [CredentialSubject](interfaces/credentialsubject.md)
 - [DidAuthQuery](interfaces/didauthquery.md)
+- [DidDocument](interfaces/diddocument.md)
 - [DidService](interfaces/didservice.md)
 - [DidServiceInfoResponse](interfaces/didserviceinforesponse.md)
+- [JsonLdFrame](interfaces/jsonldframe.md)
 - [Jwm](interfaces/jwm.md)
 - [KeyManagementService](interfaces/keymanagementservice.md)
 - [QueryByExample](interfaces/querybyexample.md)
 - [QueryByFrame](interfaces/querybyframe.md)
+- [RevocableVerifiableCredential](interfaces/revocableverifiablecredential.md)
+- [TrustedIssuer](interfaces/trustedissuer.md)
 - [VerifiableCredentialProof](interfaces/verifiablecredentialproof.md)
 - [VerifiablePresentation](interfaces/verifiablepresentation.md)
+- [VerifiablePresentationRequest](interfaces/verifiablepresentationrequest.md)
 
 ### Type aliases
 
@@ -44,10 +52,12 @@
 - [CreatePresentationErrors](modules.md#createpresentationerrors)
 - [CreatePresentationOptions](modules.md#createpresentationoptions)
 - [CredentialData](modules.md#credentialdata)
+- [CredentialIssuer](modules.md#credentialissuer)
 - [CredentialNotFoundInTokenError](modules.md#credentialnotfoundintokenerror)
 - [DecryptError](modules.md#decrypterror)
 - [DeleteDidError](modules.md#deletediderror)
-- [DeriveError](modules.md#deriveerror)
+- [DeriveCredentialError](modules.md#derivecredentialerror)
+- [DeriveCredentialOptions](modules.md#derivecredentialoptions)
 - [DidDeletionError](modules.md#diddeletionerror)
 - [DidNotFoundError](modules.md#didnotfounderror)
 - [DidResolutionError](modules.md#didresolutionerror)
@@ -55,6 +65,8 @@
 - [EncryptError](modules.md#encrypterror)
 - [EncryptOptions](modules.md#encryptoptions)
 - [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror)
+- [ExpandCredentialError](modules.md#expandcredentialerror)
+- [ExpandCredentialOptions](modules.md#expandcredentialoptions)
 - [FilterCredentialsByQueryOptions](modules.md#filtercredentialsbyqueryoptions)
 - [FilterCredentialsByQueryResponse](modules.md#filtercredentialsbyqueryresponse)
 - [GenerateAuthorizeResult](modules.md#generateauthorizeresult)
@@ -93,6 +105,10 @@
 
 - [create](modules.md#create)
 - [destroy](modules.md#destroy)
+- [isCredentialSubject](modules.md#iscredentialsubject)
+- [isJwm](modules.md#isjwm)
+- [isPresentationRequestJwm](modules.md#ispresentationrequestjwm)
+- [isRevocationList2020CredentialStatus](modules.md#isrevocationlist2020credentialstatus)
 - [open](modules.md#open)
 - [unwrap](modules.md#unwrap)
 
@@ -193,6 +209,14 @@ ___
 
 ___
 
+### CredentialIssuer
+
+Ƭ **CredentialIssuer**: `string` \| { [key: string]: `any`; `id`: `string`  }
+
+**`see`** https://www.w3.org/TR/vc-data-model/#issuer
+
+___
+
 ### CredentialNotFoundInTokenError
 
 Ƭ **CredentialNotFoundInTokenError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"CredentialNotFoundInTokenError"``  }
@@ -211,9 +235,22 @@ ___
 
 ___
 
-### DeriveError
+### DeriveCredentialError
 
-Ƭ **DeriveError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"DeriveError"``  }
+Ƭ **DeriveCredentialError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"DeriveCredentialError"``  }
+
+___
+
+### DeriveCredentialOptions
+
+Ƭ **DeriveCredentialOptions**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `credential` | [VerifiableCredential](modules.md#verifiablecredential) |
+| `credentialFrame` | [CredentialFrame](interfaces/credentialframe.md) |
 
 ___
 
@@ -273,6 +310,24 @@ ___
 
 ___
 
+### ExpandCredentialError
+
+Ƭ **ExpandCredentialError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"ExpandCredentialError"``  }
+
+___
+
+### ExpandCredentialOptions
+
+Ƭ **ExpandCredentialOptions**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `credential` | [VerifiableCredential](modules.md#verifiablecredential) |
+
+___
+
 ### FilterCredentialsByQueryOptions
 
 Ƭ **FilterCredentialsByQueryOptions**<T\>: `Object`
@@ -296,7 +351,7 @@ ___
 
 ### FilterCredentialsByQueryResponse
 
-Ƭ **FilterCredentialsByQueryResponse**<T\>: `Object`
+Ƭ **FilterCredentialsByQueryResponse**<T\>: `FilterCredentialsByExampleResponse`<T\> \| `FilterCredentialsByFrameResponse`<T\> \| `FilterCredentialsByDidAuthResponse`<T\>
 
 Filter credentials by query response
 
@@ -305,13 +360,6 @@ Filter credentials by query response
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `T` | `T`: [CredentialData](modules.md#credentialdata) | Additional data extending [CredentialData](modules.md#credentialdata) |
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `result` | `ReadonlyArray`<`Object`\> | An array of credentials matching each query |
-| `type` | [QueryType](enums/querytype.md) | The query type used for filtering |
 
 ___
 
@@ -439,7 +487,7 @@ ___
 
 ### PresentationRequestJwm
 
-Ƭ **PresentationRequestJwm**: [Jwm](interfaces/jwm.md) & { `body`: `VerifiablePresentationRequest` ; `from`: `string` ; `reply_to`: readonly `string`[] ; `reply_url`: `string` ; `type`: `PresentationRequestType`  }
+Ƭ **PresentationRequestJwm**: [Jwm](interfaces/jwm.md) & { `body`: [VerifiablePresentationRequest](interfaces/verifiablepresentationrequest.md) ; `from`: `string` ; `reply_to`: readonly `string`[] ; `reply_url`: `string` ; `type`: `PresentationRequestType`  }
 
 ___
 
@@ -475,7 +523,7 @@ ___
 | `codeVerifier` | `string` |
 | `nonce` | `string` |
 | `offer` | [OidcCredentialOffer](modules.md#oidccredentialoffer) |
-| `redirectUri` | `string` |
+| `redirectUri?` | `string` |
 
 ___
 
@@ -584,8 +632,8 @@ An instance of a wallet
 | :------ | :------ | :------ |
 | `close` | () => `Promise`<[Result](modules/result.md)<void, [CloseWalletError](modules.md#closewalleterror)\>\> | Closes the wallet  **`remarks`** Wallet instance will not function anymore after close   **`returns`** A promise that resolves to a [Result](modules/result.md) containing void on ok or a [CloseWalletError](modules.md#closewalleterror) on error |
 | `credential` | `Object` | Namespace for credential operations |
-| `credential.derive` | (`credential`: [VerifiableCredential](modules.md#verifiablecredential), `queryFrame`: [CredentialFrame](interfaces/credentialframe.md)) => `Promise`<[Result](modules/result.md)<[VerifiableCredential](modules.md#verifiablecredential), [DeriveError](modules.md#deriveerror)\>\> | Derives a credential based on a frame  **`param`** The full credential we want to create the derived credential from  **`param`** The [CredentialFrame](interfaces/credentialframe.md) used to derive the credential  **`returns`** A promise that resolves to a [Result](modules/result.md) containing the derived [VerifiableCredential](modules.md#verifiablecredential) on ok or a [DeriveError](modules.md#deriveerror) on error |
-| `credential.filterCredentialsByQuery` | <T\>(`options`: [FilterCredentialsByQueryOptions](modules.md#filtercredentialsbyqueryoptions)<T\>) => [FilterCredentialsByQueryResponse](modules.md#filtercredentialsbyqueryresponse)<T\> | Filters a list of credentials based on a query  **`param`** [FilterCredentialsByQueryOptions](modules.md#filtercredentialsbyqueryoptions) containing the credentials and filter  **`returns`** [FilterCredentialsByQueryResponse](modules.md#filtercredentialsbyqueryresponse) containing the credentials that match the filter |
+| `credential.derive` | (`options`: [DeriveCredentialOptions](modules.md#derivecredentialoptions)) => `Promise`<[Result](modules/result.md)<[VerifiableCredential](modules.md#verifiablecredential), [DeriveCredentialError](modules.md#derivecredentialerror)\>\> | Derives a credential based on a frame  **`param`** [DeriveCredentialOptions](modules.md#derivecredentialoptions) containing the credential to derive and the frame   **`returns`** A promise that resolves to a [Result](modules/result.md) containing the derived [VerifiableCredential](modules.md#verifiablecredential) on ok or a [DeriveCredentialError](modules.md#derivecredentialerror) on error |
+| `credential.expand` | (`options`: [ExpandCredentialOptions](modules.md#expandcredentialoptions)) => `Promise`<[Result](modules/result.md)<Record<string, unknown\>, [ExpandCredentialError](modules.md#expandcredentialerror)\>\> | Expands a verifiable credential using jsonld  **`param`** The verifiable credential to expand |
 | `credential.isSelectivelyDisclosable` | (`credential`: [VerifiableCredential](modules.md#verifiablecredential)) => `boolean` | Determines if a credential is capable of selective disclosure  **`param`** The credential to check  **`returns`** A boolean representing if the credential is capable of selective disclosure |
 | `credential.verify` | (`options`: [VerifyCredentialOptions](modules.md#verifycredentialoptions)) => `Promise`<[Result](modules/result.md)<[VerifyCredentialResult](modules.md#verifycredentialresult), [VerifyCredentialError](modules.md#verifycredentialerror)\>\> | Attempts to verify a credential  **`param`** [VerifyCredentialOptions](modules.md#verifycredentialoptions) containing a credential to verify |
 | `did` | `Object` | Namespace for DID operations |
@@ -606,6 +654,7 @@ An instance of a wallet
 | `oidc.retrieveCredential` | (`options`: [RetrieveCredentialOptions](modules.md#retrievecredentialoptions)) => `Promise`<[Result](modules/result.md)<[RetrieveCredentialResult](modules.md#retrievecredentialresult), [RetrieveCredentialError](modules.md#retrievecredentialerror) \| [InvalidIdTokenError](modules.md#invalididtokenerror) \| [CredentialNotFoundInTokenError](modules.md#credentialnotfoundintokenerror)\>\> | Retrieves a credential from the OIDC provider  **`param`** [RetrieveCredentialOptions](modules.md#retrievecredentialoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [RetrieveCredentialResult](modules.md#retrievecredentialresult) on ok or a [RetrieveCredentialError](modules.md#retrievecredentialerror), [InvalidIdTokenError](modules.md#invalididtokenerror) or [CredentialNotFoundInTokenError](modules.md#credentialnotfoundintokenerror) on error |
 | `presentation` | `Object` | Namespace for presentation operations |
 | `presentation.create` | (`options`: [CreatePresentationOptions](modules.md#createpresentationoptions)) => `Promise`<[Result](modules/result.md)<[VerifiablePresentation](interfaces/verifiablepresentation.md), [CreatePresentationErrors](modules.md#createpresentationerrors)\>\> | Create a verifiable presentation  **`param`** [CreatePresentationOptions](modules.md#createpresentationoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [VerifiablePresentation](interfaces/verifiablepresentation.md) on ok or a [CreatePresentationErrors](modules.md#createpresentationerrors) on error |
+| `presentation.filterCredentialsByQuery` | <T\>(`options`: [FilterCredentialsByQueryOptions](modules.md#filtercredentialsbyqueryoptions)<T\>) => [FilterCredentialsByQueryResponse](modules.md#filtercredentialsbyqueryresponse)<T\> | Filters a list of credentials based on a query  **`param`** [FilterCredentialsByQueryOptions](modules.md#filtercredentialsbyqueryoptions) containing the credentials and filter  **`returns`** [FilterCredentialsByQueryResponse](modules.md#filtercredentialsbyqueryresponse) containing the credentials that match the filter |
 | `presentation.sendPresentationResponse` | (`options`: [SendPresentationResponseOptions](modules.md#sendpresentationresponseoptions)) => `Promise`<[Result](modules/result.md)<void, HttpError \| [EncryptError](modules.md#encrypterror) \| [SendPresentationErrorMissingSender](modules.md#sendpresentationerrormissingsender)\>\> | Sends a presentation response  **`param`** [SendPresentationResponseOptions](modules.md#sendpresentationresponseoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing void on ok or a {@link HttpError}, [EncryptError](modules.md#encrypterror) or an [SendPresentationErrorMissingSender](modules.md#sendpresentationerrormissingsender) on error |
 | `wellKnownDidConfiguration` | `Object` | Namespace for wellknown configuration operations |
 | `wellKnownDidConfiguration.validate` | (`domain`: `string`, `did`: `string`) => `Promise`<boolean\> | Validates a DID belongs to domain  **`param`** The domain to check has authority of a DID  **`param`** The DID to check belongs to a domain  **`returns`** A boolean representing if the DID belongs to a domain |
@@ -625,7 +674,8 @@ ___
 Generates new encryption keys and storage directories required for a wallet
 
 **`remarks`**
-This function must be called before trying to open the wallet
+This function must be called before trying to open the wallet.
+If a [walletId](modules.md#walletid) is not provided, the default wallet will be created.
 
 #### Parameters
 
@@ -643,9 +693,13 @@ ___
 
 ### destroy
 
-▸ `Const` **destroy**(`walletId?`): `Promise`<void\>
+▸ `Const` **destroy**(`walletId?`): `Promise`<[Result](modules/result.md)<void, [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| WalletNotFoundError\>\>
 
-Destroy a wallet
+Removes encryption keys and storage directories associated with the wallet
+
+**`remarks`**
+This is a destructive operation that cannot be undone. The wallet will have to be re created from scratch if destroyed.
+If a [walletId](modules.md#walletid) is not provided, the default wallet will be destroyed.
 
 #### Parameters
 
@@ -655,7 +709,73 @@ Destroy a wallet
 
 #### Returns
 
-`Promise`<void\>
+`Promise`<[Result](modules/result.md)<void, [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| WalletNotFoundError\>\>
+
+A [Result](modules/result.md) containing void on ok and a {@link WalletNotFoundError} on error
+
+___
+
+### isCredentialSubject
+
+▸ `Const` **isCredentialSubject**(`value`): value is CredentialSubject
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `any` |
+
+#### Returns
+
+value is CredentialSubject
+
+___
+
+### isJwm
+
+▸ `Const` **isJwm**(`value`): value is Jwm
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `any` |
+
+#### Returns
+
+value is Jwm
+
+___
+
+### isPresentationRequestJwm
+
+▸ `Const` **isPresentationRequestJwm**(`val`): val is PresentationRequestJwm
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `val` | `unknown` |
+
+#### Returns
+
+val is PresentationRequestJwm
+
+___
+
+### isRevocationList2020CredentialStatus
+
+▸ `Const` **isRevocationList2020CredentialStatus**(`value`): value is RevocationList2020CredentialStatus
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `any` |
+
+#### Returns
+
+value is RevocationList2020CredentialStatus
 
 ___
 
@@ -667,6 +787,7 @@ Open an existing wallet with stored encryption keys
 
 **`remarks`**
 The wallet must have been created before trying to call open so the storage directories and encryption keys exist
+If a {@link OpenOptions.walletId} is not provided, the default wallet will be opened.
 
 #### Parameters
 

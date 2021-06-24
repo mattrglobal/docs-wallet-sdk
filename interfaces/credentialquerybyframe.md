@@ -33,4 +33,4 @@ ___
 
 ### trustedIssuer
 
-• `Optional` `Readonly` **trustedIssuer**: readonly `TrustedIssuer`[]
+• `Optional` `Readonly` **trustedIssuer**: readonly [TrustedIssuer](trustedissuer.md)[]

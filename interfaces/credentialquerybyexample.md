@@ -14,7 +14,7 @@
 
 ### example
 
-• `Readonly` **example**: `CredentialExample`
+• `Readonly` **example**: [CredentialExample](credentialexample.md)
 
 ___
 
