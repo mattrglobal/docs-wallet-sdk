@@ -123,7 +123,7 @@ if (createDidResult.isErr()) {
   return;
 }
 
-const did = createDidResult.value;
+const { did } = createDidResult.value;
 ```
 
 Close the wallet:
@@ -149,6 +149,128 @@ Destroy the wallet:
 import { destroy } from "@mattrglobal/wallet-sdk-react-native";
 
 await wallet.destroy();
+```
+
+## Retrieving credentials via OIDC
+
+Discover OIDC credential offer
+
+```typescript
+const discoverResult = await wallet.oidc.discover("openid://discovery?issuer=https://issuer.example.com");
+
+if (discoverResult.isErr()) {
+  // Handle error from discoverResult.error
+  return;
+}
+
+const { offer } = discoverResult.value;
+```
+
+Create a local subject DID for the credential
+
+```typescript
+const createDidResult = await wallet.did.create();
+
+if (createDidResult.isErr()) {
+  // Handle error from createDidResult.error
+  return;
+}
+
+const { did } = createDidResult.value;
+```
+
+Generate an OpenID authorization url to request the credential
+
+```typescript
+import { Linking } from "react-native";
+
+const genUrlResult = await wallet.oidc.generateAuthorizeUrl({ offer, did });
+
+if (genUrlResult.isErr()) {
+  // Handle error from genUrlResult.error
+  return;
+}
+
+const { url, codeVerifier, nonce } = genUrlResult.value;
+await Linking.openURL(url);
+```
+
+Retrieve the credential on authorization success callback
+
+```typescript
+const retrieveResult = (retrieveCredential = await wallet.oidc.retrieveCredential({
+  offer,
+  codeVerifier,
+  nonce,
+  code: route.params.code, // code comes from part of the callback url
+}));
+
+if (retrieveResult.isErr()) {
+  // Handle error from retrieveResult.error
+  return;
+}
+
+const { credential } = retrieveResult.value;
+```
+
+Verify a credential
+
+```typescript
+const verifyResult = await wallet.credential.verify({ credential });
+
+if (verifyResult.isErr()) {
+  // Handle error from verifyResult.error
+  return;
+}
+
+const { credentialVerified, status } = verifyResult.value;
+```
+
+## Handling a credential presentation request DIDComm message
+
+Open a presentation request DIDComm message
+
+```typescript
+import { isPresentationRequestJwm } from "wallet-sdk-react-native";
+const openResult = await wallet.messaging.openDidCommMessage(message);
+
+if (openResult.isErr() || !isPresentationRequestJwm(openResult.value)) {
+  return;
+}
+
+const presentationRequest = openResult.value;
+```
+
+Look up for matching credentials
+
+```typescript
+const credentialData = [
+  { id: "a", credential: credentailA },
+  { id: "b", credential: credentailB },
+];
+const filterResult = await wallet.presentation.filterCredentialsByQuery({ credentials: credentialData });
+```
+
+Create and send presentation
+
+```typescript
+const createPresentationResult = await wallet.presentation.create({
+  challenge: presentationRequest.body.challenge,
+  domain: presentationRequest.body.domain,
+  credentials,
+  holder: did,
+});
+
+if (createPresentationResult.isErr()) {
+  // Handle error from createPresentationResult.error
+  return;
+}
+
+const presentaiton = createPresentationResult.value;
+const sendPresentationResult = await wallet.presentation.sendPresentationResponse({
+  presentationRequest,
+  presentation,
+});
 ```
 
 ## Error handling
