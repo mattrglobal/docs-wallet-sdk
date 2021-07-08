@@ -309,3 +309,7 @@ try {
   // Handle thrown error
 }
 ```
+
+## Licensing
+
+see [here](Licence.pdf) for licence information
