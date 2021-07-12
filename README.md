@@ -40,7 +40,7 @@ Install the peer dependencies:
 yarn add react-native-securerandom@1.0.0 realm@10.4.0 react-native-fs@2.17.0 react-native-secure-key-store@2.0.9 @mattrglobal/rn-bbs-signatures@0.1.0
 ```
 
-### React Native <0.60
+**React Native <0.60**
 
 Please see the specific instructions for each dependency regarding linking prior to React Native 0.60.
 
