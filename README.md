@@ -37,7 +37,7 @@ dependencies will be autolinked.
 Install the peer dependencies:
 
 ```
-yarn add react-native-securerandom@1.0.0 realm@10.4.0 react-native-fs@2.17.0 react-native-secure-key-store@2.0.9 @mattrglobal/rn-bbs-signature@0.1.0
+yarn add react-native-securerandom@1.0.0 realm@10.4.0 react-native-fs@2.17.0 react-native-secure-key-store@2.0.9 @mattrglobal/rn-bbs-signatures@0.1.0
 ```
 
 ### React Native <0.60
@@ -156,7 +156,9 @@ await wallet.destroy();
 Discover OIDC credential offer
 
 ```typescript
-const discoverResult = await wallet.oidc.discover("openid://discovery?issuer=https://issuer.example.com");
+const discoverResult = await wallet.oidc.discover(
+  "openid://discovery?issuer=https://issuer.example.com"
+);
 
 if (discoverResult.isErr()) {
   // Handle error from discoverResult.error
@@ -198,12 +200,13 @@ await Linking.openURL(url);
 Retrieve the credential on authorization success callback
 
 ```typescript
-const retrieveResult = (retrieveCredential = await wallet.oidc.retrieveCredential({
-  offer,
-  codeVerifier,
-  nonce,
-  code: route.params.code, // code comes from part of the callback url
-}));
+const retrieveResult = (retrieveCredential =
+  await wallet.oidc.retrieveCredential({
+    offer,
+    codeVerifier,
+    nonce,
+    code: route.params.code, // code comes from part of the callback url
+  }));
 
 if (retrieveResult.isErr()) {
   // Handle error from retrieveResult.error
@@ -248,7 +251,9 @@ const credentialData = [
   { id: "a", credential: credentailA },
   { id: "b", credential: credentailB },
 ];
-const filterResult = await wallet.presentation.filterCredentialsByQuery({ credentials: credentialData });
+const filterResult = await wallet.presentation.filterCredentialsByQuery({
+  credentials: credentialData,
+});
 ```
 
 Create and send presentation
@@ -267,10 +272,11 @@ if (createPresentationResult.isErr()) {
 }
 
 const presentaiton = createPresentationResult.value;
-const sendPresentationResult = await wallet.presentation.sendPresentationResponse({
-  presentationRequest,
-  presentation,
-});
+const sendPresentationResult =
+  await wallet.presentation.sendPresentationResponse({
+    presentationRequest,
+    presentation,
+  });
 ```
 
 ## Error handling
