@@ -109,6 +109,7 @@
 - [isJwm](modules.md#isjwm)
 - [isPresentationRequestJwm](modules.md#ispresentationrequestjwm)
 - [isRevocationList2020CredentialStatus](modules.md#isrevocationlist2020credentialstatus)
+- [isVerifiableCredential](modules.md#isverifiablecredential)
 - [open](modules.md#open)
 - [unwrap](modules.md#unwrap)
 
@@ -480,7 +481,8 @@ Options to configure when opening an existing wallet
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `httpResolverUrl?` | `string` | Specifies the full URL including path that http resolver will use  **`defaultvalue`** https://uniresolver-api.mattr.global/1.0/identifiers/ |
+| `httpResolverBaseUrl?` | `string` | Specifies the base URL including path that http resolver will use  **`defaultvalue`** https://uniresolver-api.mattr.global |
+| `httpResolverPath?` | `string` | Specifies the URL path that http resolver will use  **`defaultvalue`** /1.0/identifiers/ |
 | `walletId?` | `string` | Specifies the wallet ID to use |
 
 ___
@@ -776,6 +778,22 @@ ___
 #### Returns
 
 value is RevocationList2020CredentialStatus
+
+___
+
+### isVerifiableCredential
+
+▸ `Const` **isVerifiableCredential**(`val`): val is VerifiableCredential
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `val` | `unknown` |
+
+#### Returns
+
+val is VerifiableCredential
 
 ___
 

@@ -8,6 +8,12 @@
 
 - [InvalidBase64URLDecodeError](codec.md#invalidbase64urldecodeerror)
 - [InvalidJSONError](codec.md#invalidjsonerror)
+- [MultiHash](codec.md#multihash)
+- [MultiHashError](codec.md#multihasherror)
+
+### Variables
+
+- [MultiHash](codec.md#multihash)
 
 ### Functions
 
@@ -18,6 +24,7 @@
 - [base64UrlEncodeFromString](codec.md#base64urlencodefromstring)
 - [base64UrlEncodeNoPadding](codec.md#base64urlencodenopadding)
 - [bytesToString](codec.md#bytestostring)
+- [canonicalMultiHash](codec.md#canonicalmultihash)
 - [stringToBytes](codec.md#stringtobytes)
 
 ## Type aliases
@@ -31,6 +38,24 @@ ___
 ### InvalidJSONError
 
 Ƭ **InvalidJSONError**: [InvalidJSONError](../modules.md#invalidjsonerror)
+
+___
+
+### MultiHash
+
+Ƭ **MultiHash**: `MultiHash`
+
+___
+
+### MultiHashError
+
+Ƭ **MultiHashError**: `MultiHashError`
+
+## Variables
+
+### MultiHash
+
+• **MultiHash**: typeof `MultiHash`
 
 ## Functions
 
@@ -143,6 +168,23 @@ ___
 #### Returns
 
 `string`
+
+___
+
+### canonicalMultiHash
+
+▸ `Const` **canonicalMultiHash**(`input`, `hashAlgorithm`): [Result](result.md)<Uint8Array, MultiHashError\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `input` | `Record`<string, unknown\> |
+| `hashAlgorithm` | `Sha256` |
+
+#### Returns
+
+[Result](result.md)<Uint8Array, MultiHashError\>
 
 ___
 

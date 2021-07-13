@@ -156,9 +156,7 @@ await wallet.destroy();
 Discover OIDC credential offer
 
 ```typescript
-const discoverResult = await wallet.oidc.discover(
-  "openid://discovery?issuer=https://issuer.example.com"
-);
+const discoverResult = await wallet.oidc.discover("openid://discovery?issuer=https://issuer.example.com");
 
 if (discoverResult.isErr()) {
   // Handle error from discoverResult.error
@@ -200,13 +198,12 @@ await Linking.openURL(url);
 Retrieve the credential on authorization success callback
 
 ```typescript
-const retrieveResult = (retrieveCredential =
-  await wallet.oidc.retrieveCredential({
-    offer,
-    codeVerifier,
-    nonce,
-    code: route.params.code, // code comes from part of the callback url
-  }));
+const retrieveResult = (retrieveCredential = await wallet.oidc.retrieveCredential({
+  offer,
+  codeVerifier,
+  nonce,
+  code: route.params.code, // code comes from part of the callback url
+}));
 
 if (retrieveResult.isErr()) {
   // Handle error from retrieveResult.error
@@ -251,9 +248,7 @@ const credentialData = [
   { id: "a", credential: credentailA },
   { id: "b", credential: credentailB },
 ];
-const filterResult = await wallet.presentation.filterCredentialsByQuery({
-  credentials: credentialData,
-});
+const filterResult = await wallet.presentation.filterCredentialsByQuery({ credentials: credentialData });
 ```
 
 Create and send presentation
@@ -272,11 +267,10 @@ if (createPresentationResult.isErr()) {
 }
 
 const presentaiton = createPresentationResult.value;
-const sendPresentationResult =
-  await wallet.presentation.sendPresentationResponse({
-    presentationRequest,
-    presentation,
-  });
+const sendPresentationResult = await wallet.presentation.sendPresentationResponse({
+  presentationRequest,
+  presentation,
+});
 ```
 
 ## Error handling
