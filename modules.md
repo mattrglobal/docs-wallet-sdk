@@ -58,6 +58,7 @@
 - [DeleteDidError](modules.md#deletediderror)
 - [DeriveCredentialError](modules.md#derivecredentialerror)
 - [DeriveCredentialOptions](modules.md#derivecredentialoptions)
+- [DidConfigurationValidateResult](modules.md#didconfigurationvalidateresult)
 - [DidDeletionError](modules.md#diddeletionerror)
 - [DidNotFoundError](modules.md#didnotfounderror)
 - [DidResolutionError](modules.md#didresolutionerror)
@@ -252,6 +253,20 @@ ___
 | :------ | :------ |
 | `credential` | [VerifiableCredential](modules.md#verifiablecredential) |
 | `credentialFrame` | [CredentialFrame](interfaces/credentialframe.md) |
+
+___
+
+### DidConfigurationValidateResult
+
+Ƭ **DidConfigurationValidateResult**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `did` | `string` |
+| `domain` | `string` |
+| `isValid` | `boolean` |
 
 ___
 
@@ -659,7 +674,8 @@ An instance of a wallet
 | `presentation.filterCredentialsByQuery` | <T\>(`options`: [FilterCredentialsByQueryOptions](modules.md#filtercredentialsbyqueryoptions)<T\>) => [FilterCredentialsByQueryResponse](modules.md#filtercredentialsbyqueryresponse)<T\> | Filters a list of credentials based on a query  **`param`** [FilterCredentialsByQueryOptions](modules.md#filtercredentialsbyqueryoptions) containing the credentials and filter  **`returns`** [FilterCredentialsByQueryResponse](modules.md#filtercredentialsbyqueryresponse) containing the credentials that match the filter |
 | `presentation.sendPresentationResponse` | (`options`: [SendPresentationResponseOptions](modules.md#sendpresentationresponseoptions)) => `Promise`<[Result](modules/result.md)<void, HttpError \| [EncryptError](modules.md#encrypterror) \| [SendPresentationErrorMissingSender](modules.md#sendpresentationerrormissingsender)\>\> | Sends a presentation response  **`param`** [SendPresentationResponseOptions](modules.md#sendpresentationresponseoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing void on ok or a {@link HttpError}, [EncryptError](modules.md#encrypterror) or an [SendPresentationErrorMissingSender](modules.md#sendpresentationerrormissingsender) on error |
 | `wellKnownDidConfiguration` | `Object` | Namespace for wellknown configuration operations |
-| `wellKnownDidConfiguration.validate` | (`domain`: `string`, `did`: `string`) => `Promise`<boolean\> | Validates a DID belongs to domain  **`param`** The domain to check has authority of a DID  **`param`** The DID to check belongs to a domain  **`returns`** A boolean representing if the DID belongs to a domain |
+| `wellKnownDidConfiguration.validate` | (`domain`: `string`, `did`: `string`) => `Promise`<boolean\> | Validates a DID belongs to a domain  **`param`** The domain to check has authority of a DID  **`param`** The DID to check belongs to a domain  **`returns`** A boolean representing if the DID belongs to a domain |
+| `wellKnownDidConfiguration.validateMultipleDids` | (`domain`: `string`, `dids`: readonly `string`[]) => `Promise`<ReadonlyArray<[DidConfigurationValidateResult](modules.md#didconfigurationvalidateresult)\>\> | Validates multiple DIDs belong to a domain  **`param`** The domain to check has authority of a DID  **`param`** The DIDs to check belong to a domain  **`returns`** A promise that resolves to a list of validation results [DidConfigurationValidateResult](modules.md#didconfigurationvalidateresult), corresponding to each did. |
 
 ___
 
