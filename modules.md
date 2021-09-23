@@ -74,6 +74,7 @@
 - [GenerateAuthorizeUrlOptions](modules.md#generateauthorizeurloptions)
 - [GenericSdkError](modules.md#genericsdkerror)
 - [GetDidsError](modules.md#getdidserror)
+- [HttpCacheError](modules.md#httpcacheerror)
 - [InvalidBase64URLDecodeError](modules.md#invalidbase64urldecodeerror)
 - [InvalidDidError](modules.md#invaliddiderror)
 - [InvalidIdTokenError](modules.md#invalididtokenerror)
@@ -101,6 +102,8 @@
 - [VerifyError](modules.md#verifyerror)
 - [Wallet](modules.md#wallet)
 - [WalletAlreadyCreatedError](modules.md#walletalreadycreatederror)
+- [WalletBase](modules.md#walletbase)
+- [WalletExtension](modules.md#walletextension)
 
 ### Functions
 
@@ -194,7 +197,7 @@ ___
 | :------ | :------ |
 | `challenge` | `string` |
 | `credentials?` | readonly [VerifiableCredential](modules.md#verifiablecredential)[] |
-| `domain` | `string` |
+| `domain?` | `string` |
 | `holder?` | `string` |
 
 ___
@@ -421,6 +424,12 @@ ___
 
 ___
 
+### HttpCacheError
+
+Ƭ **HttpCacheError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"HttpCacheError"``  }
+
+___
+
 ### InvalidBase64URLDecodeError
 
 Ƭ **InvalidBase64URLDecodeError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"InvalidBase64URLDecodeError"``  }
@@ -639,7 +648,21 @@ ___
 
 ### Wallet
 
-Ƭ **Wallet**: `Object`
+Ƭ **Wallet**: [WalletBase](modules.md#walletbase) & [WalletExtension](modules.md#walletextension)
+
+An instance of a wallet with React Native specific extensions.
+
+___
+
+### WalletAlreadyCreatedError
+
+Ƭ **WalletAlreadyCreatedError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"WalletAlreadyCreatedError"``  }
+
+___
+
+### WalletBase
+
+Ƭ **WalletBase**: `Object`
 
 An instance of a wallet
 
@@ -650,7 +673,7 @@ An instance of a wallet
 | `close` | () => `Promise`<[Result](modules/result.md)<void, [CloseWalletError](modules.md#closewalleterror)\>\> | Closes the wallet  **`remarks`** Wallet instance will not function anymore after close   **`returns`** A promise that resolves to a [Result](modules/result.md) containing void on ok or a [CloseWalletError](modules.md#closewalleterror) on error |
 | `credential` | `Object` | Namespace for credential operations |
 | `credential.derive` | (`options`: [DeriveCredentialOptions](modules.md#derivecredentialoptions)) => `Promise`<[Result](modules/result.md)<[VerifiableCredential](modules.md#verifiablecredential), [DeriveCredentialError](modules.md#derivecredentialerror)\>\> | Derives a credential based on a frame  **`param`** [DeriveCredentialOptions](modules.md#derivecredentialoptions) containing the credential to derive and the frame   **`returns`** A promise that resolves to a [Result](modules/result.md) containing the derived [VerifiableCredential](modules.md#verifiablecredential) on ok or a [DeriveCredentialError](modules.md#derivecredentialerror) on error |
-| `credential.expand` | (`options`: [ExpandCredentialOptions](modules.md#expandcredentialoptions)) => `Promise`<[Result](modules/result.md)<Record<string, unknown\>, [ExpandCredentialError](modules.md#expandcredentialerror)\>\> | Expands a verifiable credential using jsonld  **`param`** The verifiable credential to expand |
+| `credential.expand` | (`options`: [ExpandCredentialOptions](modules.md#expandcredentialoptions)) => `Promise`<[Result](modules/result.md)<Record<string, unknown\>, [ExpandCredentialError](modules.md#expandcredentialerror) \| ExpandCredentialContextResolutionError\>\> | Expands a verifiable credential using jsonld  **`param`** The verifiable credential to expand |
 | `credential.isSelectivelyDisclosable` | (`credential`: [VerifiableCredential](modules.md#verifiablecredential)) => `boolean` | Determines if a credential is capable of selective disclosure  **`param`** The credential to check  **`returns`** A boolean representing if the credential is capable of selective disclosure |
 | `credential.verify` | (`options`: [VerifyCredentialOptions](modules.md#verifycredentialoptions)) => `Promise`<[Result](modules/result.md)<[VerifyCredentialResult](modules.md#verifycredentialresult), [VerifyCredentialError](modules.md#verifycredentialerror)\>\> | Attempts to verify a credential  **`param`** [VerifyCredentialOptions](modules.md#verifycredentialoptions) containing a credential to verify |
 | `did` | `Object` | Namespace for DID operations |
@@ -661,6 +684,10 @@ An instance of a wallet
 | `didService` | [DidService](interfaces/didservice.md) | An exposed [DidService](interfaces/didservice.md)  **`privateremarks`** Direct exposure of DidService will be removed in the future |
 | `isOpen` | () => `boolean` | Indicates if the wallet is open |
 | `kms` | [KeyManagementService](interfaces/keymanagementservice.md) | An exposed [KeyManagementService](interfaces/keymanagementservice.md)  **`privateremarks`** Direct exposure of KeyManagementService will be removed in the future |
+| `linkedData` | `Object` | Namespace for linked data operations |
+| `linkedData.cborld` | `Object` | Namespace for cborld conversion operations |
+| `linkedData.cborld.decode` | (`byteArray`: `Uint8Array`) => `ResultAsync`<unknown, InvalidCborldDecodeError\> | Decode CBOR-LD bytes intoto JSON-LD document  **`param`** The CBOR-LD bytes  **`returns`** A {@link ResultAsync} containing the decoded object on ok or a [InvalidCborldDecodeError](modules/codec.md#invalidcborlddecodeerror) on error |
+| `linkedData.cborld.encode` | (`jsonldDocument`: `Record`<string, unknown\>) => `ResultAsync`<Uint8Array, InvalidCborldEncodeError\> | Encode a JSON-LD document into CBOR-LD bytes  **`param`** The JSON-LD document  **`returns`** A {@link ResultAsync} containing the decoded cborld bytes on ok or a [InvalidCborldEncodeError](modules/codec.md#invalidcborldencodeerror) on error |
 | `messaging` | `Object` | Namespace for messaging operations |
 | `messaging.encrypt` | (`options`: [EncryptOptions](modules.md#encryptoptions)) => `Promise`<[Result](modules/result.md)<JweJsonSerialization, [EncryptError](modules.md#encrypterror)\>\> | Encrypts a message  **`param`** [EncryptOptions](modules.md#encryptoptions) for encrypting the message  **`returns`** A promise that resolves to a [Result](modules/result.md) containing {@link JweJsonSerialization} on ok or [EncryptError](modules.md#encrypterror) on error |
 | `messaging.openDidCommMessage` | (`message`: `unknown`) => `Promise`<[Result](modules/result.md)<[Jwm](interfaces/jwm.md), [OpenDidCommError](modules.md#opendidcommerror) \| [VerifyError](modules.md#verifyerror) \| [DecryptError](modules.md#decrypterror)\>\> | Opens a DIDComm message  **`param`** The message to open  **`returns`** A promise that resolves to a [Result](modules/result.md) containing [Jwm](interfaces/jwm.md) on ok or a [OpenDidCommError](modules.md#opendidcommerror), [VerifyError](modules.md#verifyerror) or a [DecryptError](modules.md#decrypterror) on error |
@@ -679,9 +706,19 @@ An instance of a wallet
 
 ___
 
-### WalletAlreadyCreatedError
+### WalletExtension
 
-Ƭ **WalletAlreadyCreatedError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"WalletAlreadyCreatedError"``  }
+Ƭ **WalletExtension**: `Object`
+
+React Native specific wallet extensions.
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `httpCache` | `Object` | Namespace for HTTP request cache |
+| `httpCache.clear` | () => `Promise`<[Result](modules/result.md)<void, [HttpCacheError](modules.md#httpcacheerror)\>\> | Removes all entries from HTTP cache storage directory for the wallet  **`remarks`** This is a destructive operation that cannot be undone. If a [walletId](modules.md#walletid) is not provided, storage for the default wallet will be removed.   **`returns`** A [Result](modules/result.md) containing void on ok and a [HttpCacheError](modules.md#httpcacheerror) on error |
+| `httpCache.getSize` | () => `Promise`<[Result](modules/result.md)<number, [HttpCacheError](modules.md#httpcacheerror)\>\> | Retrieve the total number of cached contexts in the wallet  **`returns`** A [Result](modules/result.md) containing the number of cached contexts on ok and a [HttpCacheError](modules.md#httpcacheerror) on error |
 
 ## Functions
 
@@ -815,7 +852,7 @@ ___
 
 ### open
 
-▸ `Const` **open**(`options`): `Promise`<[Result](modules/result.md)<[Wallet](modules.md#wallet), [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror)\>\>
+▸ `Const` **open**(`options`): `Promise`<[Result](modules/result.md)<[Wallet](modules.md#wallet), WalletNotFoundError \| [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror)\>\>
 
 Open an existing wallet with stored encryption keys
 
@@ -831,7 +868,7 @@ If a {@link OpenOptions.walletId} is not provided, the default wallet will be op
 
 #### Returns
 
-`Promise`<[Result](modules/result.md)<[Wallet](modules.md#wallet), [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror)\>\>
+`Promise`<[Result](modules/result.md)<[Wallet](modules.md#wallet), WalletNotFoundError \| [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror)\>\>
 
 A [Result](modules/result.md) containing the open [Wallet](modules.md#wallet) object on ok or a [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) or [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror) on error
 
