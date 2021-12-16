@@ -37,7 +37,7 @@ dependencies will be autolinked.
 Install the peer dependencies:
 
 ```
-yarn add react-native-securerandom@1.0.0 realm@10.4.0 react-native-fs@2.17.0 react-native-secure-key-store@2.0.9 @mattrglobal/rn-bbs-signatures@0.1.0
+yarn add react-native-securerandom@1.0.0 realm@10.4.0 react-native-fs@2.17.0 react-native-secure-key-store@2.0.9 @mattrglobal/rn-bbs-signatures@1.0.0 react-native-get-random-values@1.7.0
 ```
 
 **React Native <0.60**
