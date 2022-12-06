@@ -19,6 +19,7 @@ Allows for extension fields to be added to the DID Document
 ### Properties
 
 - [@context](diddocument.md#@context)
+- [assertionMethod](diddocument.md#assertionmethod)
 - [authentication](diddocument.md#authentication)
 - [created](diddocument.md#created)
 - [id](diddocument.md#id)
@@ -27,6 +28,7 @@ Allows for extension fields to be added to the DID Document
 - [publicKey](diddocument.md#publickey)
 - [service](diddocument.md#service)
 - [updated](diddocument.md#updated)
+- [verificationMethod](diddocument.md#verificationmethod)
 
 ## Properties
 
@@ -37,6 +39,16 @@ Allows for extension fields to be added to the DID Document
 The standard context for this DID document.
 
 **`see`** https://w3c-ccg.github.io/did-spec/#contexts
+
+___
+
+### assertionMethod
+
+• `Optional` `Readonly` **assertionMethod**: readonly `string`[] \| readonly `DidDocumentPublicKey`[]
+
+Used to express assertion method
+
+**`see`** https://w3c.github.io/did-core/#assertion
 
 ___
 
@@ -117,3 +129,13 @@ ___
 Updated date time
 
 **`see`** https://w3c-ccg.github.io/did-spec/#updated-optional
+
+___
+
+### verificationMethod
+
+• `Optional` `Readonly` **verificationMethod**: readonly `DidDocumentPublicKey`[]
+
+Used to express verification method
+
+**`see`** https://w3c.github.io/did-core/#verification-methods

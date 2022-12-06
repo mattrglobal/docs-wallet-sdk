@@ -9,6 +9,9 @@ Mattr Wallet SDK React Native / [Exports](modules.md)
 - [Usage](#usage)
   - [Codec](#codec)
   - [Wallet](#wallet)
+  - [Retrieving credentials via OIDC](#retrieving-credentials-via-oidc)
+  - [Retrieving credentials via OpenId issuance](#retrieving-credentials-via-openid-issuance)
+  - [Handling a credential presentation request DidComm message](#handling-a-credential-presentation-request-didcomm-message)
   - [Error handling](#error-handling)
 
 # Features
@@ -20,6 +23,10 @@ Mattr Wallet SDK React Native / [Exports](modules.md)
 - Validate a DID to domain linkage with wellKnownDidConfiguration
 - Create and send presentation request responses
 - DIDComm messaging
+
+# High level overview
+
+![High Level](./docs/highlevel.drawio.png)
 
 # Getting started
 
@@ -224,6 +231,79 @@ if (verifyResult.isErr()) {
 }
 
 const { credentialVerified, status } = verifyResult.value;
+```
+
+## Retrieving credentials via openid issuance
+
+Construct an offer payload and set up OAuth client
+
+```typescript
+const offer: OpenidIssuanceCredentialOffer = {
+  issuer: "https://example.com/",
+  authorizeEndpoint: "https://example.com/oauth/authorize",
+  tokenEndpoint: "https://example.com/oauth/token",
+  credentialEndpoint: "https://example.com/oauth/credential",
+  credentials: [
+    {
+      format: "ldp_vc",
+      type: "UniversityDegreeCredential",
+      scope: "UniversityDegreeCredential",
+    },
+  ],
+};
+
+const clientId = "myAppClientId";
+const redirectUri = "myapp://credentials/callback";
+```
+
+Generate an OpenID authorization url to request the credential
+
+```typescript
+import { Linking } from "react-native";
+
+const genUrlResult = await wallet.openid.issuance.generateAuthorizeUrl({ offer, clientId, redirectUri });
+
+if (genUrlResult.isErr()) {
+  // Handle error from genUrlResult.error
+  return;
+}
+
+const { url, codeVerifier } = genUrlResult.value;
+await Linking.openURL(url);
+```
+
+Retrieve the token and credential on authorization success callback
+
+```typescript
+const tokenResult = await wallet.openid.issuance.retrieveToken({
+  offer,
+  codeVerifier,
+  code: route.params.code, // code comes from part of the callback url
+  redirectUri,
+  clientId,
+});
+
+if (tokenResult.isErr()) {
+  // Handle error from tokenResult.error
+  return;
+}
+
+const { accessToken } = tokenResult.value;
+
+const retrieveResult = await wallet.openid.issuance.retrieveCredentials({
+  offer,
+  accessToken,
+  clientId,
+});
+
+if (retrieveResult.isErr()) {
+  // Handle error from retrieveResult.error
+  return;
+}
+
+retrieveResult.value.credentials.forEach(({ credential, format, did }) => {
+  // access to credential
+});
 ```
 
 ## Handling a credential presentation request DIDComm message

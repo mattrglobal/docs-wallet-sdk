@@ -11,9 +11,14 @@
 
 ### Enumerations
 
+- [CredentialFormatSupported](enums/credentialformatsupported.md)
 - [CredentialOfferType](enums/credentialoffertype.md)
 - [CredentialStatusType](enums/credentialstatustype.md)
+- [DiscoverErrorType](enums/discovererrortype.md)
+- [GenerateAuthorizeUrlErrorType](enums/generateauthorizeurlerrortype.md)
 - [QueryType](enums/querytype.md)
+- [RetrieveCredentialsErrorType](enums/retrievecredentialserrortype.md)
+- [RetrieveTokenErrorType](enums/retrievetokenerrortype.md)
 
 ### Interfaces
 
@@ -41,6 +46,7 @@
 
 ### Type aliases
 
+- [AuthorizeRequestParameters](modules.md#authorizerequestparameters)
 - [BaseSDKError](modules.md#basesdkerror)
 - [CloseWalletError](modules.md#closewalleterror)
 - [CreateDidError](modules.md#creatediderror)
@@ -54,6 +60,7 @@
 - [CredentialData](modules.md#credentialdata)
 - [CredentialIssuer](modules.md#credentialissuer)
 - [CredentialNotFoundInTokenError](modules.md#credentialnotfoundintokenerror)
+- [CredentialOffered](modules.md#credentialoffered)
 - [DecryptError](modules.md#decrypterror)
 - [DeleteDidError](modules.md#deletediderror)
 - [DeriveCredentialError](modules.md#derivecredentialerror)
@@ -85,6 +92,14 @@
 - [OidcCredentialOffer](modules.md#oidccredentialoffer)
 - [OpenDidCommError](modules.md#opendidcommerror)
 - [OpenOptions](modules.md#openoptions)
+- [OpenidIssuanceCredentialOffer](modules.md#openidissuancecredentialoffer)
+- [OpenidIssuanceDiscoverResult](modules.md#openidissuancediscoverresult)
+- [OpenidIssuanceGenerateAuthorizeResult](modules.md#openidissuancegenerateauthorizeresult)
+- [OpenidIssuanceGenerateAuthorizeUrlOptions](modules.md#openidissuancegenerateauthorizeurloptions)
+- [OpenidIssuanceRetrieveCredentialsOptions](modules.md#openidissuanceretrievecredentialsoptions)
+- [OpenidIssuanceRetrieveCredentialsResult](modules.md#openidissuanceretrievecredentialsresult)
+- [OpenidIssuanceRetrieveTokenOptions](modules.md#openidissuanceretrievetokenoptions)
+- [OpenidIssuanceRetrieveTokenResult](modules.md#openidissuanceretrievetokenresult)
 - [PresentationRequestJwm](modules.md#presentationrequestjwm)
 - [Result](modules.md#result)
 - [RetrieveCredentialError](modules.md#retrievecredentialerror)
@@ -118,6 +133,18 @@
 - [unwrap](modules.md#unwrap)
 
 ## Type aliases
+
+### AuthorizeRequestParameters
+
+Ƭ **AuthorizeRequestParameters**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `login_hint?` | `string` |
+
+___
 
 ### BaseSDKError
 
@@ -225,6 +252,24 @@ ___
 ### CredentialNotFoundInTokenError
 
 Ƭ **CredentialNotFoundInTokenError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"CredentialNotFoundInTokenError"``  }
+
+___
+
+### CredentialOffered
+
+Ƭ **CredentialOffered**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `claims?` | `CredentialOfferedClaim`[] |
+| `cryptographicBindingMethodsSupported?` | ``"did"`` |
+| `cryptographicSuitesSupported?` | ``"Ed25519Signature2018"`` |
+| `format` | [LinkedDataProofsVerifiableCredential](enums/credentialformatsupported.md#linkeddataproofsverifiablecredential) |
+| `name?` | `string` |
+| `scope` | `string` |
+| `type` | `string` |
 
 ___
 
@@ -450,7 +495,7 @@ ___
 
 ### InvalidIssuerUriError
 
-Ƭ **InvalidIssuerUriError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"InvalidIssuerUriError"``  }
+Ƭ **InvalidIssuerUriError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: `OidcErrorType.InvalidIssuerUriError`  }
 
 ___
 
@@ -462,7 +507,7 @@ ___
 
 ### InvalidOpenIdConfigurationError
 
-Ƭ **InvalidOpenIdConfigurationError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"InvalidOpenIdConfigurationError"``  }
+Ƭ **InvalidOpenIdConfigurationError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: `OidcErrorType.InvalidOpenIdConfigurationError`  }
 
 ___
 
@@ -484,6 +529,7 @@ ___
 | `claims` | readonly `string`[] |
 | `issuer` | `string` |
 | `name` | `string` |
+| `requestParameters?` | `OidcRequestParameters` |
 | `tokenEndpoint` | `string` |
 | `type` | [CredentialOfferType](enums/credentialoffertype.md) |
 
@@ -508,6 +554,132 @@ Options to configure when opening an existing wallet
 | `httpResolverBaseUrl?` | `string` | Specifies the base URL including path that http resolver will use  **`defaultvalue`** https://uniresolver-api.mattr.global |
 | `httpResolverPath?` | `string` | Specifies the URL path that http resolver will use  **`defaultvalue`** /1.0/identifiers/ |
 | `walletId?` | `string` | Specifies the wallet ID to use |
+
+___
+
+### OpenidIssuanceCredentialOffer
+
+Ƭ **OpenidIssuanceCredentialOffer**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `authorizeEndpoint` | `string` |
+| `authorizeRequestParameters?` | [AuthorizeRequestParameters](modules.md#authorizerequestparameters) |
+| `credentialEndpoint` | `string` |
+| `credentials` | [CredentialOffered](modules.md#credentialoffered)[] |
+| `issuer` | `string` |
+| `tokenEndpoint` | `string` |
+
+___
+
+### OpenidIssuanceDiscoverResult
+
+Ƭ **OpenidIssuanceDiscoverResult**: `Object`
+
+Result for discover
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `offer` | [OpenidIssuanceCredentialOffer](modules.md#openidissuancecredentialoffer) |
+
+___
+
+### OpenidIssuanceGenerateAuthorizeResult
+
+Ƭ **OpenidIssuanceGenerateAuthorizeResult**: `Object`
+
+Result for generate authorize url
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `codeVerifier` | `string` |
+| `url` | `string` |
+
+___
+
+### OpenidIssuanceGenerateAuthorizeUrlOptions
+
+Ƭ **OpenidIssuanceGenerateAuthorizeUrlOptions**: `Object`
+
+Options for generate authorize url
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `clientId?` | `string` |
+| `offer` | [OpenidIssuanceCredentialOffer](modules.md#openidissuancecredentialoffer) |
+| `redirectUri?` | `string` |
+| `state?` | `string` |
+
+___
+
+### OpenidIssuanceRetrieveCredentialsOptions
+
+Ƭ **OpenidIssuanceRetrieveCredentialsOptions**: `Object`
+
+Options for retrieve credentials
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `accessToken` | `string` |
+| `clientId?` | `string` |
+| `offer` | [OpenidIssuanceCredentialOffer](modules.md#openidissuancecredentialoffer) |
+
+___
+
+### OpenidIssuanceRetrieveCredentialsResult
+
+Ƭ **OpenidIssuanceRetrieveCredentialsResult**: `Object`
+
+Result for retrieve credentials
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `credentials` | { `credential`: [VerifiableCredential](modules.md#verifiablecredential) ; `did`: `string` ; `format`: [LinkedDataProofsVerifiableCredential](enums/credentialformatsupported.md#linkeddataproofsverifiablecredential)  }[] |
+
+___
+
+### OpenidIssuanceRetrieveTokenOptions
+
+Ƭ **OpenidIssuanceRetrieveTokenOptions**: `Object`
+
+Options for retrieve token
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `clientId?` | `string` |
+| `code` | `string` |
+| `codeVerifier` | `string` |
+| `offer` | [OpenidIssuanceCredentialOffer](modules.md#openidissuancecredentialoffer) |
+| `redirectUri?` | `string` |
+
+___
+
+### OpenidIssuanceRetrieveTokenResult
+
+Ƭ **OpenidIssuanceRetrieveTokenResult**: `Object`
+
+Result for retrieve token
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `accessToken` | `string` | - |
+| `expiresIn?` | `number` | expires in second |
 
 ___
 
@@ -696,6 +868,11 @@ An instance of a wallet
 | `oidc.discover` | (`issuerUri`: `string`) => `Promise`<[Result](modules/result.md)<[DiscoverResult](modules.md#discoverresult), [InvalidIssuerUriError](modules.md#invalidissuerurierror) \| [InvalidOpenIdConfigurationError](modules.md#invalidopenidconfigurationerror)\>\> | Discover credential offer from OIDC's wellknown configuration endpoint  **`param`** The URI of the OIDC credential issuer example: openid://discovery?issuer=https://government-of-aotearoa.platform.mattr.global  **`returns`** - Resolves to a [Result](modules/result.md) containing the [DiscoverResult](modules.md#discoverresult) on ok or a [InvalidIssuerUriError](modules.md#invalidissuerurierror) or [InvalidOpenIdConfigurationError](modules.md#invalidopenidconfigurationerror) on error |
 | `oidc.generateAuthorizeUrl` | (`options`: [GenerateAuthorizeUrlOptions](modules.md#generateauthorizeurloptions)) => `Promise`<[Result](modules/result.md)<[GenerateAuthorizeResult](modules.md#generateauthorizeresult), [InvalidDidError](modules.md#invaliddiderror) \| [SignError](modules.md#signerror)\>\> | Generates an authorization URL  **`param`** [GenerateAuthorizeUrlOptions](modules.md#generateauthorizeurloptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing the [GenerateAuthorizeResult](modules.md#generateauthorizeresult) on ok or a [InvalidDidError](modules.md#invaliddiderror) or [SignError](modules.md#signerror) on error |
 | `oidc.retrieveCredential` | (`options`: [RetrieveCredentialOptions](modules.md#retrievecredentialoptions)) => `Promise`<[Result](modules/result.md)<[RetrieveCredentialResult](modules.md#retrievecredentialresult), [RetrieveCredentialError](modules.md#retrievecredentialerror) \| [InvalidIdTokenError](modules.md#invalididtokenerror) \| [CredentialNotFoundInTokenError](modules.md#credentialnotfoundintokenerror)\>\> | Retrieves a credential from the OIDC provider  **`param`** [RetrieveCredentialOptions](modules.md#retrievecredentialoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [RetrieveCredentialResult](modules.md#retrievecredentialresult) on ok or a [RetrieveCredentialError](modules.md#retrievecredentialerror), [InvalidIdTokenError](modules.md#invalididtokenerror) or [CredentialNotFoundInTokenError](modules.md#credentialnotfoundintokenerror) on error |
+| `openid` | `Object` | Namespace for openid operations |
+| `openid.issuance` | `Object` | Namespace for openid issuance operations |
+| `openid.issuance.generateAuthorizeUrl` | (`options`: [OpenidIssuanceGenerateAuthorizeUrlOptions](modules.md#openidissuancegenerateauthorizeurloptions)) => `Promise`<[Result](modules/result.md)<[OpenidIssuanceGenerateAuthorizeResult](modules.md#openidissuancegenerateauthorizeresult), BaseError<[GenerateAuthorizeUrlErrorType](enums/generateauthorizeurlerrortype.md)\>\>\> | Generates an authorization URL  **`param`** [OpenidIssuanceGenerateAuthorizeUrlOptions](modules.md#openidissuancegenerateauthorizeurloptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [OpenidIssuanceGenerateAuthorizeResult](modules.md#openidissuancegenerateauthorizeresult) on ok or an error with [GenerateAuthorizeUrlErrorType](enums/generateauthorizeurlerrortype.md) |
+| `openid.issuance.retrieveCredentials` | (`options`: [OpenidIssuanceRetrieveCredentialsOptions](modules.md#openidissuanceretrievecredentialsoptions)) => `Promise`<[Result](modules/result.md)<[OpenidIssuanceRetrieveCredentialsResult](modules.md#openidissuanceretrievecredentialsresult), BaseError<[RetrieveCredentialsErrorType](enums/retrievecredentialserrortype.md)\>\>\> | Retrieves credential from the openid issuance provider  **`param`** [OpenidIssuanceRetrieveCredentialsOptions](modules.md#openidissuanceretrievecredentialsoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [OpenidIssuanceRetrieveCredentialsResult](modules.md#openidissuanceretrievecredentialsresult) on ok or an error with [RetrieveCredentialsErrorType](enums/retrievecredentialserrortype.md) |
+| `openid.issuance.retrieveToken` | (`options`: [OpenidIssuanceRetrieveTokenOptions](modules.md#openidissuanceretrievetokenoptions)) => `Promise`<[Result](modules/result.md)<[OpenidIssuanceRetrieveTokenResult](modules.md#openidissuanceretrievetokenresult), BaseError<[RetrieveTokenErrorType](enums/retrievetokenerrortype.md)\>\>\> | Retrieves token from the openid issuance provider  **`param`** [OpenidIssuanceRetrieveTokenOptions](modules.md#openidissuanceretrievetokenoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [OpenidIssuanceRetrieveTokenResult](modules.md#openidissuanceretrievetokenresult) on ok or an error with [RetrieveTokenErrorType](enums/retrievetokenerrortype.md) |
 | `presentation` | `Object` | Namespace for presentation operations |
 | `presentation.create` | (`options`: [CreatePresentationOptions](modules.md#createpresentationoptions)) => `Promise`<[Result](modules/result.md)<[VerifiablePresentation](interfaces/verifiablepresentation.md), [CreatePresentationErrors](modules.md#createpresentationerrors)\>\> | Create a verifiable presentation  **`param`** [CreatePresentationOptions](modules.md#createpresentationoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [VerifiablePresentation](interfaces/verifiablepresentation.md) on ok or a [CreatePresentationErrors](modules.md#createpresentationerrors) on error |
 | `presentation.filterCredentialsByQuery` | <T\>(`options`: [FilterCredentialsByQueryOptions](modules.md#filtercredentialsbyqueryoptions)<T\>) => [FilterCredentialsByQueryResponse](modules.md#filtercredentialsbyqueryresponse)<T\> | Filters a list of credentials based on a query  **`param`** [FilterCredentialsByQueryOptions](modules.md#filtercredentialsbyqueryoptions) containing the credentials and filter  **`returns`** [FilterCredentialsByQueryResponse](modules.md#filtercredentialsbyqueryresponse) containing the credentials that match the filter |

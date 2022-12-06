@@ -21,7 +21,7 @@ arguments but returning `Ok` if successful, `Err` if the function throws
 
 | Name | Type |
 | :------ | :------ |
-| `Fn` | `Fn`: (...`args`: readonly `unknown`[]) => `any` |
+| `Fn` | `Fn`: (...`args`: readonly `any`[]) => `any` |
 | `E` | `E` |
 
 #### Parameters
