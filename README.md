@@ -235,7 +235,7 @@ const { credentialVerified, status } = verifyResult.value;
 
 ## Retrieving credentials via openid issuance
 
-Construct an offer payload and set up OAuth client
+Construct an offer
 
 ```typescript
 const offer: OpenidIssuanceCredentialOffer = {
@@ -251,58 +251,72 @@ const offer: OpenidIssuanceCredentialOffer = {
     },
   ],
 };
+```
 
+Configure OAuth client id and redirect uri
+
+```typescript
 const clientId = "myAppClientId";
 const redirectUri = "myapp://credentials/callback";
 ```
 
-Generate an authorization url to initiate an openid issuance flow
+Generate an authorization url and open in a web browser
 
 ```typescript
 import { Linking } from "react-native";
 
-const genUrlResult = await wallet.openid.issuance.generateAuthorizeUrl({ offer, clientId, redirectUri });
+const generateAuthorizeUrlResult = await wallet.openid.issuance.generateAuthorizeUrl({ offer, clientId, redirectUri });
 
-if (genUrlResult.isErr()) {
-  // Handle error from genUrlResult.error
+if (generateAuthorizeUrlResult.isErr()) {
+  // Handle error from generateAuthorizeUrlResult.error
   return;
 }
 
-const { url, codeVerifier } = genUrlResult.value;
+const { url, codeVerifier } = generateAuthorizeUrlResult.value;
 await Linking.openURL(url);
 ```
 
-Retrieve the token and credential on authorization success callback
+Handle authorization success callback
 
 ```typescript
-const tokenResult = await wallet.openid.issuance.retrieveToken({
+myapp://credentials/callback?code=...&iss=...
+```
+
+Retrieve token
+
+```typescript
+const retrieveTokenResult = await wallet.openid.issuance.retrieveToken({
   offer,
-  codeVerifier,
-  code: route.params.code, // code comes from part of the callback url
-  redirectUri,
   clientId,
+  redirectUri,
+  codeVerifier,
+  code: route.params.code, // code comes authorization success callback above
 });
 
-if (tokenResult.isErr()) {
-  // Handle error from tokenResult.error
+if (retrieveTokenResult.isErr()) {
+  // Handle error from retrieveTokenResult.error
   return;
 }
 
-const { accessToken } = tokenResult.value;
+const { accessToken } = retrieveTokenResult.value;
+```
 
-const retrieveResult = await wallet.openid.issuance.retrieveCredentials({
+Retrieve credentials
+
+```typescript
+const retrieveCredentialsResult = await wallet.openid.issuance.retrieveCredentials({
   offer,
   accessToken,
   clientId,
 });
 
-if (retrieveResult.isErr()) {
-  // Handle error from retrieveResult.error
+if (retrieveCredentialsResult.isErr()) {
+  // Handle error from retrieveCredentialsResult.error
   return;
 }
 
-retrieveResult.value.credentials.forEach(({ credential, format, did }) => {
-  // access to credential
+retrieveCredentialsResult.value.credentials.forEach(({ credential, format, did }) => {
+  // present to user and/or store
 });
 ```
 
