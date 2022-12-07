@@ -256,7 +256,7 @@ const clientId = "myAppClientId";
 const redirectUri = "myapp://credentials/callback";
 ```
 
-Generate an OpenID authorization url to request the credential
+Generate an authorization url to initiate an openid issuance flow
 
 ```typescript
 import { Linking } from "react-native";

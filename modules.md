@@ -120,14 +120,24 @@
 - [WalletBase](modules.md#walletbase)
 - [WalletExtension](modules.md#walletextension)
 
+### Variables
+
+- [AuthorizeRequestParametersValidator](modules.md#authorizerequestparametersvalidator)
+- [CredentialOfferedValidator](modules.md#credentialofferedvalidator)
+- [OpenidIssuanceCredentialOfferValidator](modules.md#openidissuancecredentialoffervalidator)
+- [OpenidIssuanceGenerateAuthorizeUrlOptionsValidator](modules.md#openidissuancegenerateauthorizeurloptionsvalidator)
+- [OpenidIssuanceRetrieveCredentialsOptionsValidator](modules.md#openidissuanceretrievecredentialsoptionsvalidator)
+
 ### Functions
 
+- [assertType](modules.md#asserttype)
 - [create](modules.md#create)
 - [destroy](modules.md#destroy)
 - [isCredentialSubject](modules.md#iscredentialsubject)
 - [isJwm](modules.md#isjwm)
 - [isPresentationRequestJwm](modules.md#ispresentationrequestjwm)
 - [isRevocationList2020CredentialStatus](modules.md#isrevocationlist2020credentialstatus)
+- [isType](modules.md#istype)
 - [isVerifiableCredential](modules.md#isverifiablecredential)
 - [open](modules.md#open)
 - [unwrap](modules.md#unwrap)
@@ -897,7 +907,82 @@ React Native specific wallet extensions.
 | `httpCache.clear` | () => `Promise`<[Result](modules/result.md)<void, [HttpCacheError](modules.md#httpcacheerror)\>\> | Removes all entries from HTTP cache storage directory for the wallet  **`remarks`** This is a destructive operation that cannot be undone. If a [walletId](modules.md#walletid) is not provided, storage for the default wallet will be removed.   **`returns`** A [Result](modules/result.md) containing void on ok and a [HttpCacheError](modules.md#httpcacheerror) on error |
 | `httpCache.getSize` | () => `Promise`<[Result](modules/result.md)<number, [HttpCacheError](modules.md#httpcacheerror)\>\> | Retrieve the total number of cached contexts in the wallet  **`returns`** A [Result](modules/result.md) containing the number of cached contexts on ok and a [HttpCacheError](modules.md#httpcacheerror) on error |
 
+## Variables
+
+### AuthorizeRequestParametersValidator
+
+• `Const` **AuthorizeRequestParametersValidator**: `z$1.ZodType`<[AuthorizeRequestParameters](modules.md#authorizerequestparameters)\>
+
+request_parameters, that supported by wallet-sdk
+
+___
+
+### CredentialOfferedValidator
+
+• `Const` **CredentialOfferedValidator**: `z$1.ZodType`<[CredentialOffered](modules.md#credentialoffered)\>
+
+___
+
+### OpenidIssuanceCredentialOfferValidator
+
+• `Const` **OpenidIssuanceCredentialOfferValidator**: `z$1.ZodType`<[OpenidIssuanceCredentialOffer](modules.md#openidissuancecredentialoffer)\>
+
+___
+
+### OpenidIssuanceGenerateAuthorizeUrlOptionsValidator
+
+• `Const` **OpenidIssuanceGenerateAuthorizeUrlOptionsValidator**: `z$1.ZodType`<[OpenidIssuanceGenerateAuthorizeUrlOptions](modules.md#openidissuancegenerateauthorizeurloptions)\>
+
+types for wallet.openid.issuance.generateAuthorizeUrl()
+
+___
+
+### OpenidIssuanceRetrieveCredentialsOptionsValidator
+
+• `Const` **OpenidIssuanceRetrieveCredentialsOptionsValidator**: `z$1.ZodType`<[OpenidIssuanceRetrieveCredentialsOptions](modules.md#openidissuanceretrievecredentialsoptions)\>
+
+types for wallet.openid.issuance.retrieveCredentials()
+
 ## Functions
+
+### assertType
+
+▸ `Const` **assertType**<T, InputData\>(`validator`, `message`): (`data`: `InputData`) => `void`
+
+Asserts data against either internal Validator functions or Zod object schemas
+Throws CoreTypeError if assertion fails
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `T` |
+| `InputData` | `InputData` = `T` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `validator` | `Validator`<T\> \| `ZodType`<T, ZodTypeDef, T\> |
+| `message` | `string` |
+
+#### Returns
+
+`fn`
+
+▸ (`data`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `data` | `InputData` |
+
+##### Returns
+
+`void`
+
+___
 
 ### create
 
@@ -1008,6 +1093,42 @@ ___
 #### Returns
 
 value is RevocationList2020CredentialStatus
+
+___
+
+### isType
+
+▸ `Const` **isType**<T\>(`validator`): (`value`: `unknown`) => value is T
+
+Provide typeguards and boolean result of a zod validator
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `validator` | `ZodType`<T, ZodTypeDef, T\> |
+
+#### Returns
+
+`fn`
+
+▸ (`value`): value is T
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `unknown` |
+
+##### Returns
+
+value is T
 
 ___
 
