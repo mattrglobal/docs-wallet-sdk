@@ -22,6 +22,7 @@
 
 ### Interfaces
 
+- [BaseError](interfaces/baseerror.md)
 - [CheckStatusResult](interfaces/checkstatusresult.md)
 - [Credential](interfaces/credential.md)
 - [CredentialExample](interfaces/credentialexample.md)
@@ -127,12 +128,19 @@
 - [OpenidIssuanceCredentialOfferValidator](modules.md#openidissuancecredentialoffervalidator)
 - [OpenidIssuanceGenerateAuthorizeUrlOptionsValidator](modules.md#openidissuancegenerateauthorizeurloptionsvalidator)
 - [OpenidIssuanceRetrieveCredentialsOptionsValidator](modules.md#openidissuanceretrievecredentialsoptionsvalidator)
+- [RNSecureKeyStoreLegacy](modules.md#rnsecurekeystorelegacy)
 
 ### Functions
 
 - [assertType](modules.md#asserttype)
 - [create](modules.md#create)
 - [destroy](modules.md#destroy)
+- [getDidMetadataEncryptionKey](modules.md#getdidmetadataencryptionkey)
+- [getHttpCacheEncryptionKey](modules.md#gethttpcacheencryptionkey)
+- [getKmsEncryptionKey](modules.md#getkmsencryptionkey)
+- [getSecureValue](modules.md#getsecurevalue)
+- [getSecureValueFromLegacy](modules.md#getsecurevaluefromlegacy)
+- [getSecureValueFromNonLegacy](modules.md#getsecurevaluefromnonlegacy)
 - [isCredentialSubject](modules.md#iscredentialsubject)
 - [isJwm](modules.md#isjwm)
 - [isPresentationRequestJwm](modules.md#ispresentationrequestjwm)
@@ -140,6 +148,8 @@
 - [isType](modules.md#istype)
 - [isVerifiableCredential](modules.md#isverifiablecredential)
 - [open](modules.md#open)
+- [setSecureValue](modules.md#setsecurevalue)
+- [setSecureValueFromLegacy](modules.md#setsecurevaluefromlegacy)
 - [unwrap](modules.md#unwrap)
 
 ## Type aliases
@@ -158,15 +168,9 @@ ___
 
 ### BaseSDKError
 
-Ƭ **BaseSDKError**: `Object`
+Ƭ **BaseSDKError**: [BaseError](interfaces/baseerror.md) & { `message`: `string`  }
 
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `cause?` | `Error` \| `unknown` |
-| `message` | `string` |
-| `type` | `string` |
+**`deprecated`** use BaseError with generic support
 
 ___
 
@@ -469,7 +473,7 @@ ___
 
 ### GenericSdkError
 
-Ƭ **GenericSdkError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"GenericError"``  }
+Ƭ **GenericSdkError**: [BaseError](interfaces/baseerror.md)<``"GenericError"``\>
 
 ___
 
@@ -880,9 +884,9 @@ An instance of a wallet
 | `oidc.retrieveCredential` | (`options`: [RetrieveCredentialOptions](modules.md#retrievecredentialoptions)) => `Promise`<[Result](modules/result.md)<[RetrieveCredentialResult](modules.md#retrievecredentialresult), [RetrieveCredentialError](modules.md#retrievecredentialerror) \| [InvalidIdTokenError](modules.md#invalididtokenerror) \| [CredentialNotFoundInTokenError](modules.md#credentialnotfoundintokenerror)\>\> | Retrieves a credential from the OIDC provider  **`param`** [RetrieveCredentialOptions](modules.md#retrievecredentialoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [RetrieveCredentialResult](modules.md#retrievecredentialresult) on ok or a [RetrieveCredentialError](modules.md#retrievecredentialerror), [InvalidIdTokenError](modules.md#invalididtokenerror) or [CredentialNotFoundInTokenError](modules.md#credentialnotfoundintokenerror) on error |
 | `openid` | `Object` | Namespace for openid operations |
 | `openid.issuance` | `Object` | Namespace for openid issuance operations |
-| `openid.issuance.generateAuthorizeUrl` | (`options`: [OpenidIssuanceGenerateAuthorizeUrlOptions](modules.md#openidissuancegenerateauthorizeurloptions)) => `Promise`<[Result](modules/result.md)<[OpenidIssuanceGenerateAuthorizeResult](modules.md#openidissuancegenerateauthorizeresult), BaseError<[GenerateAuthorizeUrlErrorType](enums/generateauthorizeurlerrortype.md)\>\>\> | Generates an authorization URL  **`param`** [OpenidIssuanceGenerateAuthorizeUrlOptions](modules.md#openidissuancegenerateauthorizeurloptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [OpenidIssuanceGenerateAuthorizeResult](modules.md#openidissuancegenerateauthorizeresult) on ok or an error with [GenerateAuthorizeUrlErrorType](enums/generateauthorizeurlerrortype.md) |
-| `openid.issuance.retrieveCredentials` | (`options`: [OpenidIssuanceRetrieveCredentialsOptions](modules.md#openidissuanceretrievecredentialsoptions)) => `Promise`<[Result](modules/result.md)<[OpenidIssuanceRetrieveCredentialsResult](modules.md#openidissuanceretrievecredentialsresult), BaseError<[RetrieveCredentialsErrorType](enums/retrievecredentialserrortype.md)\>\>\> | Retrieves credential from the openid issuance provider  **`param`** [OpenidIssuanceRetrieveCredentialsOptions](modules.md#openidissuanceretrievecredentialsoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [OpenidIssuanceRetrieveCredentialsResult](modules.md#openidissuanceretrievecredentialsresult) on ok or an error with [RetrieveCredentialsErrorType](enums/retrievecredentialserrortype.md) |
-| `openid.issuance.retrieveToken` | (`options`: [OpenidIssuanceRetrieveTokenOptions](modules.md#openidissuanceretrievetokenoptions)) => `Promise`<[Result](modules/result.md)<[OpenidIssuanceRetrieveTokenResult](modules.md#openidissuanceretrievetokenresult), BaseError<[RetrieveTokenErrorType](enums/retrievetokenerrortype.md)\>\>\> | Retrieves token from the openid issuance provider  **`param`** [OpenidIssuanceRetrieveTokenOptions](modules.md#openidissuanceretrievetokenoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [OpenidIssuanceRetrieveTokenResult](modules.md#openidissuanceretrievetokenresult) on ok or an error with [RetrieveTokenErrorType](enums/retrievetokenerrortype.md) |
+| `openid.issuance.generateAuthorizeUrl` | (`options`: [OpenidIssuanceGenerateAuthorizeUrlOptions](modules.md#openidissuancegenerateauthorizeurloptions)) => `Promise`<[Result](modules/result.md)<[OpenidIssuanceGenerateAuthorizeResult](modules.md#openidissuancegenerateauthorizeresult), [BaseError](interfaces/baseerror.md)<[GenerateAuthorizeUrlErrorType](enums/generateauthorizeurlerrortype.md)\>\>\> | Generates an authorization URL  **`param`** [OpenidIssuanceGenerateAuthorizeUrlOptions](modules.md#openidissuancegenerateauthorizeurloptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [OpenidIssuanceGenerateAuthorizeResult](modules.md#openidissuancegenerateauthorizeresult) on ok or an error with [GenerateAuthorizeUrlErrorType](enums/generateauthorizeurlerrortype.md) |
+| `openid.issuance.retrieveCredentials` | (`options`: [OpenidIssuanceRetrieveCredentialsOptions](modules.md#openidissuanceretrievecredentialsoptions)) => `Promise`<[Result](modules/result.md)<[OpenidIssuanceRetrieveCredentialsResult](modules.md#openidissuanceretrievecredentialsresult), [BaseError](interfaces/baseerror.md)<[RetrieveCredentialsErrorType](enums/retrievecredentialserrortype.md)\>\>\> | Retrieves credential from the openid issuance provider  **`param`** [OpenidIssuanceRetrieveCredentialsOptions](modules.md#openidissuanceretrievecredentialsoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [OpenidIssuanceRetrieveCredentialsResult](modules.md#openidissuanceretrievecredentialsresult) on ok or an error with [RetrieveCredentialsErrorType](enums/retrievecredentialserrortype.md) |
+| `openid.issuance.retrieveToken` | (`options`: [OpenidIssuanceRetrieveTokenOptions](modules.md#openidissuanceretrievetokenoptions)) => `Promise`<[Result](modules/result.md)<[OpenidIssuanceRetrieveTokenResult](modules.md#openidissuanceretrievetokenresult), [BaseError](interfaces/baseerror.md)<[RetrieveTokenErrorType](enums/retrievetokenerrortype.md)\>\>\> | Retrieves token from the openid issuance provider  **`param`** [OpenidIssuanceRetrieveTokenOptions](modules.md#openidissuanceretrievetokenoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [OpenidIssuanceRetrieveTokenResult](modules.md#openidissuanceretrievetokenresult) on ok or an error with [RetrieveTokenErrorType](enums/retrievetokenerrortype.md) |
 | `presentation` | `Object` | Namespace for presentation operations |
 | `presentation.create` | (`options`: [CreatePresentationOptions](modules.md#createpresentationoptions)) => `Promise`<[Result](modules/result.md)<[VerifiablePresentation](interfaces/verifiablepresentation.md), [CreatePresentationErrors](modules.md#createpresentationerrors)\>\> | Create a verifiable presentation  **`param`** [CreatePresentationOptions](modules.md#createpresentationoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [VerifiablePresentation](interfaces/verifiablepresentation.md) on ok or a [CreatePresentationErrors](modules.md#createpresentationerrors) on error |
 | `presentation.filterCredentialsByQuery` | <T\>(`options`: [FilterCredentialsByQueryOptions](modules.md#filtercredentialsbyqueryoptions)<T\>) => [FilterCredentialsByQueryResponse](modules.md#filtercredentialsbyqueryresponse)<T\> | Filters a list of credentials based on a query  **`param`** [FilterCredentialsByQueryOptions](modules.md#filtercredentialsbyqueryoptions) containing the credentials and filter  **`returns`** [FilterCredentialsByQueryResponse](modules.md#filtercredentialsbyqueryresponse) containing the credentials that match the filter |
@@ -904,7 +908,7 @@ React Native specific wallet extensions.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `httpCache` | `Object` | Namespace for HTTP request cache |
-| `httpCache.clear` | () => `Promise`<[Result](modules/result.md)<void, [HttpCacheError](modules.md#httpcacheerror)\>\> | Removes all entries from HTTP cache storage directory for the wallet  **`remarks`** This is a destructive operation that cannot be undone. If a [walletId](modules.md#walletid) is not provided, storage for the default wallet will be removed.   **`returns`** A [Result](modules/result.md) containing void on ok and a [HttpCacheError](modules.md#httpcacheerror) on error |
+| `httpCache.clear` | () => `Promise`<[Result](modules/result.md)<void, [HttpCacheError](modules.md#httpcacheerror)\>\> | Removes all entries from HTTP cache storage directory for the wallet  **`remarks`** This is a destructive operation that cannot be undone. If a {@link walletId} is not provided, storage for the default wallet will be removed.   **`returns`** A [Result](modules/result.md) containing void on ok and a [HttpCacheError](modules.md#httpcacheerror) on error |
 | `httpCache.getSize` | () => `Promise`<[Result](modules/result.md)<number, [HttpCacheError](modules.md#httpcacheerror)\>\> | Retrieve the total number of cached contexts in the wallet  **`returns`** A [Result](modules/result.md) containing the number of cached contexts on ok and a [HttpCacheError](modules.md#httpcacheerror) on error |
 
 ## Variables
@@ -942,6 +946,12 @@ ___
 • `Const` **OpenidIssuanceRetrieveCredentialsOptionsValidator**: `z$1.ZodType`<[OpenidIssuanceRetrieveCredentialsOptions](modules.md#openidissuanceretrievecredentialsoptions)\>
 
 types for wallet.openid.issuance.retrieveCredentials()
+
+___
+
+### RNSecureKeyStoreLegacy
+
+• **RNSecureKeyStoreLegacy**: `any`
 
 ## Functions
 
@@ -992,7 +1002,7 @@ Generates new encryption keys and storage directories required for a wallet
 
 **`remarks`**
 This function must be called before trying to open the wallet.
-If a [walletId](modules.md#walletid) is not provided, the default wallet will be created.
+If a {@link walletId} is not provided, the default wallet will be created.
 
 #### Parameters
 
@@ -1016,7 +1026,7 @@ Removes encryption keys and storage directories associated with the wallet
 
 **`remarks`**
 This is a destructive operation that cannot be undone. The wallet will have to be re created from scratch if destroyed.
-If a [walletId](modules.md#walletid) is not provided, the default wallet will be destroyed.
+If a {@link walletId} is not provided, the default wallet will be destroyed.
 
 #### Parameters
 
@@ -1029,6 +1039,106 @@ If a [walletId](modules.md#walletid) is not provided, the default wallet will be
 `Promise`<[Result](modules/result.md)<void, [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| WalletNotFoundError\>\>
 
 A [Result](modules/result.md) containing void on ok and a {@link WalletNotFoundError} on error
+
+___
+
+### getDidMetadataEncryptionKey
+
+▸ `Const` **getDidMetadataEncryptionKey**(`walletId?`): `string`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `walletId?` | `string` |
+
+#### Returns
+
+`string`
+
+___
+
+### getHttpCacheEncryptionKey
+
+▸ `Const` **getHttpCacheEncryptionKey**(`walletId?`): `string`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `walletId?` | `string` |
+
+#### Returns
+
+`string`
+
+___
+
+### getKmsEncryptionKey
+
+▸ `Const` **getKmsEncryptionKey**(`walletId?`): `string`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `walletId?` | `string` |
+
+#### Returns
+
+`string`
+
+___
+
+### getSecureValue
+
+▸ `Const` **getSecureValue**(`key`): `Promise`<[Result](modules/result.md)<string, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
+
+Retrieves a `value` from KeyStore on Android or Keychain on iOS
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `key` | `string` | The `key` to retrieve a `value` for |
+
+#### Returns
+
+`Promise`<[Result](modules/result.md)<string, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
+
+A result `value` retrieved from Platform specific Secure storage or error when failed
+
+___
+
+### getSecureValueFromLegacy
+
+▸ `Const` **getSecureValueFromLegacy**(`key`): `Promise`<[Result](modules/result.md)<string, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `key` | `string` |
+
+#### Returns
+
+`Promise`<[Result](modules/result.md)<string, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
+
+___
+
+### getSecureValueFromNonLegacy
+
+▸ `Const` **getSecureValueFromNonLegacy**(`key`): `Promise`<[Result](modules/result.md)<string, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `key` | `string` |
+
+#### Returns
+
+`Promise`<[Result](modules/result.md)<string, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
 
 ___
 
@@ -1169,6 +1279,40 @@ If a {@link OpenOptions.walletId} is not provided, the default wallet will be op
 `Promise`<[Result](modules/result.md)<[Wallet](modules.md#wallet), WalletNotFoundError \| [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror)\>\>
 
 A [Result](modules/result.md) containing the open [Wallet](modules.md#wallet) object on ok or a [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) or [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror) on error
+
+___
+
+### setSecureValue
+
+▸ `Const` **setSecureValue**(`keyValue`): `Promise`<[Result](modules/result.md)<void, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
+
+Sets a `value` for a `key` in KeyStore on Android or Keychain on iOS
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `keyValue` | `KeyValuePair` | The `key` and `value` to store in Platform specific Secure storage. |
+
+#### Returns
+
+`Promise`<[Result](modules/result.md)<void, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
+
+___
+
+### setSecureValueFromLegacy
+
+▸ `Const` **setSecureValueFromLegacy**(`keyValue`): `Promise`<[Result](modules/result.md)<void, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `keyValue` | `KeyValuePair` |
+
+#### Returns
+
+`Promise`<[Result](modules/result.md)<void, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
 
 ___
 
