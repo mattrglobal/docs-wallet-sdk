@@ -11,7 +11,7 @@ MATTR Wallet Toolkit React Native / [Exports](modules.md)
   - [Wallet](#wallet)
   - [Retrieving credentials via OIDC Bridge](#retrieving-credentials-via-oidc)
   - [Retrieving credentials via OpenID4VCI (Tech Preview)](#retrieving-credentials-via-openid4vci)
-  - [Handling a credential presentation request DidComm message](#handling-a-credential-presentation-request-didcomm-message)
+  - [Handling a credential presentation request DIDComm message](#handling-a-credential-presentation-request-didcomm-message)
   - [Error handling](#error-handling)
 
 # Features
