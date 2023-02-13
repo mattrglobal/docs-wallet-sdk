@@ -1,6 +1,6 @@
-Mattr Wallet SDK React Native / [Exports](modules.md)
+MATR Wallet Toolkit React Native / [Exports](modules.md)
 
-# wallet-sdk-react-native
+# wallet-toolkit-react-native
 
 # Table of Contents
 
