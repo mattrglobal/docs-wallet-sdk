@@ -10,7 +10,7 @@ MATTR Wallet Toolkit React Native / [Exports](modules.md)
   - [Codec](#codec)
   - [Wallet](#wallet)
   - [Retrieving credentials via OIDC Bridge](#retrieving-credentials-via-oidc)
-  - [Retrieving credentials via OpenID4VCI issuance (Tech Preview)](#retrieving-credentials-via-openid-issuance)
+  - [Retrieving credentials via OpenID4VCI (Tech Preview)](#retrieving-credentials-via-openid4vci)
   - [Handling a credential presentation request DidComm message](#handling-a-credential-presentation-request-didcomm-message)
   - [Error handling](#error-handling)
 
@@ -235,7 +235,7 @@ if (verifyResult.isErr()) {
 const { credentialVerified, status } = verifyResult.value;
 ```
 
-## Retrieving credentials via OpenID4VCI issuance (Tech Preview)
+## Retrieving credentials via OpenID4VCI (Tech Preview)
 
 Construct an offer
 
