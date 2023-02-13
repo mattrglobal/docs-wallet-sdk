@@ -1,4 +1,4 @@
-MATR Wallet Toolkit React Native / [Exports](modules.md)
+MATTR Wallet Toolkit React Native / [Exports](modules.md)
 
 # wallet-toolkit-react-native
 
