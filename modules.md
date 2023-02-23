@@ -1,6 +1,6 @@
-[Mattr Wallet SDK React Native](README.md) / Exports
+[MATTR Wallet SDK React Native](README.md) / Exports
 
-# Mattr Wallet SDK React Native
+# MATTR Wallet SDK React Native
 
 ## Table of contents
 
@@ -19,6 +19,7 @@
 - [QueryType](enums/querytype.md)
 - [RetrieveCredentialsErrorType](enums/retrievecredentialserrortype.md)
 - [RetrieveTokenErrorType](enums/retrievetokenerrortype.md)
+- [SecureKeyValueStoreErrorType](enums/securekeyvaluestoreerrortype.md)
 
 ### Interfaces
 
@@ -133,14 +134,9 @@
 ### Functions
 
 - [assertType](modules.md#asserttype)
+- [assertUnreachable](modules.md#assertunreachable)
 - [create](modules.md#create)
 - [destroy](modules.md#destroy)
-- [getDidMetadataEncryptionKey](modules.md#getdidmetadataencryptionkey)
-- [getHttpCacheEncryptionKey](modules.md#gethttpcacheencryptionkey)
-- [getKmsEncryptionKey](modules.md#getkmsencryptionkey)
-- [getSecureValue](modules.md#getsecurevalue)
-- [getSecureValueFromLegacy](modules.md#getsecurevaluefromlegacy)
-- [getSecureValueFromNonLegacy](modules.md#getsecurevaluefromnonlegacy)
 - [isCredentialSubject](modules.md#iscredentialsubject)
 - [isJwm](modules.md#isjwm)
 - [isPresentationRequestJwm](modules.md#ispresentationrequestjwm)
@@ -148,8 +144,6 @@
 - [isType](modules.md#istype)
 - [isVerifiableCredential](modules.md#isverifiablecredential)
 - [open](modules.md#open)
-- [setSecureValue](modules.md#setsecurevalue)
-- [setSecureValueFromLegacy](modules.md#setsecurevaluefromlegacy)
 - [unwrap](modules.md#unwrap)
 
 ## Type aliases
@@ -908,7 +902,7 @@ React Native specific wallet extensions.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `httpCache` | `Object` | Namespace for HTTP request cache |
-| `httpCache.clear` | () => `Promise`<[Result](modules/result.md)<void, [HttpCacheError](modules.md#httpcacheerror)\>\> | Removes all entries from HTTP cache storage directory for the wallet  **`remarks`** This is a destructive operation that cannot be undone. If a {@link walletId} is not provided, storage for the default wallet will be removed.   **`returns`** A [Result](modules/result.md) containing void on ok and a [HttpCacheError](modules.md#httpcacheerror) on error |
+| `httpCache.clear` | () => `Promise`<[Result](modules/result.md)<void, [HttpCacheError](modules.md#httpcacheerror)\>\> | Removes all entries from HTTP cache storage directory for the wallet  **`remarks`** This is a destructive operation that cannot be undone. If a [walletId](modules.md#walletid) is not provided, storage for the default wallet will be removed.   **`returns`** A [Result](modules/result.md) containing void on ok and a [HttpCacheError](modules.md#httpcacheerror) on error |
 | `httpCache.getSize` | () => `Promise`<[Result](modules/result.md)<number, [HttpCacheError](modules.md#httpcacheerror)\>\> | Retrieve the total number of cached contexts in the wallet  **`returns`** A [Result](modules/result.md) containing the number of cached contexts on ok and a [HttpCacheError](modules.md#httpcacheerror) on error |
 
 ## Variables
@@ -994,6 +988,41 @@ Throws CoreTypeError if assertion fails
 
 ___
 
+### assertUnreachable
+
+▸ `Const` **assertUnreachable**(`x`): `never`
+
+Used for exhaustive if/switch statements
+Example:
+
+```ts
+enum Fruit {
+ orange = "orange",
+ apple = "apple",
+}
+
+const getFruitName = (fruit: Fruit): string => {
+ if (fruit === Fruit.orange) {
+   return "Orange";
+ }
+
+ // Should fail TS compilation as Fruit.apple is not being handled in the code above
+ return assertUnreachable(fruit);
+}
+```
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `x` | `never` |
+
+#### Returns
+
+`never`
+
+___
+
 ### create
 
 ▸ `Const` **create**(`walletId?`): `Promise`<[Result](modules/result.md)<void, [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| [WalletAlreadyCreatedError](modules.md#walletalreadycreatederror)\>\>
@@ -1002,7 +1031,7 @@ Generates new encryption keys and storage directories required for a wallet
 
 **`remarks`**
 This function must be called before trying to open the wallet.
-If a {@link walletId} is not provided, the default wallet will be created.
+If a [walletId](modules.md#walletid) is not provided, the default wallet will be created.
 
 #### Parameters
 
@@ -1026,7 +1055,7 @@ Removes encryption keys and storage directories associated with the wallet
 
 **`remarks`**
 This is a destructive operation that cannot be undone. The wallet will have to be re created from scratch if destroyed.
-If a {@link walletId} is not provided, the default wallet will be destroyed.
+If a [walletId](modules.md#walletid) is not provided, the default wallet will be destroyed.
 
 #### Parameters
 
@@ -1039,106 +1068,6 @@ If a {@link walletId} is not provided, the default wallet will be destroyed.
 `Promise`<[Result](modules/result.md)<void, [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| WalletNotFoundError\>\>
 
 A [Result](modules/result.md) containing void on ok and a {@link WalletNotFoundError} on error
-
-___
-
-### getDidMetadataEncryptionKey
-
-▸ `Const` **getDidMetadataEncryptionKey**(`walletId?`): `string`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `walletId?` | `string` |
-
-#### Returns
-
-`string`
-
-___
-
-### getHttpCacheEncryptionKey
-
-▸ `Const` **getHttpCacheEncryptionKey**(`walletId?`): `string`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `walletId?` | `string` |
-
-#### Returns
-
-`string`
-
-___
-
-### getKmsEncryptionKey
-
-▸ `Const` **getKmsEncryptionKey**(`walletId?`): `string`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `walletId?` | `string` |
-
-#### Returns
-
-`string`
-
-___
-
-### getSecureValue
-
-▸ `Const` **getSecureValue**(`key`): `Promise`<[Result](modules/result.md)<string, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
-
-Retrieves a `value` from KeyStore on Android or Keychain on iOS
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `key` | `string` | The `key` to retrieve a `value` for |
-
-#### Returns
-
-`Promise`<[Result](modules/result.md)<string, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
-
-A result `value` retrieved from Platform specific Secure storage or error when failed
-
-___
-
-### getSecureValueFromLegacy
-
-▸ `Const` **getSecureValueFromLegacy**(`key`): `Promise`<[Result](modules/result.md)<string, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `key` | `string` |
-
-#### Returns
-
-`Promise`<[Result](modules/result.md)<string, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
-
-___
-
-### getSecureValueFromNonLegacy
-
-▸ `Const` **getSecureValueFromNonLegacy**(`key`): `Promise`<[Result](modules/result.md)<string, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `key` | `string` |
-
-#### Returns
-
-`Promise`<[Result](modules/result.md)<string, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
 
 ___
 
@@ -1279,40 +1208,6 @@ If a {@link OpenOptions.walletId} is not provided, the default wallet will be op
 `Promise`<[Result](modules/result.md)<[Wallet](modules.md#wallet), WalletNotFoundError \| [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror)\>\>
 
 A [Result](modules/result.md) containing the open [Wallet](modules.md#wallet) object on ok or a [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) or [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror) on error
-
-___
-
-### setSecureValue
-
-▸ `Const` **setSecureValue**(`keyValue`): `Promise`<[Result](modules/result.md)<void, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
-
-Sets a `value` for a `key` in KeyStore on Android or Keychain on iOS
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `keyValue` | `KeyValuePair` | The `key` and `value` to store in Platform specific Secure storage. |
-
-#### Returns
-
-`Promise`<[Result](modules/result.md)<void, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
-
-___
-
-### setSecureValueFromLegacy
-
-▸ `Const` **setSecureValueFromLegacy**(`keyValue`): `Promise`<[Result](modules/result.md)<void, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `keyValue` | `KeyValuePair` |
-
-#### Returns
-
-`Promise`<[Result](modules/result.md)<void, [BaseError](interfaces/baseerror.md)<SecureKeyValueStoreErrorType\>\>\>
 
 ___
 

@@ -1,4 +1,4 @@
-[Mattr Wallet SDK React Native](../README.md) / [Exports](../modules.md) / BaseError
+[MATTR Wallet SDK React Native](../README.md) / [Exports](../modules.md) / BaseError
 
 # Interface: BaseError<T\>
 

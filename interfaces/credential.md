@@ -1,4 +1,4 @@
-[Mattr Wallet SDK React Native](../README.md) / [Exports](../modules.md) / Credential
+[MATTR Wallet SDK React Native](../README.md) / [Exports](../modules.md) / Credential
 
 # Interface: Credential
 

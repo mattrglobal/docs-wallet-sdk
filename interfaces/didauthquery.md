@@ -1,4 +1,4 @@
-[Mattr Wallet SDK React Native](../README.md) / [Exports](../modules.md) / DidAuthQuery
+[MATTR Wallet SDK React Native](../README.md) / [Exports](../modules.md) / DidAuthQuery
 
 # Interface: DidAuthQuery
 

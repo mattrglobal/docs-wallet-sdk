@@ -1,4 +1,4 @@
-[Mattr Wallet SDK React Native](../README.md) / [Exports](../modules.md) / GenerateAuthorizeUrlErrorType
+[MATTR Wallet SDK React Native](../README.md) / [Exports](../modules.md) / GenerateAuthorizeUrlErrorType
 
 # Enumeration: GenerateAuthorizeUrlErrorType
 

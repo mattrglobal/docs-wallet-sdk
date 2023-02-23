@@ -1,4 +1,4 @@
-Mattr Wallet SDK React Native / [Exports](modules.md)
+MATTR Wallet SDK React Native / [Exports](modules.md)
 
 # wallet-sdk-react-native
 
@@ -9,9 +9,9 @@ Mattr Wallet SDK React Native / [Exports](modules.md)
 - [Usage](#usage)
   - [Codec](#codec)
   - [Wallet](#wallet)
-  - [Retrieving credentials via OIDC](#retrieving-credentials-via-oidc)
-  - [Retrieving credentials via OpenId issuance](#retrieving-credentials-via-openid-issuance)
-  - [Handling a credential presentation request DidComm message](#handling-a-credential-presentation-request-didcomm-message)
+  - [Retrieving credentials via OIDC Bridge](#retrieving-credentials-via-oidc-bridge)
+  - [Retrieving credentials via OpenID4VCI (Tech Preview)](#retrieving-credentials-via-openid4vci-tech-preview)
+  - [Handling a credential presentation request via DIDComm message](#handling-a-credential-presentation-request-via-didcomm-message)
   - [Error handling](#error-handling)
 
 # Features
@@ -160,7 +160,7 @@ import { destroy } from "@mattrglobal/wallet-sdk-react-native";
 await wallet.destroy();
 ```
 
-## Retrieving credentials via OIDC
+## Retrieving credentials via OIDC Bridge
 
 Discover OIDC credential offer
 
@@ -235,7 +235,7 @@ if (verifyResult.isErr()) {
 const { credentialVerified, status } = verifyResult.value;
 ```
 
-## Retrieving credentials via openid issuance
+## Retrieving credentials via OpenID4VCI (Tech Preview)
 
 Construct an offer
 
@@ -322,7 +322,7 @@ retrieveCredentialsResult.value.credentials.forEach(({ credential, format, did }
 });
 ```
 
-## Handling a credential presentation request DIDComm message
+## Handling a credential presentation request via DIDComm message
 
 Open a presentation request DIDComm message
 
