@@ -7,6 +7,7 @@
 ### Properties
 
 - [@context](credentialexample.md#@context)
+- [credentialSubject](credentialexample.md#credentialsubject)
 - [trustedIssuer](credentialexample.md#trustedissuer)
 - [type](credentialexample.md#type)
 
@@ -14,7 +15,17 @@
 
 ### @context
 
-• `Readonly` **@context**: readonly `string`[]
+• `Readonly` **@context**: `JsonLdContext`
+
+___
+
+### credentialSubject
+
+• `Optional` `Readonly` **credentialSubject**: `Object`
+
+#### Index signature
+
+▪ [key: `string`]: `any`
 
 ___
 

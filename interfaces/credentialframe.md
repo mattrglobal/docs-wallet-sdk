@@ -14,7 +14,7 @@
 
 ### @context
 
-• `Readonly` **@context**: readonly `string`[]
+• `Readonly` **@context**: `JsonLdContext`
 
 ___
 

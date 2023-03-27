@@ -237,7 +237,19 @@ const { credentialVerified, status } = verifyResult.value;
 
 ## Retrieving credentials via OpenID4VCI (Tech Preview)
 
-Construct an offer
+Discover credential offer details via offer URI
+
+```typescript
+/***
+ * openid-credential-offer://?credential_offer=encodeURIComponent(JSON.stringify({ credential_issuer, credentials: [{credentialId}], request_parameters? }))
+ */
+const uri =
+  "openid-credential-offer://?credential_offer=%7B%22credential_issuer%22%3A%22https%3A%2F%2Fmyissuer.example.com%22%2C%22credentials%22%3A%5B%22707e920a-f342-443b-ae24-6946b7b5033e%22%5D%2C%22request_parameters%22%3A%7B%22login_hint%22%3A%22ken.huang%40mattr.global%22%2C%22prompt%22%3A%22login%22%7D%7D";
+
+const offer = unwrap(await wallet.openid.issuance.discover(uri));
+```
+
+Or construct offer manually
 
 ```typescript
 const offer: OpenidIssuanceCredentialOffer = {
@@ -248,8 +260,8 @@ const offer: OpenidIssuanceCredentialOffer = {
   credentials: [
     {
       format: "ldp_vc",
-      type: "UniversityDegreeCredential",
       scope: "UniversityDegreeCredential",
+      type: "UniversityDegreeCredential",
     },
   ],
 };
@@ -344,7 +356,12 @@ const credentialData = [
   { id: "a", credential: credentailA },
   { id: "b", credential: credentailB },
 ];
-const filterResult = await wallet.presentation.filterCredentialsByQuery({ credentials: credentialData });
+
+const filterResult = await wallet.presentation.filterCredentialsByQuery({
+  credentials: credentialData,
+  // Note that only the presentation request body should contain single query only, under the same query could contain multiple sub queries.
+  query: presentationRequest.body.query[0],
+});
 ```
 
 Create and send presentation
