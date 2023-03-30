@@ -570,6 +570,7 @@ Options to configure when opening an existing wallet
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
+| `httpRequestTimeoutMs?` | `number` | The number of milliseconds a request can take before automatically being terminated. The default value is 5000. |
 | `httpResolverBaseUrl?` | `string` | Specifies the base URL including path that http resolver will use  **`defaultvalue`** https://uniresolver-api.mattr.global |
 | `httpResolverPath?` | `string` | Specifies the URL path that http resolver will use  **`defaultvalue`** /1.0/identifiers/ |
 | `walletId?` | `string` | Specifies the wallet ID to use |
