@@ -33,7 +33,7 @@ MATTR Wallet SDK React Native / [Exports](modules.md)
 ## How to get access to MATTR Pi Wallet SDK
 To gain access to the MATTR Pi Wallet SDK, there is a process that must be followed. The following steps are necessary to acquire access to the SDK before it can be used:
 
-1. Request us to provide the "Terms of the agreement".
+1. Request or download the ["Terms of Agreement"](Licence.pdf).
 2. Read the "Terms of agreement", sign it, and return it to us. 
 3. Create an Account at [NPMJS - Node Package Manager for JavaScript](https://www.npmjs.com).
 4. Ensure MFA (Multi-Factor Authentication) is Configured on NPMJS Account.
