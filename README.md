@@ -30,6 +30,21 @@ MATTR Wallet SDK React Native / [Exports](modules.md)
 
 # Getting started
 
+## How to get access to MATTR Pi Wallet SDK
+
+To gain access to the MATTR Pi Wallet SDK, please follow these steps:
+
+1. Request or download the ["Terms of Agreement"](Licence.pdf).
+2. Read the "Terms of Agreement", sign it, and return it to us.
+3. Create an account at [NPMJS - Node package manager for JavaScript](https://www.npmjs.com).
+4. Ensure multi-factor authentication (MFA) is configured on NPMJS Account.
+5. Create a personal access token
+   [Create a personal access token](https://docs.npmjs.com/creating-and-viewing-access-tokens).
+6. Supply the NPMJS (Node package manager for JavaScript) account name back to MATTR.
+7. MATTR will process the request and provision access to the MATTR Pi Wallet SDK if approved.
+
+> Please reach out to us in case you need any assistance [Get in touch](https://mattr.global/contact).
+
 ## Install dependencies
 
 Add this SDK as a dependency to the react native app:
@@ -260,8 +275,11 @@ const offer: OpenidIssuanceCredentialOffer = {
   credentials: [
     {
       format: "ldp_vc",
-      scope: "UniversityDegreeCredential",
-      type: "UniversityDegreeCredential",
+      scope: "ldp_vc:UniversityDegreeCredential",
+      credentialDefinition: {
+        "@context": ["https://www.w3.org/2018/credentials/v1"],
+        type: ["VerifiableCredential", "UniversityDegreeCredential"],
+      },
     },
   ],
 };
@@ -332,6 +350,16 @@ if (retrieveCredentialsResult.isErr()) {
 retrieveCredentialsResult.value.credentials.forEach(({ credential, format, did }) => {
   // present to user and/or store
 });
+```
+
+## Resolving a DIDCommUri
+
+```typescript
+const resolveDidCommUriResult = await wallet.messaging.resolveDidCommUri(uri);
+if (resolveDidCommUriResult.isErr()) {
+  return;
+}
+const message = resolveDidCommUriResult.value;
 ```
 
 ## Handling a credential presentation request via DIDComm message
