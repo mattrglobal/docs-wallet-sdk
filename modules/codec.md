@@ -4,7 +4,7 @@
 
 ## Table of contents
 
-### Type aliases
+### Type Aliases
 
 - [DeflateError](codec.md#deflateerror)
 - [InflateError](codec.md#inflateerror)
@@ -19,7 +19,7 @@
 
 ### Variables
 
-- [MultiHash](codec.md#multihash)
+- [MultiHash](codec.md#multihash-1)
 
 ### Functions
 
@@ -45,7 +45,7 @@
 - [inflate](codec.md#inflate)
 - [stringToBytes](codec.md#stringtobytes)
 
-## Type aliases
+## Type Aliases
 
 ### DeflateError
 
@@ -73,7 +73,7 @@ ___
 
 ### InvalidBase64URLDecodeError
 
-Ƭ **InvalidBase64URLDecodeError**: [InvalidBase64URLDecodeError](../modules.md#invalidbase64urldecodeerror)
+Ƭ **InvalidBase64URLDecodeError**: [`InvalidBase64URLDecodeError`](../modules.md#invalidbase64urldecodeerror)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 ### InvalidJSONError
 
-Ƭ **InvalidJSONError**: [InvalidJSONError](../modules.md#invalidjsonerror)
+Ƭ **InvalidJSONError**: [`InvalidJSONError`](../modules.md#invalidjsonerror)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 ### base32Decode
 
-▸ `Const` **base32Decode**(`base32String`): [Result](result.md)<Uint8Array, InvalidBase32DecodeError\>
+▸ **base32Decode**(`base32String`): [`Result`](../modules.md#result)<`Uint8Array`, `InvalidBase32DecodeError`\>
 
 #### Parameters
 
@@ -125,13 +125,13 @@ ___
 
 #### Returns
 
-[Result](result.md)<Uint8Array, InvalidBase32DecodeError\>
+[`Result`](../modules.md#result)<`Uint8Array`, `InvalidBase32DecodeError`\>
 
 ___
 
 ### base32DecodeToString
 
-▸ `Const` **base32DecodeToString**(`base32String`): [Result](result.md)<string, InvalidBase32DecodeError\>
+▸ **base32DecodeToString**(`base32String`): [`Result`](../modules.md#result)<`string`, `InvalidBase32DecodeError`\>
 
 #### Parameters
 
@@ -141,13 +141,13 @@ ___
 
 #### Returns
 
-[Result](result.md)<string, InvalidBase32DecodeError\>
+[`Result`](../modules.md#result)<`string`, `InvalidBase32DecodeError`\>
 
 ___
 
 ### base32Encode
 
-▸ `Const` **base32Encode**(`byteArray`): `string`
+▸ **base32Encode**(`byteArray`): `string`
 
 #### Parameters
 
@@ -163,7 +163,7 @@ ___
 
 ### base32EncodeFromString
 
-▸ `Const` **base32EncodeFromString**(`str`): `string`
+▸ **base32EncodeFromString**(`str`): `string`
 
 #### Parameters
 
@@ -179,7 +179,7 @@ ___
 
 ### base64Decode
 
-▸ `Const` **base64Decode**(`base64String`): [Result](result.md)<Uint8Array, InvalidBase64DecodeError\>
+▸ **base64Decode**(`base64String`): [`Result`](../modules.md#result)<`Uint8Array`, `InvalidBase64DecodeError`\>
 
 #### Parameters
 
@@ -189,13 +189,13 @@ ___
 
 #### Returns
 
-[Result](result.md)<Uint8Array, InvalidBase64DecodeError\>
+[`Result`](../modules.md#result)<`Uint8Array`, `InvalidBase64DecodeError`\>
 
 ___
 
 ### base64DecodeToString
 
-▸ `Const` **base64DecodeToString**(`base64String`): [Result](result.md)<string, InvalidBase64DecodeError\>
+▸ **base64DecodeToString**(`base64String`): [`Result`](../modules.md#result)<`string`, `InvalidBase64DecodeError`\>
 
 #### Parameters
 
@@ -205,13 +205,13 @@ ___
 
 #### Returns
 
-[Result](result.md)<string, InvalidBase64DecodeError\>
+[`Result`](../modules.md#result)<`string`, `InvalidBase64DecodeError`\>
 
 ___
 
 ### base64Encode
 
-▸ `Const` **base64Encode**(`byteArray`): `string`
+▸ **base64Encode**(`byteArray`): `string`
 
 #### Parameters
 
@@ -227,7 +227,7 @@ ___
 
 ### base64EncodeFromString
 
-▸ `Const` **base64EncodeFromString**(`str`): `string`
+▸ **base64EncodeFromString**(`str`): `string`
 
 #### Parameters
 
@@ -243,7 +243,7 @@ ___
 
 ### base64UrlDecode
 
-▸ `Const` **base64UrlDecode**(`base64urlString`): [Result](result.md)<Uint8Array, [InvalidBase64URLDecodeError](../modules.md#invalidbase64urldecodeerror)\>
+▸ **base64UrlDecode**(`base64urlString`): [`Result`](../modules.md#result)<`Uint8Array`, [`InvalidBase64URLDecodeError`](../modules.md#invalidbase64urldecodeerror)\>
 
 #### Parameters
 
@@ -253,13 +253,13 @@ ___
 
 #### Returns
 
-[Result](result.md)<Uint8Array, [InvalidBase64URLDecodeError](../modules.md#invalidbase64urldecodeerror)\>
+[`Result`](../modules.md#result)<`Uint8Array`, [`InvalidBase64URLDecodeError`](../modules.md#invalidbase64urldecodeerror)\>
 
 ___
 
 ### base64UrlDecodeToObject
 
-▸ `Const` **base64UrlDecodeToObject**(`base64urlString`): [Result](result.md)<object, [InvalidBase64URLDecodeError](../modules.md#invalidbase64urldecodeerror) \| [InvalidJSONError](../modules.md#invalidjsonerror)\>
+▸ **base64UrlDecodeToObject**(`base64urlString`): [`Result`](../modules.md#result)<`object`, [`InvalidBase64URLDecodeError`](../modules.md#invalidbase64urldecodeerror) \| [`InvalidJSONError`](../modules.md#invalidjsonerror)\>
 
 #### Parameters
 
@@ -269,13 +269,13 @@ ___
 
 #### Returns
 
-[Result](result.md)<object, [InvalidBase64URLDecodeError](../modules.md#invalidbase64urldecodeerror) \| [InvalidJSONError](../modules.md#invalidjsonerror)\>
+[`Result`](../modules.md#result)<`object`, [`InvalidBase64URLDecodeError`](../modules.md#invalidbase64urldecodeerror) \| [`InvalidJSONError`](../modules.md#invalidjsonerror)\>
 
 ___
 
 ### base64UrlEncode
 
-▸ `Const` **base64UrlEncode**(`byteArray`): `string`
+▸ **base64UrlEncode**(`byteArray`): `string`
 
 #### Parameters
 
@@ -291,13 +291,13 @@ ___
 
 ### base64UrlEncodeFromObject
 
-▸ `Const` **base64UrlEncodeFromObject**(`obj`): `string`
+▸ **base64UrlEncodeFromObject**(`obj`): `string`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `obj` | `Record`<string, unknown\> |
+| `obj` | `Record`<`string`, `unknown`\> |
 
 #### Returns
 
@@ -307,7 +307,7 @@ ___
 
 ### base64UrlEncodeFromString
 
-▸ `Const` **base64UrlEncodeFromString**(`str`): `string`
+▸ **base64UrlEncodeFromString**(`str`): `string`
 
 #### Parameters
 
@@ -323,7 +323,7 @@ ___
 
 ### base64UrlEncodeNoPadding
 
-▸ `Const` **base64UrlEncodeNoPadding**(`bytes`): `string`
+▸ **base64UrlEncodeNoPadding**(`bytes`): `string`
 
 #### Parameters
 
@@ -339,7 +339,7 @@ ___
 
 ### bytesToString
 
-▸ `Const` **bytesToString**(`bytes`): `string`
+▸ **bytesToString**(`bytes`): `string`
 
 #### Parameters
 
@@ -355,24 +355,24 @@ ___
 
 ### canonicalMultiHash
 
-▸ `Const` **canonicalMultiHash**(`input`, `hashAlgorithm`): [Result](result.md)<Uint8Array, MultiHashError\>
+▸ **canonicalMultiHash**(`input`, `hashAlgorithm`): [`Result`](../modules.md#result)<`Uint8Array`, `MultiHashError`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `input` | `Record`<string, unknown\> |
+| `input` | `Record`<`string`, `unknown`\> |
 | `hashAlgorithm` | `Sha256` |
 
 #### Returns
 
-[Result](result.md)<Uint8Array, MultiHashError\>
+[`Result`](../modules.md#result)<`Uint8Array`, `MultiHashError`\>
 
 ___
 
 ### decodeCborld
 
-▸ `Const` **decodeCborld**(`byteArray`, `documentLoader`): `ResultAsync`<unknown, InvalidCborldDecodeError\>
+▸ **decodeCborld**(`byteArray`, `documentLoader`): `ResultAsync`<`unknown`, `InvalidCborldDecodeError`\>
 
 #### Parameters
 
@@ -383,13 +383,13 @@ ___
 
 #### Returns
 
-`ResultAsync`<unknown, InvalidCborldDecodeError\>
+`ResultAsync`<`unknown`, `InvalidCborldDecodeError`\>
 
 ___
 
 ### deflate
 
-▸ `Const` **deflate**(`data`): [Result](result.md)<Uint8Array, DeflateError\>
+▸ **deflate**(`data`): [`Result`](../modules.md#result)<`Uint8Array`, `DeflateError`\>
 
 #### Parameters
 
@@ -399,30 +399,30 @@ ___
 
 #### Returns
 
-[Result](result.md)<Uint8Array, DeflateError\>
+[`Result`](../modules.md#result)<`Uint8Array`, `DeflateError`\>
 
 ___
 
 ### encodeCborld
 
-▸ `Const` **encodeCborld**(`jsonldDocument`, `documentLoader`): `ResultAsync`<Uint8Array, InvalidCborldEncodeError\>
+▸ **encodeCborld**(`jsonldDocument`, `documentLoader`): `ResultAsync`<`Uint8Array`, `InvalidCborldEncodeError`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `jsonldDocument` | `Record`<string, unknown\> |
+| `jsonldDocument` | `Record`<`string`, `unknown`\> |
 | `documentLoader` | `DocumentLoader` |
 
 #### Returns
 
-`ResultAsync`<Uint8Array, InvalidCborldEncodeError\>
+`ResultAsync`<`Uint8Array`, `InvalidCborldEncodeError`\>
 
 ___
 
 ### inflate
 
-▸ `Const` **inflate**(`data`): [Result](result.md)<Uint8Array, InflateError\>
+▸ **inflate**(`data`): [`Result`](../modules.md#result)<`Uint8Array`, `InflateError`\>
 
 #### Parameters
 
@@ -432,13 +432,13 @@ ___
 
 #### Returns
 
-[Result](result.md)<Uint8Array, InflateError\>
+[`Result`](../modules.md#result)<`Uint8Array`, `InflateError`\>
 
 ___
 
 ### stringToBytes
 
-▸ `Const` **stringToBytes**(`str`): `Uint8Array`
+▸ **stringToBytes**(`str`): `Uint8Array`
 
 #### Parameters
 

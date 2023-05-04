@@ -96,6 +96,13 @@ Run pod install:
 cd ios && pod install
 ```
 
+Add `arm64` to all profiles under: xcode -> Build Settings -> Excluded Architectures -> Any iOS Simulator SDK, it should
+show the following changes under `xxx.xcodeproj` for each of the profiles
+
+```
+"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+```
+
 # Usage
 
 ## Codec

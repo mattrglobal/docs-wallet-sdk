@@ -6,48 +6,48 @@
 
 ### Namespaces
 
-- [Result](modules/result.md)
+- [Result](modules/Result.md)
 - [codec](modules/codec.md)
 
 ### Enumerations
 
-- [CredentialFormatSupported](enums/credentialformatsupported.md)
-- [CredentialOfferType](enums/credentialoffertype.md)
-- [CredentialStatusType](enums/credentialstatustype.md)
-- [DiscoverErrorType](enums/discovererrortype.md)
-- [GenerateAuthorizeUrlErrorType](enums/generateauthorizeurlerrortype.md)
-- [QueryType](enums/querytype.md)
-- [ResolveDidCommUriErrorType](enums/resolvedidcommurierrortype.md)
-- [RetrieveCredentialsErrorType](enums/retrievecredentialserrortype.md)
-- [RetrieveTokenErrorType](enums/retrievetokenerrortype.md)
-- [SecureKeyValueStoreErrorType](enums/securekeyvaluestoreerrortype.md)
+- [CredentialFormatSupported](enums/CredentialFormatSupported.md)
+- [CredentialOfferType](enums/CredentialOfferType.md)
+- [CredentialStatusType](enums/CredentialStatusType.md)
+- [DiscoverErrorType](enums/DiscoverErrorType.md)
+- [GenerateAuthorizeUrlErrorType](enums/GenerateAuthorizeUrlErrorType.md)
+- [QueryType](enums/QueryType.md)
+- [ResolveDidCommUriErrorType](enums/ResolveDidCommUriErrorType.md)
+- [RetrieveCredentialsErrorType](enums/RetrieveCredentialsErrorType.md)
+- [RetrieveTokenErrorType](enums/RetrieveTokenErrorType.md)
+- [SecureKeyValueStoreErrorType](enums/SecureKeyValueStoreErrorType.md)
 
 ### Interfaces
 
-- [BaseError](interfaces/baseerror.md)
-- [CheckStatusResult](interfaces/checkstatusresult.md)
-- [Credential](interfaces/credential.md)
-- [CredentialExample](interfaces/credentialexample.md)
-- [CredentialFrame](interfaces/credentialframe.md)
-- [CredentialQueryByExample](interfaces/credentialquerybyexample.md)
-- [CredentialQueryByFrame](interfaces/credentialquerybyframe.md)
-- [CredentialSubject](interfaces/credentialsubject.md)
-- [DidAuthQuery](interfaces/didauthquery.md)
-- [DidDocument](interfaces/diddocument.md)
-- [DidService](interfaces/didservice.md)
-- [DidServiceInfoResponse](interfaces/didserviceinforesponse.md)
-- [JsonLdFrame](interfaces/jsonldframe.md)
-- [Jwm](interfaces/jwm.md)
-- [KeyManagementService](interfaces/keymanagementservice.md)
-- [QueryByExample](interfaces/querybyexample.md)
-- [QueryByFrame](interfaces/querybyframe.md)
-- [RevocableVerifiableCredential](interfaces/revocableverifiablecredential.md)
-- [TrustedIssuer](interfaces/trustedissuer.md)
-- [VerifiableCredentialProof](interfaces/verifiablecredentialproof.md)
-- [VerifiablePresentation](interfaces/verifiablepresentation.md)
-- [VerifiablePresentationRequest](interfaces/verifiablepresentationrequest.md)
+- [BaseError](interfaces/BaseError.md)
+- [CheckStatusResult](interfaces/CheckStatusResult.md)
+- [Credential](interfaces/Credential.md)
+- [CredentialExample](interfaces/CredentialExample.md)
+- [CredentialFrame](interfaces/CredentialFrame.md)
+- [CredentialQueryByExample](interfaces/CredentialQueryByExample.md)
+- [CredentialQueryByFrame](interfaces/CredentialQueryByFrame.md)
+- [CredentialSubject](interfaces/CredentialSubject.md)
+- [DidAuthQuery](interfaces/DidAuthQuery.md)
+- [DidDocument](interfaces/DidDocument.md)
+- [DidService](interfaces/DidService.md)
+- [DidServiceInfoResponse](interfaces/DidServiceInfoResponse.md)
+- [JsonLdFrame](interfaces/JsonLdFrame.md)
+- [Jwm](interfaces/Jwm.md)
+- [KeyManagementService](interfaces/KeyManagementService.md)
+- [QueryByExample](interfaces/QueryByExample.md)
+- [QueryByFrame](interfaces/QueryByFrame.md)
+- [RevocableVerifiableCredential](interfaces/RevocableVerifiableCredential.md)
+- [TrustedIssuer](interfaces/TrustedIssuer.md)
+- [VerifiableCredentialProof](interfaces/VerifiableCredentialProof.md)
+- [VerifiablePresentation](interfaces/VerifiablePresentation.md)
+- [VerifiablePresentationRequest](interfaces/VerifiablePresentationRequest.md)
 
-### Type aliases
+### Type Aliases
 
 - [AuthorizeRequestParameters](modules.md#authorizerequestparameters)
 - [BaseSDKError](modules.md#basesdkerror)
@@ -150,7 +150,7 @@
 - [open](modules.md#open)
 - [unwrap](modules.md#unwrap)
 
-## Type aliases
+## Type Aliases
 
 ### AuthorizeRequestParameters
 
@@ -167,7 +167,7 @@ ___
 
 ### BaseSDKError
 
-Ƭ **BaseSDKError**: [BaseError](interfaces/baseerror.md) & { `message`: `string`  }
+Ƭ **BaseSDKError**: [`BaseError`](interfaces/BaseError.md) & { `message`: `string`  }
 
 **`deprecated`** use BaseError with generic support
 
@@ -175,13 +175,13 @@ ___
 
 ### CloseWalletError
 
-Ƭ **CloseWalletError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"CloseWalletError"``  }
+Ƭ **CloseWalletError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CloseWalletError"``  }
 
 ___
 
 ### CreateDidError
 
-Ƭ **CreateDidError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"CreateDidError"``  }
+Ƭ **CreateDidError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreateDidError"``  }
 
 ___
 
@@ -199,31 +199,31 @@ ___
 
 ### CreatePresentationErrorCouldNotFindSubjectSigningKey
 
-Ƭ **CreatePresentationErrorCouldNotFindSubjectSigningKey**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorCouldNotFindSubjectSigningKey"``  }
+Ƭ **CreatePresentationErrorCouldNotFindSubjectSigningKey**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorCouldNotFindSubjectSigningKey"``  }
 
 ___
 
 ### CreatePresentationErrorHolderNotADid
 
-Ƭ **CreatePresentationErrorHolderNotADid**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorHolderNotADid"``  }
+Ƭ **CreatePresentationErrorHolderNotADid**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorHolderNotADid"``  }
 
 ___
 
 ### CreatePresentationErrorSubjectDidHasNoAuthenticationUrl
 
-Ƭ **CreatePresentationErrorSubjectDidHasNoAuthenticationUrl**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorSubjectDidHasNoAuthenticationUrl"``  }
+Ƭ **CreatePresentationErrorSubjectDidHasNoAuthenticationUrl**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorSubjectDidHasNoAuthenticationUrl"``  }
 
 ___
 
 ### CreatePresentationErrorSubjectNotADid
 
-Ƭ **CreatePresentationErrorSubjectNotADid**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorSubjectNotADid"``  }
+Ƭ **CreatePresentationErrorSubjectNotADid**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorSubjectNotADid"``  }
 
 ___
 
 ### CreatePresentationErrors
 
-Ƭ **CreatePresentationErrors**: [CreatePresentationErrorSubjectNotADid](modules.md#createpresentationerrorsubjectnotadid) \| [CreatePresentationErrorHolderNotADid](modules.md#createpresentationerrorholdernotadid) \| [CreatePresentationErrorSubjectDidHasNoAuthenticationUrl](modules.md#createpresentationerrorsubjectdidhasnoauthenticationurl) \| [CreatePresentationErrorCouldNotFindSubjectSigningKey](modules.md#createpresentationerrorcouldnotfindsubjectsigningkey)
+Ƭ **CreatePresentationErrors**: [`CreatePresentationErrorSubjectNotADid`](modules.md#createpresentationerrorsubjectnotadid) \| [`CreatePresentationErrorHolderNotADid`](modules.md#createpresentationerrorholdernotadid) \| [`CreatePresentationErrorSubjectDidHasNoAuthenticationUrl`](modules.md#createpresentationerrorsubjectdidhasnoauthenticationurl) \| [`CreatePresentationErrorCouldNotFindSubjectSigningKey`](modules.md#createpresentationerrorcouldnotfindsubjectsigningkey)
 
 ___
 
@@ -236,7 +236,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `challenge` | `string` |
-| `credentials?` | readonly [VerifiableCredential](modules.md#verifiablecredential)[] |
+| `credentials?` | readonly [`VerifiableCredential`](modules.md#verifiablecredential)[] |
 | `domain?` | `string` |
 | `holder?` | `string` |
 
@@ -250,13 +250,13 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `credential` | [Credential](interfaces/credential.md) |
+| `credential` | [`Credential`](interfaces/Credential.md) |
 
 ___
 
 ### CredentialIssuer
 
-Ƭ **CredentialIssuer**: `string` \| { [key: string]: `any`; `id`: `string`  }
+Ƭ **CredentialIssuer**: `string` \| { `[key: string]`: `any`; `id`: `string`  }
 
 **`see`** https://www.w3.org/TR/vc-data-model/#issuer
 
@@ -264,7 +264,7 @@ ___
 
 ### CredentialNotFoundInTokenError
 
-Ƭ **CredentialNotFoundInTokenError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"CredentialNotFoundInTokenError"``  }
+Ƭ **CredentialNotFoundInTokenError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CredentialNotFoundInTokenError"``  }
 
 ___
 
@@ -277,10 +277,10 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `claims?` | `CredentialOfferedClaim`[] |
-| `credentialDefinition` | [OpenidIssuanceCredentialDefinition](modules.md#openidissuancecredentialdefinition) |
+| `credentialDefinition` | [`OpenidIssuanceCredentialDefinition`](modules.md#openidissuancecredentialdefinition) |
 | `cryptographicBindingMethodsSupported?` | `string`[] |
 | `cryptographicSuitesSupported?` | `string`[] |
-| `format` | [LinkedDataProofsVerifiableCredential](enums/credentialformatsupported.md#linkeddataproofsverifiablecredential) |
+| `format` | [`LinkedDataProofsVerifiableCredential`](enums/CredentialFormatSupported.md#linkeddataproofsverifiablecredential) |
 | `name?` | `string` |
 | `scope` | `string` |
 
@@ -288,19 +288,19 @@ ___
 
 ### DecryptError
 
-Ƭ **DecryptError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"DecryptError"``  }
+Ƭ **DecryptError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"DecryptError"``  }
 
 ___
 
 ### DeleteDidError
 
-Ƭ **DeleteDidError**: [DidNotFoundError](modules.md#didnotfounderror) \| [DidDeletionError](modules.md#diddeletionerror)
+Ƭ **DeleteDidError**: [`DidNotFoundError`](modules.md#didnotfounderror) \| [`DidDeletionError`](modules.md#diddeletionerror)
 
 ___
 
 ### DeriveCredentialError
 
-Ƭ **DeriveCredentialError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"DeriveCredentialError"``  }
+Ƭ **DeriveCredentialError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"DeriveCredentialError"``  }
 
 ___
 
@@ -312,8 +312,8 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `credential` | [VerifiableCredential](modules.md#verifiablecredential) |
-| `credentialFrame` | [CredentialFrame](interfaces/credentialframe.md) |
+| `credential` | [`VerifiableCredential`](modules.md#verifiablecredential) |
+| `credentialFrame` | [`CredentialFrame`](interfaces/CredentialFrame.md) |
 
 ___
 
@@ -333,19 +333,19 @@ ___
 
 ### DidDeletionError
 
-Ƭ **DidDeletionError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"DidDeletionError"``  }
+Ƭ **DidDeletionError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"DidDeletionError"``  }
 
 ___
 
 ### DidNotFoundError
 
-Ƭ **DidNotFoundError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"DidNotFoundError"``  }
+Ƭ **DidNotFoundError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"DidNotFoundError"``  }
 
 ___
 
 ### DidResolutionError
 
-Ƭ **DidResolutionError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"DidResolutionError"``  }
+Ƭ **DidResolutionError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"DidResolutionError"``  }
 
 ___
 
@@ -357,13 +357,13 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `offer` | [OidcCredentialOffer](modules.md#oidccredentialoffer) | An OIDC credential offer |
+| `offer` | [`OidcCredentialOffer`](modules.md#oidccredentialoffer) | An OIDC credential offer |
 
 ___
 
 ### EncryptError
 
-Ƭ **EncryptError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"EncryptError"``  }
+Ƭ **EncryptError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"EncryptError"``  }
 
 ___
 
@@ -375,7 +375,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `payload` | `string` \| `Record`<string, unknown\> | The payload to encrypt |
+| `payload` | `string` \| `Record`<`string`, `unknown`\> | The payload to encrypt |
 | `recipientDids` | readonly `string`[] | The DIDs of the message recipients |
 | `senderDid` | `string` | The DID of the sender |
 
@@ -383,13 +383,13 @@ ___
 
 ### EncryptionKeyNotFoundError
 
-Ƭ **EncryptionKeyNotFoundError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"EncryptionKeyNotFoundError"``  }
+Ƭ **EncryptionKeyNotFoundError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"EncryptionKeyNotFoundError"``  }
 
 ___
 
 ### ExpandCredentialError
 
-Ƭ **ExpandCredentialError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"ExpandCredentialError"``  }
+Ƭ **ExpandCredentialError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"ExpandCredentialError"``  }
 
 ___
 
@@ -401,19 +401,19 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `credential` | [VerifiableCredential](modules.md#verifiablecredential) |
+| `credential` | [`VerifiableCredential`](modules.md#verifiablecredential) |
 
 ___
 
 ### FilterCredentialsByQueryError
 
-Ƭ **FilterCredentialsByQueryError**: [PresentationRequestError](modules.md#presentationrequesterror)
+Ƭ **FilterCredentialsByQueryError**: [`PresentationRequestError`](modules.md#presentationrequesterror)
 
 ___
 
 ### FilterCredentialsByQueryOptions
 
-Ƭ **FilterCredentialsByQueryOptions**<T\>: `Object`
+Ƭ **FilterCredentialsByQueryOptions**<`T`\>: `Object`
 
 Filter credentials by query options
 
@@ -421,7 +421,7 @@ Filter credentials by query options
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `T` | `T`: [CredentialData](modules.md#credentialdata) | Additional data extending [CredentialData](modules.md#credentialdata) |
+| `T` | extends [`CredentialData`](modules.md#credentialdata) | Additional data extending [CredentialData](modules.md#credentialdata) |
 
 #### Type declaration
 
@@ -429,13 +429,13 @@ Filter credentials by query options
 | :------ | :------ | :------ |
 | `checkWithCompactJsonLdDocument?` | `boolean` | When `true`, filter credentials by the compact form of the credentials and request query |
 | `credentials` | readonly `T`[] | A list of credential data to query against |
-| `query` | [VerifiablePresentationRequestQuery](modules.md#verifiablepresentationrequestquery) | A [VerifiablePresentationRequestQuery](modules.md#verifiablepresentationrequestquery) to filter the credentials with |
+| `query` | [`VerifiablePresentationRequestQuery`](modules.md#verifiablepresentationrequestquery) | A [VerifiablePresentationRequestQuery](modules.md#verifiablepresentationrequestquery) to filter the credentials with |
 
 ___
 
 ### FilterCredentialsByQueryResponse
 
-Ƭ **FilterCredentialsByQueryResponse**<T\>: `FilterCredentialsByExampleResponse`<T\> \| `FilterCredentialsByFrameResponse`<T\> \| `FilterCredentialsByDidAuthResponse`<T\>
+Ƭ **FilterCredentialsByQueryResponse**<`T`\>: `FilterCredentialsByExampleResponse`<`T`\> \| `FilterCredentialsByFrameResponse`<`T`\> \| `FilterCredentialsByDidAuthResponse`<`T`\>
 
 Filter credentials by query response
 
@@ -443,7 +443,7 @@ Filter credentials by query response
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `T` | `T`: [CredentialData](modules.md#credentialdata) | Additional data extending [CredentialData](modules.md#credentialdata) |
+| `T` | extends [`CredentialData`](modules.md#credentialdata) | Additional data extending [CredentialData](modules.md#credentialdata) |
 
 ___
 
@@ -471,7 +471,7 @@ ___
 | :------ | :------ |
 | `clientId?` | `string` |
 | `did` | `string` |
-| `offer` | [OidcCredentialOffer](modules.md#oidccredentialoffer) |
+| `offer` | [`OidcCredentialOffer`](modules.md#oidccredentialoffer) |
 | `redirectUri?` | `string` |
 | `state?` | `string` |
 
@@ -479,61 +479,61 @@ ___
 
 ### GenericSdkError
 
-Ƭ **GenericSdkError**: [BaseError](interfaces/baseerror.md)<``"GenericError"``\>
+Ƭ **GenericSdkError**: [`BaseError`](interfaces/BaseError.md)<``"GenericError"``\>
 
 ___
 
 ### GetDidsError
 
-Ƭ **GetDidsError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"GetDidsError"``  }
+Ƭ **GetDidsError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"GetDidsError"``  }
 
 ___
 
 ### HttpCacheError
 
-Ƭ **HttpCacheError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"HttpCacheError"``  }
+Ƭ **HttpCacheError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"HttpCacheError"``  }
 
 ___
 
 ### InvalidBase64URLDecodeError
 
-Ƭ **InvalidBase64URLDecodeError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"InvalidBase64URLDecodeError"``  }
+Ƭ **InvalidBase64URLDecodeError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"InvalidBase64URLDecodeError"``  }
 
 ___
 
 ### InvalidDidError
 
-Ƭ **InvalidDidError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"InvalidDidError"``  }
+Ƭ **InvalidDidError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"InvalidDidError"``  }
 
 ___
 
 ### InvalidIdTokenError
 
-Ƭ **InvalidIdTokenError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"InvalidIdTokenError"``  }
+Ƭ **InvalidIdTokenError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"InvalidIdTokenError"``  }
 
 ___
 
 ### InvalidIssuerUriError
 
-Ƭ **InvalidIssuerUriError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: `OidcErrorType.InvalidIssuerUriError`  }
+Ƭ **InvalidIssuerUriError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: `OidcErrorType.InvalidIssuerUriError`  }
 
 ___
 
 ### InvalidJSONError
 
-Ƭ **InvalidJSONError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"InvalidJSONError"``  }
+Ƭ **InvalidJSONError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"InvalidJSONError"``  }
 
 ___
 
 ### InvalidOpenIdConfigurationError
 
-Ƭ **InvalidOpenIdConfigurationError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: `OidcErrorType.InvalidOpenIdConfigurationError`  }
+Ƭ **InvalidOpenIdConfigurationError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: `OidcErrorType.InvalidOpenIdConfigurationError`  }
 
 ___
 
 ### MalformedEncryptionKeyError
 
-Ƭ **MalformedEncryptionKeyError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"MalformedEncryptionKeyError"``  }
+Ƭ **MalformedEncryptionKeyError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"MalformedEncryptionKeyError"``  }
 
 ___
 
@@ -551,13 +551,13 @@ ___
 | `name` | `string` |
 | `requestParameters?` | `OidcRequestParameters` |
 | `tokenEndpoint` | `string` |
-| `type` | [CredentialOfferType](enums/credentialoffertype.md) |
+| `type` | [`CredentialOfferType`](enums/CredentialOfferType.md) |
 
 ___
 
 ### OpenDidCommError
 
-Ƭ **OpenDidCommError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"OpenDidCommError"``  }
+Ƭ **OpenDidCommError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"OpenDidCommError"``  }
 
 ___
 
@@ -600,9 +600,9 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `authorizeEndpoint` | `string` |
-| `authorizeRequestParameters?` | [AuthorizeRequestParameters](modules.md#authorizerequestparameters) |
+| `authorizeRequestParameters?` | [`AuthorizeRequestParameters`](modules.md#authorizerequestparameters) |
 | `credentialEndpoint` | `string` |
-| `credentials` | ([CredentialOffered](modules.md#credentialoffered) \| `DeprecatedCredentialOffered`)[] |
+| `credentials` | ([`CredentialOffered`](modules.md#credentialoffered) \| `DeprecatedCredentialOffered`)[] |
 | `issuer` | `string` |
 | `tokenEndpoint` | `string` |
 
@@ -618,7 +618,7 @@ Result for discover
 
 | Name | Type |
 | :------ | :------ |
-| `offer` | [OpenidIssuanceCredentialOffer](modules.md#openidissuancecredentialoffer) |
+| `offer` | [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer) |
 
 ___
 
@@ -648,7 +648,7 @@ Options for generate authorize url
 | Name | Type |
 | :------ | :------ |
 | `clientId?` | `string` |
-| `offer` | [OpenidIssuanceCredentialOffer](modules.md#openidissuancecredentialoffer) |
+| `offer` | [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer) |
 | `redirectUri?` | `string` |
 | `state?` | `string` |
 
@@ -666,7 +666,7 @@ Options for retrieve credentials
 | :------ | :------ |
 | `accessToken` | `string` |
 | `clientId?` | `string` |
-| `offer` | [OpenidIssuanceCredentialOffer](modules.md#openidissuancecredentialoffer) |
+| `offer` | [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer) |
 
 ___
 
@@ -680,7 +680,7 @@ Result for retrieve credentials
 
 | Name | Type |
 | :------ | :------ |
-| `credentials` | { `credential`: [VerifiableCredential](modules.md#verifiablecredential) ; `did`: `string` ; `format`: [LinkedDataProofsVerifiableCredential](enums/credentialformatsupported.md#linkeddataproofsverifiablecredential)  }[] |
+| `credentials` | { `credential`: [`VerifiableCredential`](modules.md#verifiablecredential) ; `did`: `string` ; `format`: [`LinkedDataProofsVerifiableCredential`](enums/CredentialFormatSupported.md#linkeddataproofsverifiablecredential)  }[] |
 
 ___
 
@@ -697,7 +697,7 @@ Options for retrieve token
 | `clientId?` | `string` |
 | `code` | `string` |
 | `codeVerifier` | `string` |
-| `offer` | [OpenidIssuanceCredentialOffer](modules.md#openidissuancecredentialoffer) |
+| `offer` | [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer) |
 | `redirectUri?` | `string` |
 
 ___
@@ -719,19 +719,19 @@ ___
 
 ### PresentationRequestError
 
-Ƭ **PresentationRequestError**: [BaseError](interfaces/baseerror.md)<PresentationRequestErrorType\>
+Ƭ **PresentationRequestError**: [`BaseError`](interfaces/BaseError.md)<`PresentationRequestErrorType`\>
 
 ___
 
 ### PresentationRequestJwm
 
-Ƭ **PresentationRequestJwm**: [Jwm](interfaces/jwm.md) & { `body`: [VerifiablePresentationRequest](interfaces/verifiablepresentationrequest.md) ; `from`: `string` ; `reply_to`: readonly `string`[] ; `reply_url`: `string` ; `type`: `PresentationRequestType`  }
+Ƭ **PresentationRequestJwm**: [`Jwm`](interfaces/Jwm.md) & { `body`: [`VerifiablePresentationRequest`](interfaces/VerifiablePresentationRequest.md) ; `from`: `string` ; `reply_to`: readonly `string`[] ; `reply_url`: `string` ; `type`: `PresentationRequestType`  }
 
 ___
 
 ### Result
 
-Ƭ **Result**<T, E\>: `Ok`<T, E\> \| `Err`<T, E\>
+Ƭ **Result**<`T`, `E`\>: `Ok`<`T`, `E`\> \| `Err`<`T`, `E`\>
 
 #### Type parameters
 
@@ -744,7 +744,7 @@ ___
 
 ### RetrieveCredentialError
 
-Ƭ **RetrieveCredentialError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"RetrieveCredentialError"``  }
+Ƭ **RetrieveCredentialError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"RetrieveCredentialError"``  }
 
 ___
 
@@ -760,7 +760,7 @@ ___
 | `code` | `string` |
 | `codeVerifier` | `string` |
 | `nonce` | `string` |
-| `offer` | [OidcCredentialOffer](modules.md#oidccredentialoffer) |
+| `offer` | [`OidcCredentialOffer`](modules.md#oidccredentialoffer) |
 | `redirectUri?` | `string` |
 
 ___
@@ -773,13 +773,13 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `credential` | [VerifiableCredential](modules.md#verifiablecredential) | The retrieved credential |
+| `credential` | [`VerifiableCredential`](modules.md#verifiablecredential) | The retrieved credential |
 
 ___
 
 ### SendPresentationErrorMissingSender
 
-Ƭ **SendPresentationErrorMissingSender**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"SendPresentationErrorMissingSender"``  }
+Ƭ **SendPresentationErrorMissingSender**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"SendPresentationErrorMissingSender"``  }
 
 ___
 
@@ -791,33 +791,33 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `presentation` | [VerifiablePresentation](interfaces/verifiablepresentation.md) |
-| `presentationRequest` | [PresentationRequestJwm](modules.md#presentationrequestjwm) |
+| `presentation` | [`VerifiablePresentation`](interfaces/VerifiablePresentation.md) |
+| `presentationRequest` | [`PresentationRequestJwm`](modules.md#presentationrequestjwm) |
 | `senderDid?` | `string` |
 
 ___
 
 ### SignError
 
-Ƭ **SignError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"SignError"``  }
+Ƭ **SignError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"SignError"``  }
 
 ___
 
 ### VerifiableCredential
 
-Ƭ **VerifiableCredential**: [Credential](interfaces/credential.md) & { `id?`: `string` ; `proof`: [VerifiableCredentialProof](interfaces/verifiablecredentialproof.md) \| readonly [VerifiableCredentialProof](interfaces/verifiablecredentialproof.md)[]  }
+Ƭ **VerifiableCredential**: [`Credential`](interfaces/Credential.md) & { `id?`: `string` ; `proof`: [`VerifiableCredentialProof`](interfaces/VerifiableCredentialProof.md) \| readonly [`VerifiableCredentialProof`](interfaces/VerifiableCredentialProof.md)[]  }
 
 ___
 
 ### VerifiablePresentationRequestQuery
 
-Ƭ **VerifiablePresentationRequestQuery**: [DidAuthQuery](interfaces/didauthquery.md) \| [QueryByExample](interfaces/querybyexample.md) \| [QueryByFrame](interfaces/querybyframe.md)
+Ƭ **VerifiablePresentationRequestQuery**: [`DidAuthQuery`](interfaces/DidAuthQuery.md) \| [`QueryByExample`](interfaces/QueryByExample.md) \| [`QueryByFrame`](interfaces/QueryByFrame.md)
 
 ___
 
 ### VerifyCredentialError
 
-Ƭ **VerifyCredentialError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"VerifyCredentialError"``  }
+Ƭ **VerifyCredentialError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"VerifyCredentialError"``  }
 
 ___
 
@@ -829,7 +829,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `credential` | [VerifiableCredential](modules.md#verifiablecredential) | The credential to verify |
+| `credential` | [`VerifiableCredential`](modules.md#verifiablecredential) | The credential to verify |
 
 ___
 
@@ -843,25 +843,25 @@ ___
 | :------ | :------ |
 | `credentialVerified` | `boolean` |
 | `expired` | `boolean` |
-| `status?` | [VerifyCredentialStatus](modules.md#verifycredentialstatus) |
+| `status?` | [`VerifyCredentialStatus`](modules.md#verifycredentialstatus) |
 
 ___
 
 ### VerifyCredentialStatus
 
-Ƭ **VerifyCredentialStatus**: [CheckStatusResult](interfaces/checkstatusresult.md) \| `undefined`
+Ƭ **VerifyCredentialStatus**: [`CheckStatusResult`](interfaces/CheckStatusResult.md) \| `undefined`
 
 ___
 
 ### VerifyError
 
-Ƭ **VerifyError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"VerifyError"``  }
+Ƭ **VerifyError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"VerifyError"``  }
 
 ___
 
 ### Wallet
 
-Ƭ **Wallet**: [WalletBase](modules.md#walletbase) & [WalletExtension](modules.md#walletextension)
+Ƭ **Wallet**: [`WalletBase`](modules.md#walletbase) & [`WalletExtension`](modules.md#walletextension)
 
 An instance of a wallet with React Native specific extensions.
 
@@ -869,7 +869,7 @@ ___
 
 ### WalletAlreadyCreatedError
 
-Ƭ **WalletAlreadyCreatedError**: [BaseSDKError](modules.md#basesdkerror) & { `type`: ``"WalletAlreadyCreatedError"``  }
+Ƭ **WalletAlreadyCreatedError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"WalletAlreadyCreatedError"``  }
 
 ___
 
@@ -883,46 +883,46 @@ An instance of a wallet
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `close` | () => `Promise`<[Result](modules/result.md)<void, [CloseWalletError](modules.md#closewalleterror)\>\> | Closes the wallet  **`remarks`** Wallet instance will not function anymore after close   **`returns`** A promise that resolves to a [Result](modules/result.md) containing void on ok or a [CloseWalletError](modules.md#closewalleterror) on error |
-| `credential` | `Object` | Namespace for credential operations |
-| `credential.derive` | (`options`: [DeriveCredentialOptions](modules.md#derivecredentialoptions)) => `Promise`<[Result](modules/result.md)<[VerifiableCredential](modules.md#verifiablecredential), [DeriveCredentialError](modules.md#derivecredentialerror)\>\> | Derives a credential based on a frame  **`param`** [DeriveCredentialOptions](modules.md#derivecredentialoptions) containing the credential to derive and the frame   **`returns`** A promise that resolves to a [Result](modules/result.md) containing the derived [VerifiableCredential](modules.md#verifiablecredential) on ok or a [DeriveCredentialError](modules.md#derivecredentialerror) on error |
-| `credential.expand` | (`options`: [ExpandCredentialOptions](modules.md#expandcredentialoptions)) => `Promise`<[Result](modules/result.md)<Record<string, unknown\>, [ExpandCredentialError](modules.md#expandcredentialerror) \| ExpandCredentialContextResolutionError\>\> | Expands a verifiable credential using jsonld  **`param`** The verifiable credential to expand |
-| `credential.isSelectivelyDisclosable` | (`credential`: [VerifiableCredential](modules.md#verifiablecredential)) => `boolean` | Determines if a credential is capable of selective disclosure  **`param`** The credential to check  **`returns`** A boolean representing if the credential is capable of selective disclosure |
-| `credential.verify` | (`options`: [VerifyCredentialOptions](modules.md#verifycredentialoptions)) => `Promise`<[Result](modules/result.md)<[VerifyCredentialResult](modules.md#verifycredentialresult), [VerifyCredentialError](modules.md#verifycredentialerror)\>\> | Attempts to verify a credential  **`param`** [VerifyCredentialOptions](modules.md#verifycredentialoptions) containing a credential to verify |
-| `did` | `Object` | Namespace for DID operations |
-| `did.create` | () => `Promise`<[Result](modules/result.md)<[CreateDidResponse](modules.md#createdidresponse), [CreateDidError](modules.md#creatediderror)\>\> | Create a new DID in the wallet  **`returns`** A promise that resolves to a [Result](modules/result.md) containing [CreateDidResponse](modules.md#createdidresponse) on ok or a [CreateDidError](modules.md#creatediderror) on error |
-| `did.delete` | (`did`: `string`) => `Promise`<[Result](modules/result.md)<void, [DeleteDidError](modules.md#deletediderror)\>\> | Delete an existing DID in the wallet  **`param`** The DID to delete from the wallet  **`returns`** A promise that resolves to void on ok or a [DeleteDidError](modules.md#deletediderror) on error |
-| `did.list` | () => `Promise`<[Result](modules/result.md)<readonly `string`[], [GetDidsError](modules.md#getdidserror)\>\> | List all DIDs created within the wallet  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a list of DIDs on ok or a  [GetDidsError](modules.md#getdidserror) on error |
-| `did.resolve` | (`did`: `string`) => `Promise`<[Result](modules/result.md)<[DidServiceInfoResponse](interfaces/didserviceinforesponse.md), [DidResolutionError](modules.md#didresolutionerror)\>\> | Resolves any DID into a DID document and the local metadata  **`param`** The DID to resolve  **`returns`** Resolves to a [Result](modules/result.md) containing a list of DIDs on ok or a  [GetDidsError](modules.md#getdidserror) on error |
-| `didService` | [DidService](interfaces/didservice.md) | An exposed [DidService](interfaces/didservice.md)  **`privateremarks`** Direct exposure of DidService will be removed in the future |
+| `credential` | { `derive`: (`options`: [`DeriveCredentialOptions`](modules.md#derivecredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifiableCredential`](modules.md#verifiablecredential), [`DeriveCredentialError`](modules.md#derivecredentialerror)\>\> ; `expand`: (`options`: [`ExpandCredentialOptions`](modules.md#expandcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<`Record`<`string`, `unknown`\>, [`ExpandCredentialError`](modules.md#expandcredentialerror) \| `ExpandCredentialContextResolutionError`\>\> ; `isSelectivelyDisclosable`: (`credential`: [`VerifiableCredential`](modules.md#verifiablecredential)) => `boolean` ; `verify`: (`options`: [`VerifyCredentialOptions`](modules.md#verifycredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifyCredentialResult`](modules.md#verifycredentialresult), [`VerifyCredentialError`](modules.md#verifycredentialerror)\>\>  } | Namespace for credential operations |
+| `credential.derive` | [object Object] | Derives a credential based on a frame |
+| `credential.expand` | [object Object] | Expands a verifiable credential using jsonld |
+| `credential.isSelectivelyDisclosable` | [object Object] | Determines if a credential is capable of selective disclosure |
+| `credential.verify` | [object Object] | Attempts to verify a credential |
+| `did` | { `create`: () => `Promise`<[`Result`](modules.md#result)<[`CreateDidResponse`](modules.md#createdidresponse), [`CreateDidError`](modules.md#creatediderror)\>\> ; `delete`: (`did`: `string`) => `Promise`<[`Result`](modules.md#result)<`void`, [`DeleteDidError`](modules.md#deletediderror)\>\> ; `list`: () => `Promise`<[`Result`](modules.md#result)<readonly `string`[], [`GetDidsError`](modules.md#getdidserror)\>\> ; `resolve`: (`did`: `string`) => `Promise`<[`Result`](modules.md#result)<[`DidServiceInfoResponse`](interfaces/DidServiceInfoResponse.md), [`DidResolutionError`](modules.md#didresolutionerror)\>\>  } | Namespace for DID operations |
+| `did.create` | [object Object] | Create a new DID in the wallet |
+| `did.delete` | [object Object] | Delete an existing DID in the wallet |
+| `did.list` | [object Object] | List all DIDs created within the wallet |
+| `did.resolve` | [object Object] | Resolves any DID into a DID document and the local metadata |
+| `didService` | [`DidService`](interfaces/DidService.md) | An exposed [DidService](interfaces/DidService.md)  **`privateremarks`** Direct exposure of DidService will be removed in the future |
+| `kms` | [`KeyManagementService`](interfaces/KeyManagementService.md) | An exposed [KeyManagementService](interfaces/KeyManagementService.md)  **`privateremarks`** Direct exposure of KeyManagementService will be removed in the future |
+| `linkedData` | { `cborld`: { `decode`: (`byteArray`: `Uint8Array`) => `ResultAsync`<`unknown`, `InvalidCborldDecodeError`\> ; `encode`: (`jsonldDocument`: `Record`<`string`, `unknown`\>) => `ResultAsync`<`Uint8Array`, `InvalidCborldEncodeError`\>  }  } | Namespace for linked data operations |
+| `linkedData.cborld` | { `decode`: (`byteArray`: `Uint8Array`) => `ResultAsync`<`unknown`, `InvalidCborldDecodeError`\> ; `encode`: (`jsonldDocument`: `Record`<`string`, `unknown`\>) => `ResultAsync`<`Uint8Array`, `InvalidCborldEncodeError`\>  } | Namespace for cborld conversion operations |
+| `linkedData.cborld.decode` | [object Object] | Decode CBOR-LD bytes intoto JSON-LD document |
+| `linkedData.cborld.encode` | [object Object] | Encode a JSON-LD document into CBOR-LD bytes |
+| `messaging` | { `encrypt`: (`options`: [`EncryptOptions`](modules.md#encryptoptions)) => `Promise`<[`Result`](modules.md#result)<`JweJsonSerialization`, [`EncryptError`](modules.md#encrypterror)\>\> ; `openDidCommMessage`: (`message`: `unknown`) => `Promise`<[`Result`](modules.md#result)<[`Jwm`](interfaces/Jwm.md), [`OpenDidCommError`](modules.md#opendidcommerror) \| [`VerifyError`](modules.md#verifyerror) \| [`DecryptError`](modules.md#decrypterror)\>\> ; `resolveDidCommUri`: (`didCommUri`: `string`) => `Promise`<[`Result`](modules.md#result)<`unknown`, [`BaseError`](interfaces/BaseError.md)<[`ResolveDidCommUriErrorType`](enums/ResolveDidCommUriErrorType.md)\>\>\> ; `sign`: (`payload`: `string` \| `Record`<`string`, `unknown`\>, `senderDid`: `string`) => `Promise`<[`Result`](modules.md#result)<`string`, [`SignError`](modules.md#signerror)\>\>  } | Namespace for messaging operations |
+| `messaging.encrypt` | [object Object] | Encrypts a message |
+| `messaging.openDidCommMessage` | [object Object] | Opens a DIDComm message |
+| `messaging.resolveDidCommUri` | [object Object] | Resolves a DIDComm URI into an object |
+| `messaging.sign` | [object Object] | Signs a message |
+| `oidc` | { `discover`: (`issuerUri`: `string`) => `Promise`<[`Result`](modules.md#result)<[`DiscoverResult`](modules.md#discoverresult), [`InvalidIssuerUriError`](modules.md#invalidissuerurierror) \| [`InvalidOpenIdConfigurationError`](modules.md#invalidopenidconfigurationerror)\>\> ; `generateAuthorizeUrl`: (`options`: [`GenerateAuthorizeUrlOptions`](modules.md#generateauthorizeurloptions)) => `Promise`<[`Result`](modules.md#result)<[`GenerateAuthorizeResult`](modules.md#generateauthorizeresult), [`InvalidDidError`](modules.md#invaliddiderror) \| [`SignError`](modules.md#signerror)\>\> ; `retrieveCredential`: (`options`: [`RetrieveCredentialOptions`](modules.md#retrievecredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`RetrieveCredentialResult`](modules.md#retrievecredentialresult), [`RetrieveCredentialError`](modules.md#retrievecredentialerror) \| [`InvalidIdTokenError`](modules.md#invalididtokenerror) \| [`CredentialNotFoundInTokenError`](modules.md#credentialnotfoundintokenerror)\>\>  } | Namespace for OIDC operations |
+| `oidc.discover` | [object Object] | Discover credential offer from OIDC's wellknown configuration endpoint |
+| `oidc.generateAuthorizeUrl` | [object Object] | Generates an authorization URL |
+| `oidc.retrieveCredential` | [object Object] | Retrieves a credential from the OIDC provider |
+| `openid` | { `issuance`: { `discover`: (`uri`: `string`) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceDiscoverResult`](modules.md#openidissuancediscoverresult), [`BaseError`](interfaces/BaseError.md)<[`DiscoverErrorType`](enums/DiscoverErrorType.md)\>\>\> ; `generateAuthorizeUrl`: (`options`: [`OpenidIssuanceGenerateAuthorizeUrlOptions`](modules.md#openidissuancegenerateauthorizeurloptions)) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceGenerateAuthorizeResult`](modules.md#openidissuancegenerateauthorizeresult), [`BaseError`](interfaces/BaseError.md)<[`InvalidOptions`](enums/GenerateAuthorizeUrlErrorType.md#invalidoptions)\>\>\> ; `retrieveCredentials`: (`options`: [`OpenidIssuanceRetrieveCredentialsOptions`](modules.md#openidissuanceretrievecredentialsoptions)) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceRetrieveCredentialsResult`](modules.md#openidissuanceretrievecredentialsresult), [`BaseError`](interfaces/BaseError.md)<[`RetrieveCredentialsErrorType`](enums/RetrieveCredentialsErrorType.md)\>\>\> ; `retrieveToken`: (`options`: [`OpenidIssuanceRetrieveTokenOptions`](modules.md#openidissuanceretrievetokenoptions)) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceRetrieveTokenResult`](modules.md#openidissuanceretrievetokenresult), [`BaseError`](interfaces/BaseError.md)<[`RetrieveTokenErrorType`](enums/RetrieveTokenErrorType.md)\>\>\>  }  } | Namespace for openid operations |
+| `openid.issuance` | { `discover`: (`uri`: `string`) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceDiscoverResult`](modules.md#openidissuancediscoverresult), [`BaseError`](interfaces/BaseError.md)<[`DiscoverErrorType`](enums/DiscoverErrorType.md)\>\>\> ; `generateAuthorizeUrl`: (`options`: [`OpenidIssuanceGenerateAuthorizeUrlOptions`](modules.md#openidissuancegenerateauthorizeurloptions)) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceGenerateAuthorizeResult`](modules.md#openidissuancegenerateauthorizeresult), [`BaseError`](interfaces/BaseError.md)<[`InvalidOptions`](enums/GenerateAuthorizeUrlErrorType.md#invalidoptions)\>\>\> ; `retrieveCredentials`: (`options`: [`OpenidIssuanceRetrieveCredentialsOptions`](modules.md#openidissuanceretrievecredentialsoptions)) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceRetrieveCredentialsResult`](modules.md#openidissuanceretrievecredentialsresult), [`BaseError`](interfaces/BaseError.md)<[`RetrieveCredentialsErrorType`](enums/RetrieveCredentialsErrorType.md)\>\>\> ; `retrieveToken`: (`options`: [`OpenidIssuanceRetrieveTokenOptions`](modules.md#openidissuanceretrievetokenoptions)) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceRetrieveTokenResult`](modules.md#openidissuanceretrievetokenresult), [`BaseError`](interfaces/BaseError.md)<[`RetrieveTokenErrorType`](enums/RetrieveTokenErrorType.md)\>\>\>  } | Namespace for openid issuance operations |
+| `openid.issuance.discover` | [object Object] | Discover credential offer |
+| `openid.issuance.generateAuthorizeUrl` | [object Object] | Generates an authorization URL |
+| `openid.issuance.retrieveCredentials` | [object Object] | Retrieves credential from the openid issuance provider |
+| `openid.issuance.retrieveToken` | [object Object] | Retrieves token from the openid issuance provider |
+| `presentation` | { `create`: (`options`: [`CreatePresentationOptions`](modules.md#createpresentationoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifiablePresentation`](interfaces/VerifiablePresentation.md), [`CreatePresentationErrors`](modules.md#createpresentationerrors)\>\> ; `filterCredentialsByQuery`: <T\>(`options`: [`FilterCredentialsByQueryOptions`](modules.md#filtercredentialsbyqueryoptions)<`T`\>) => `Promise`<[`Result`](modules.md#result)<[`FilterCredentialsByQueryResponse`](modules.md#filtercredentialsbyqueryresponse)<`T`\>, [`PresentationRequestError`](modules.md#presentationrequesterror)\>\> ; `sendPresentationResponse`: (`options`: [`SendPresentationResponseOptions`](modules.md#sendpresentationresponseoptions)) => `Promise`<[`Result`](modules.md#result)<`void`, `HttpError` \| [`EncryptError`](modules.md#encrypterror) \| [`SendPresentationErrorMissingSender`](modules.md#sendpresentationerrormissingsender)\>\>  } | Namespace for presentation operations |
+| `presentation.create` | [object Object] | Create a verifiable presentation |
+| `presentation.filterCredentialsByQuery` | [object Object] | Filters a list of credentials based on a query |
+| `presentation.sendPresentationResponse` | [object Object] | Sends a presentation response |
+| `wellKnownDidConfiguration` | { `validate`: (`domain`: `string`, `did`: `string`) => `Promise`<`boolean`\> ; `validateMultipleDids`: (`domain`: `string`, `dids`: readonly `string`[]) => `Promise`<readonly [`DidConfigurationValidateResult`](modules.md#didconfigurationvalidateresult)[]\>  } | Namespace for wellknown configuration operations |
+| `wellKnownDidConfiguration.validate` | [object Object] | Validates a DID belongs to a domain |
+| `wellKnownDidConfiguration.validateMultipleDids` | [object Object] | Validates multiple DIDs belong to a domain |
+| `close` | () => `Promise`<[`Result`](modules.md#result)<`void`, [`CloseWalletError`](modules.md#closewalleterror)\>\> | Closes the wallet  **`remarks`** Wallet instance will not function anymore after close |
 | `isOpen` | () => `boolean` | Indicates if the wallet is open |
-| `kms` | [KeyManagementService](interfaces/keymanagementservice.md) | An exposed [KeyManagementService](interfaces/keymanagementservice.md)  **`privateremarks`** Direct exposure of KeyManagementService will be removed in the future |
-| `linkedData` | `Object` | Namespace for linked data operations |
-| `linkedData.cborld` | `Object` | Namespace for cborld conversion operations |
-| `linkedData.cborld.decode` | (`byteArray`: `Uint8Array`) => `ResultAsync`<unknown, InvalidCborldDecodeError\> | Decode CBOR-LD bytes intoto JSON-LD document  **`param`** The CBOR-LD bytes  **`returns`** A {@link ResultAsync} containing the decoded object on ok or a [InvalidCborldDecodeError](modules/codec.md#invalidcborlddecodeerror) on error |
-| `linkedData.cborld.encode` | (`jsonldDocument`: `Record`<string, unknown\>) => `ResultAsync`<Uint8Array, InvalidCborldEncodeError\> | Encode a JSON-LD document into CBOR-LD bytes  **`param`** The JSON-LD document  **`returns`** A {@link ResultAsync} containing the decoded cborld bytes on ok or a [InvalidCborldEncodeError](modules/codec.md#invalidcborldencodeerror) on error |
-| `messaging` | `Object` | Namespace for messaging operations |
-| `messaging.encrypt` | (`options`: [EncryptOptions](modules.md#encryptoptions)) => `Promise`<[Result](modules/result.md)<JweJsonSerialization, [EncryptError](modules.md#encrypterror)\>\> | Encrypts a message  **`param`** [EncryptOptions](modules.md#encryptoptions) for encrypting the message  **`returns`** A promise that resolves to a [Result](modules/result.md) containing {@link JweJsonSerialization} on ok or [EncryptError](modules.md#encrypterror) on error |
-| `messaging.openDidCommMessage` | (`message`: `unknown`) => `Promise`<[Result](modules/result.md)<[Jwm](interfaces/jwm.md), [OpenDidCommError](modules.md#opendidcommerror) \| [VerifyError](modules.md#verifyerror) \| [DecryptError](modules.md#decrypterror)\>\> | Opens a DIDComm message  **`param`** The message to open  **`returns`** A promise that resolves to a [Result](modules/result.md) containing [Jwm](interfaces/jwm.md) on ok or a [OpenDidCommError](modules.md#opendidcommerror), [VerifyError](modules.md#verifyerror) or a [DecryptError](modules.md#decrypterror) on error |
-| `messaging.resolveDidCommUri` | (`didCommUri`: `string`) => `Promise`<[Result](modules/result.md)<unknown, [BaseError](interfaces/baseerror.md)<[ResolveDidCommUriErrorType](enums/resolvedidcommurierrortype.md)\>\>\> | Resolves a DIDComm URI into an object  **`param`** The URI to resolve  **`returns`** A promise that resolves to a [Result](modules/result.md) containing the decoded message on ok or a [ResolveDidCommUriErrorType](enums/resolvedidcommurierrortype.md) on error |
-| `messaging.sign` | (`payload`: `string` \| `Record`<string, unknown\>, `senderDid`: `string`) => `Promise`<[Result](modules/result.md)<string, [SignError](modules.md#signerror)\>\> | Signs a message  **`param`** The message payload to sign  **`param`** The DID of the sender used for signing  **`returns`** A promise that resolves to a [Result](modules/result.md) containing [Jwm](interfaces/jwm.md) on ok or a [OpenDidCommError](modules.md#opendidcommerror), [VerifyError](modules.md#verifyerror) or a [DecryptError](modules.md#decrypterror) on error |
-| `oidc` | `Object` | Namespace for OIDC operations |
-| `oidc.discover` | (`issuerUri`: `string`) => `Promise`<[Result](modules/result.md)<[DiscoverResult](modules.md#discoverresult), [InvalidIssuerUriError](modules.md#invalidissuerurierror) \| [InvalidOpenIdConfigurationError](modules.md#invalidopenidconfigurationerror)\>\> | Discover credential offer from OIDC's wellknown configuration endpoint  **`param`** The URI of the OIDC credential issuer example: openid://discovery?issuer=https://government-of-aotearoa.platform.mattr.global  **`returns`** - Resolves to a [Result](modules/result.md) containing the [DiscoverResult](modules.md#discoverresult) on ok or a [InvalidIssuerUriError](modules.md#invalidissuerurierror) or [InvalidOpenIdConfigurationError](modules.md#invalidopenidconfigurationerror) on error |
-| `oidc.generateAuthorizeUrl` | (`options`: [GenerateAuthorizeUrlOptions](modules.md#generateauthorizeurloptions)) => `Promise`<[Result](modules/result.md)<[GenerateAuthorizeResult](modules.md#generateauthorizeresult), [InvalidDidError](modules.md#invaliddiderror) \| [SignError](modules.md#signerror)\>\> | Generates an authorization URL  **`param`** [GenerateAuthorizeUrlOptions](modules.md#generateauthorizeurloptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing the [GenerateAuthorizeResult](modules.md#generateauthorizeresult) on ok or a [InvalidDidError](modules.md#invaliddiderror) or [SignError](modules.md#signerror) on error |
-| `oidc.retrieveCredential` | (`options`: [RetrieveCredentialOptions](modules.md#retrievecredentialoptions)) => `Promise`<[Result](modules/result.md)<[RetrieveCredentialResult](modules.md#retrievecredentialresult), [RetrieveCredentialError](modules.md#retrievecredentialerror) \| [InvalidIdTokenError](modules.md#invalididtokenerror) \| [CredentialNotFoundInTokenError](modules.md#credentialnotfoundintokenerror)\>\> | Retrieves a credential from the OIDC provider  **`param`** [RetrieveCredentialOptions](modules.md#retrievecredentialoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [RetrieveCredentialResult](modules.md#retrievecredentialresult) on ok or a [RetrieveCredentialError](modules.md#retrievecredentialerror), [InvalidIdTokenError](modules.md#invalididtokenerror) or [CredentialNotFoundInTokenError](modules.md#credentialnotfoundintokenerror) on error |
-| `openid` | `Object` | Namespace for openid operations |
-| `openid.issuance` | `Object` | Namespace for openid issuance operations |
-| `openid.issuance.discover` | (`uri`: `string`) => `Promise`<[Result](modules/result.md)<[OpenidIssuanceDiscoverResult](modules.md#openidissuancediscoverresult), [BaseError](interfaces/baseerror.md)<[DiscoverErrorType](enums/discovererrortype.md)\>\>\> | Discover credential offer  **`param`** The URI of the Openid4vci credential offer endpoint, example: openid-credential-offer://?credential_offer=URLEncoded({ credential_issuer, credentials: [{credentialId}], request_parameters? })  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [OpenidIssuanceDiscoverResult](modules.md#openidissuancediscoverresult) on ok or an error with [DiscoverErrorType](enums/discovererrortype.md) |
-| `openid.issuance.generateAuthorizeUrl` | (`options`: [OpenidIssuanceGenerateAuthorizeUrlOptions](modules.md#openidissuancegenerateauthorizeurloptions)) => `Promise`<[Result](modules/result.md)<[OpenidIssuanceGenerateAuthorizeResult](modules.md#openidissuancegenerateauthorizeresult), [BaseError](interfaces/baseerror.md)<[GenerateAuthorizeUrlErrorType](enums/generateauthorizeurlerrortype.md)\>\>\> | Generates an authorization URL  **`param`** [OpenidIssuanceGenerateAuthorizeUrlOptions](modules.md#openidissuancegenerateauthorizeurloptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [OpenidIssuanceGenerateAuthorizeResult](modules.md#openidissuancegenerateauthorizeresult) on ok or an error with [GenerateAuthorizeUrlErrorType](enums/generateauthorizeurlerrortype.md) |
-| `openid.issuance.retrieveCredentials` | (`options`: [OpenidIssuanceRetrieveCredentialsOptions](modules.md#openidissuanceretrievecredentialsoptions)) => `Promise`<[Result](modules/result.md)<[OpenidIssuanceRetrieveCredentialsResult](modules.md#openidissuanceretrievecredentialsresult), [BaseError](interfaces/baseerror.md)<[RetrieveCredentialsErrorType](enums/retrievecredentialserrortype.md)\>\>\> | Retrieves credential from the openid issuance provider  **`param`** [OpenidIssuanceRetrieveCredentialsOptions](modules.md#openidissuanceretrievecredentialsoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [OpenidIssuanceRetrieveCredentialsResult](modules.md#openidissuanceretrievecredentialsresult) on ok or an error with [RetrieveCredentialsErrorType](enums/retrievecredentialserrortype.md) |
-| `openid.issuance.retrieveToken` | (`options`: [OpenidIssuanceRetrieveTokenOptions](modules.md#openidissuanceretrievetokenoptions)) => `Promise`<[Result](modules/result.md)<[OpenidIssuanceRetrieveTokenResult](modules.md#openidissuanceretrievetokenresult), [BaseError](interfaces/baseerror.md)<[RetrieveTokenErrorType](enums/retrievetokenerrortype.md)\>\>\> | Retrieves token from the openid issuance provider  **`param`** [OpenidIssuanceRetrieveTokenOptions](modules.md#openidissuanceretrievetokenoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [OpenidIssuanceRetrieveTokenResult](modules.md#openidissuanceretrievetokenresult) on ok or an error with [RetrieveTokenErrorType](enums/retrievetokenerrortype.md) |
-| `presentation` | `Object` | Namespace for presentation operations |
-| `presentation.create` | (`options`: [CreatePresentationOptions](modules.md#createpresentationoptions)) => `Promise`<[Result](modules/result.md)<[VerifiablePresentation](interfaces/verifiablepresentation.md), [CreatePresentationErrors](modules.md#createpresentationerrors)\>\> | Create a verifiable presentation  **`param`** [CreatePresentationOptions](modules.md#createpresentationoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing a [VerifiablePresentation](interfaces/verifiablepresentation.md) on ok or a [CreatePresentationErrors](modules.md#createpresentationerrors) on error |
-| `presentation.filterCredentialsByQuery` | <T\>(`options`: [FilterCredentialsByQueryOptions](modules.md#filtercredentialsbyqueryoptions)<T\>) => `Promise`<[Result](modules/result.md)<[FilterCredentialsByQueryResponse](modules.md#filtercredentialsbyqueryresponse)<T\>, [FilterCredentialsByQueryError](modules.md#filtercredentialsbyqueryerror)\>\> | Filters a list of credentials based on a query  **`param`** [FilterCredentialsByQueryOptions](modules.md#filtercredentialsbyqueryoptions) containing the credentials and filter  **`returns`** A promise that resolves to a [FilterCredentialsByQueryResponse](modules.md#filtercredentialsbyqueryresponse) containing the credentials that match the filter on ok or a [FilterCredentialsByQueryError](modules.md#filtercredentialsbyqueryerror) on error |
-| `presentation.sendPresentationResponse` | (`options`: [SendPresentationResponseOptions](modules.md#sendpresentationresponseoptions)) => `Promise`<[Result](modules/result.md)<void, HttpError \| [EncryptError](modules.md#encrypterror) \| [SendPresentationErrorMissingSender](modules.md#sendpresentationerrormissingsender)\>\> | Sends a presentation response  **`param`** [SendPresentationResponseOptions](modules.md#sendpresentationresponseoptions)  **`returns`** A promise that resolves to a [Result](modules/result.md) containing void on ok or a {@link HttpError}, [EncryptError](modules.md#encrypterror) or an [SendPresentationErrorMissingSender](modules.md#sendpresentationerrormissingsender) on error |
-| `wellKnownDidConfiguration` | `Object` | Namespace for wellknown configuration operations |
-| `wellKnownDidConfiguration.validate` | (`domain`: `string`, `did`: `string`) => `Promise`<boolean\> | Validates a DID belongs to a domain  **`param`** The domain to check has authority of a DID  **`param`** The DID to check belongs to a domain  **`returns`** A boolean representing if the DID belongs to a domain |
-| `wellKnownDidConfiguration.validateMultipleDids` | (`domain`: `string`, `dids`: readonly `string`[]) => `Promise`<ReadonlyArray<[DidConfigurationValidateResult](modules.md#didconfigurationvalidateresult)\>\> | Validates multiple DIDs belong to a domain  **`param`** The domain to check has authority of a DID  **`param`** The DIDs to check belong to a domain  **`returns`** A promise that resolves to a list of validation results [DidConfigurationValidateResult](modules.md#didconfigurationvalidateresult), corresponding to each did. |
 
 ___
 
@@ -936,15 +936,15 @@ React Native specific wallet extensions.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `httpCache` | `Object` | Namespace for HTTP request cache |
-| `httpCache.clear` | () => `Promise`<[Result](modules/result.md)<void, [HttpCacheError](modules.md#httpcacheerror)\>\> | Removes all entries from HTTP cache storage directory for the wallet  **`remarks`** This is a destructive operation that cannot be undone. If a [walletId](modules.md#walletid) is not provided, storage for the default wallet will be removed.   **`returns`** A [Result](modules/result.md) containing void on ok and a [HttpCacheError](modules.md#httpcacheerror) on error |
-| `httpCache.getSize` | () => `Promise`<[Result](modules/result.md)<number, [HttpCacheError](modules.md#httpcacheerror)\>\> | Retrieve the total number of cached contexts in the wallet  **`returns`** A [Result](modules/result.md) containing the number of cached contexts on ok and a [HttpCacheError](modules.md#httpcacheerror) on error |
+| `httpCache` | { `clear`: () => `Promise`<[`Result`](modules.md#result)<`void`, [`HttpCacheError`](modules.md#httpcacheerror)\>\> ; `getSize`: () => `Promise`<[`Result`](modules.md#result)<`number`, [`HttpCacheError`](modules.md#httpcacheerror)\>\>  } | Namespace for HTTP request cache |
+| `httpCache.clear` | [object Object] | Removes all entries from HTTP cache storage directory for the wallet  **`remarks`** This is a destructive operation that cannot be undone. If a [walletId](modules.md#walletid) is not provided, storage for the default wallet will be removed. |
+| `httpCache.getSize` | [object Object] | Retrieve the total number of cached contexts in the wallet |
 
 ## Variables
 
 ### AuthorizeRequestParametersValidator
 
-• `Const` **AuthorizeRequestParametersValidator**: `z$1.ZodType`<[AuthorizeRequestParameters](modules.md#authorizerequestparameters)\>
+• `Const` **AuthorizeRequestParametersValidator**: `z$1.ZodType`<[`AuthorizeRequestParameters`](modules.md#authorizerequestparameters)\>
 
 request_parameters, that supported by wallet-sdk
 
@@ -952,19 +952,19 @@ ___
 
 ### CredentialOfferedValidator
 
-• `Const` **CredentialOfferedValidator**: `z$1.ZodType`<[CredentialOffered](modules.md#credentialoffered)\>
+• `Const` **CredentialOfferedValidator**: `z$1.ZodType`<[`CredentialOffered`](modules.md#credentialoffered)\>
 
 ___
 
 ### OpenidIssuanceCredentialOfferValidator
 
-• `Const` **OpenidIssuanceCredentialOfferValidator**: `z$1.ZodType`<[OpenidIssuanceCredentialOffer](modules.md#openidissuancecredentialoffer)\>
+• `Const` **OpenidIssuanceCredentialOfferValidator**: `z$1.ZodType`<[`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer)\>
 
 ___
 
 ### OpenidIssuanceGenerateAuthorizeUrlOptionsValidator
 
-• `Const` **OpenidIssuanceGenerateAuthorizeUrlOptionsValidator**: `z$1.ZodObject`<`Object`, ``"strip"``, z$1.ZodTypeAny, `Object`, `Object`\>
+• `Const` **OpenidIssuanceGenerateAuthorizeUrlOptionsValidator**: `z$1.ZodObject`<{ `clientId`: `z$1.ZodOptional`<`z$1.ZodString`\> ; `offer`: `z$1.ZodType`<[`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer), `z$1.ZodTypeDef`, [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer)\> ; `redirectUri`: `z$1.ZodOptional`<`z$1.ZodString`\> ; `state`: `z$1.ZodOptional`<`z$1.ZodString`\>  }, ``"strip"``, `z$1.ZodTypeAny`, { `clientId?`: `string` ; `offer`: [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer) ; `redirectUri?`: `string` ; `state?`: `string`  }, { `clientId?`: `string` ; `offer`: [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer) ; `redirectUri?`: `string` ; `state?`: `string`  }\>
 
 types for wallet.openid.issuance.generateAuthorizeUrl()
 
@@ -972,7 +972,7 @@ ___
 
 ### OpenidIssuanceRetrieveCredentialsOptionsValidator
 
-• `Const` **OpenidIssuanceRetrieveCredentialsOptionsValidator**: `z$1.ZodObject`<`Object`, ``"strip"``, z$1.ZodTypeAny, `Object`, `Object`\>
+• `Const` **OpenidIssuanceRetrieveCredentialsOptionsValidator**: `z$1.ZodObject`<{ `accessToken`: `z$1.ZodString` ; `clientId`: `z$1.ZodOptional`<`z$1.ZodString`\> ; `offer`: `z$1.ZodType`<[`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer), `z$1.ZodTypeDef`, [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer)\>  }, ``"strip"``, `z$1.ZodTypeAny`, { `accessToken`: `string` ; `clientId?`: `string` ; `offer`: [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer)  }, { `accessToken`: `string` ; `clientId?`: `string` ; `offer`: [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer)  }\>
 
 types for wallet.openid.issuance.retrieveCredentials()
 
@@ -986,7 +986,7 @@ ___
 
 ### assertType
 
-▸ `Const` **assertType**<T, InputData\>(`validator`, `message`): (`data`: `InputData`) => `void`
+▸ **assertType**<`T`, `InputData`\>(`validator`, `message`): (`data`: `InputData`) => `void`
 
 Asserts data against either internal Validator functions or Zod object schemas
 Throws CoreTypeError if assertion fails
@@ -996,13 +996,13 @@ Throws CoreTypeError if assertion fails
 | Name | Type |
 | :------ | :------ |
 | `T` | `T` |
-| `InputData` | `InputData` = `T` |
+| `InputData` | `T` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `validator` | `Validator`<T\> \| `ZodType`<T, ZodTypeDef, T\> |
+| `validator` | `Validator`<`T`\> \| `ZodType`<`T`, `ZodTypeDef`, `T`\> |
 | `message` | `string` |
 
 #### Returns
@@ -1025,7 +1025,7 @@ ___
 
 ### assertUnreachable
 
-▸ `Const` **assertUnreachable**(`x`): `never`
+▸ **assertUnreachable**(`x`): `never`
 
 Used for exhaustive if/switch statements
 Example:
@@ -1060,7 +1060,7 @@ ___
 
 ### create
 
-▸ `Const` **create**(`walletId?`): `Promise`<[Result](modules/result.md)<void, [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| [WalletAlreadyCreatedError](modules.md#walletalreadycreatederror)\>\>
+▸ **create**(`walletId?`): `Promise`<[`Result`](modules.md#result)<`void`, [`MalformedEncryptionKeyError`](modules.md#malformedencryptionkeyerror) \| [`WalletAlreadyCreatedError`](modules.md#walletalreadycreatederror)\>\>
 
 Generates new encryption keys and storage directories required for a wallet
 
@@ -1076,15 +1076,15 @@ If a [walletId](modules.md#walletid) is not provided, the default wallet will be
 
 #### Returns
 
-`Promise`<[Result](modules/result.md)<void, [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| [WalletAlreadyCreatedError](modules.md#walletalreadycreatederror)\>\>
+`Promise`<[`Result`](modules.md#result)<`void`, [`MalformedEncryptionKeyError`](modules.md#malformedencryptionkeyerror) \| [`WalletAlreadyCreatedError`](modules.md#walletalreadycreatederror)\>\>
 
-A [Result](modules/result.md) containing void on ok and either a [WalletAlreadyCreatedError](modules.md#walletalreadycreatederror) or [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) on error
+A [Result](modules.md#result) containing void on ok and either a [WalletAlreadyCreatedError](modules.md#walletalreadycreatederror) or [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) on error
 
 ___
 
 ### destroy
 
-▸ `Const` **destroy**(`walletId?`): `Promise`<[Result](modules/result.md)<void, [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| WalletNotFoundError\>\>
+▸ **destroy**(`walletId?`): `Promise`<[`Result`](modules.md#result)<`void`, [`MalformedEncryptionKeyError`](modules.md#malformedencryptionkeyerror) \| `WalletNotFoundError`\>\>
 
 Removes encryption keys and storage directories associated with the wallet
 
@@ -1100,15 +1100,15 @@ If a [walletId](modules.md#walletid) is not provided, the default wallet will be
 
 #### Returns
 
-`Promise`<[Result](modules/result.md)<void, [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| WalletNotFoundError\>\>
+`Promise`<[`Result`](modules.md#result)<`void`, [`MalformedEncryptionKeyError`](modules.md#malformedencryptionkeyerror) \| `WalletNotFoundError`\>\>
 
-A [Result](modules/result.md) containing void on ok and a {@link WalletNotFoundError} on error
+A [Result](modules.md#result) containing void on ok and a {@link WalletNotFoundError} on error
 
 ___
 
 ### isCredentialSubject
 
-▸ `Const` **isCredentialSubject**(`value`): value is CredentialSubject
+▸ **isCredentialSubject**(`value`): value is CredentialSubject
 
 #### Parameters
 
@@ -1124,7 +1124,7 @@ ___
 
 ### isJwm
 
-▸ `Const` **isJwm**(`value`): value is Jwm
+▸ **isJwm**(`value`): value is Jwm
 
 #### Parameters
 
@@ -1140,7 +1140,7 @@ ___
 
 ### isPresentationRequestJwm
 
-▸ `Const` **isPresentationRequestJwm**(`val`): val is PresentationRequestJwm
+▸ **isPresentationRequestJwm**(`val`): val is PresentationRequestJwm
 
 #### Parameters
 
@@ -1156,7 +1156,7 @@ ___
 
 ### isRevocationList2020CredentialStatus
 
-▸ `Const` **isRevocationList2020CredentialStatus**(`value`): value is RevocationList2020CredentialStatus
+▸ **isRevocationList2020CredentialStatus**(`value`): value is RevocationList2020CredentialStatus
 
 #### Parameters
 
@@ -1172,7 +1172,7 @@ ___
 
 ### isType
 
-▸ `Const` **isType**<T\>(`validator`): (`value`: `unknown`) => value is T
+▸ **isType**<`T`\>(`validator`): (`value`: `unknown`) => value is T
 
 Provide typeguards and boolean result of a zod validator
 
@@ -1186,7 +1186,7 @@ Provide typeguards and boolean result of a zod validator
 
 | Name | Type |
 | :------ | :------ |
-| `validator` | `ZodType`<T, ZodTypeDef, T\> |
+| `validator` | `ZodType`<`T`, `ZodTypeDef`, `T`\> |
 
 #### Returns
 
@@ -1208,7 +1208,7 @@ ___
 
 ### isVerifiableCredential
 
-▸ `Const` **isVerifiableCredential**(`val`): val is VerifiableCredential
+▸ **isVerifiableCredential**(`val`): val is VerifiableCredential
 
 #### Parameters
 
@@ -1224,7 +1224,7 @@ ___
 
 ### open
 
-▸ `Const` **open**(`options`): `Promise`<[Result](modules/result.md)<[Wallet](modules.md#wallet), WalletNotFoundError \| [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror)\>\>
+▸ **open**(`options`): `Promise`<[`Result`](modules.md#result)<[`Wallet`](modules.md#wallet), `WalletNotFoundError` \| [`MalformedEncryptionKeyError`](modules.md#malformedencryptionkeyerror) \| [`EncryptionKeyNotFoundError`](modules.md#encryptionkeynotfounderror)\>\>
 
 Open an existing wallet with stored encryption keys
 
@@ -1236,36 +1236,36 @@ If a {@link OpenOptions.walletId} is not provided, the default wallet will be op
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `options` | [OpenOptions](modules.md#openoptions) | [OpenOptions](modules.md#openoptions) containing the options for the open function |
+| `options` | [`OpenOptions`](modules.md#openoptions) | [OpenOptions](modules.md#openoptions) containing the options for the open function |
 
 #### Returns
 
-`Promise`<[Result](modules/result.md)<[Wallet](modules.md#wallet), WalletNotFoundError \| [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) \| [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror)\>\>
+`Promise`<[`Result`](modules.md#result)<[`Wallet`](modules.md#wallet), `WalletNotFoundError` \| [`MalformedEncryptionKeyError`](modules.md#malformedencryptionkeyerror) \| [`EncryptionKeyNotFoundError`](modules.md#encryptionkeynotfounderror)\>\>
 
-A [Result](modules/result.md) containing the open [Wallet](modules.md#wallet) object on ok or a [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) or [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror) on error
+A [Result](modules.md#result) containing the open [Wallet](modules.md#wallet) object on ok or a [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) or [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror) on error
 
 ___
 
 ### unwrap
 
-▸ `Const` **unwrap**<T\>(`result`): `T`
+▸ **unwrap**<`T`\>(`result`): `T`
 
-A utility function to get the value from a [Result](modules/result.md) or throw if there was an error
+A utility function to get the value from a [Result](modules.md#result) or throw if there was an error
 
 **`remarks`**
-Allows you to get the value of a result directly or handle an error [Result](modules/result.md) as an exception
+Allows you to get the value of a result directly or handle an error [Result](modules.md#result) as an exception
 
 #### Type parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `T` | `T` = `unknown` | the expected value of an ok result |
+| `T` | `unknown` | the expected value of an ok result |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `result` | [Result](modules/result.md)<T, unknown\> | The [Result](modules/result.md) to unwrap |
+| `result` | [`Result`](modules.md#result)<`T`, `unknown`\> | The [Result](modules.md#result) to unwrap |
 
 #### Returns
 
