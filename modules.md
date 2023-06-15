@@ -8,11 +8,13 @@
 
 - [Result](modules/Result.md)
 - [codec](modules/codec.md)
+- [qrcode](modules/qrcode.md)
 
 ### Enumerations
 
 - [CredentialFormatSupported](enums/CredentialFormatSupported.md)
 - [CredentialOfferType](enums/CredentialOfferType.md)
+- [CredentialProfileSupported](enums/CredentialProfileSupported.md)
 - [CredentialStatusType](enums/CredentialStatusType.md)
 - [DiscoverErrorType](enums/DiscoverErrorType.md)
 - [GenerateAuthorizeUrlErrorType](enums/GenerateAuthorizeUrlErrorType.md)
@@ -52,22 +54,28 @@
 - [AuthorizeRequestParameters](modules.md#authorizerequestparameters)
 - [BaseSDKError](modules.md#basesdkerror)
 - [CloseWalletError](modules.md#closewalleterror)
+- [CompactCredentialOffered](modules.md#compactcredentialoffered)
+- [CompactCredentialPayload](modules.md#compactcredentialpayload)
+- [CompactSemanticCredentialOffered](modules.md#compactsemanticcredentialoffered)
+- [CompactSemanticCredentialPayload](modules.md#compactsemanticcredentialpayload)
 - [CreateDidError](modules.md#creatediderror)
 - [CreateDidResponse](modules.md#createdidresponse)
-- [CreatePresentationErrorCouldNotFindSubjectSigningKey](modules.md#createpresentationerrorcouldnotfindsubjectsigningkey)
-- [CreatePresentationErrorHolderNotADid](modules.md#createpresentationerrorholdernotadid)
-- [CreatePresentationErrorSubjectDidHasNoAuthenticationUrl](modules.md#createpresentationerrorsubjectdidhasnoauthenticationurl)
-- [CreatePresentationErrorSubjectNotADid](modules.md#createpresentationerrorsubjectnotadid)
-- [CreatePresentationErrors](modules.md#createpresentationerrors)
-- [CreatePresentationOptions](modules.md#createpresentationoptions)
-- [CredentialData](modules.md#credentialdata)
+- [CreateWebSemanticPresentationErrorCouldNotFindSubjectSigningKey](modules.md#createwebsemanticpresentationerrorcouldnotfindsubjectsigningkey)
+- [CreateWebSemanticPresentationErrorHolderNotADid](modules.md#createwebsemanticpresentationerrorholdernotadid)
+- [CreateWebSemanticPresentationErrorSubjectDidHasNoAuthenticationUrl](modules.md#createwebsemanticpresentationerrorsubjectdidhasnoauthenticationurl)
+- [CreateWebSemanticPresentationErrorSubjectNotADid](modules.md#createwebsemanticpresentationerrorsubjectnotadid)
+- [CreateWebSemanticPresentationErrors](modules.md#createwebsemanticpresentationerrors)
+- [CreateWebSemanticPresentationOptions](modules.md#createwebsemanticpresentationoptions)
 - [CredentialIssuer](modules.md#credentialissuer)
 - [CredentialNotFoundInTokenError](modules.md#credentialnotfoundintokenerror)
 - [CredentialOffered](modules.md#credentialoffered)
+- [CwtPayload](modules.md#cwtpayload)
+- [CwtPayloadRecord](modules.md#cwtpayloadrecord)
 - [DecryptError](modules.md#decrypterror)
 - [DeleteDidError](modules.md#deletediderror)
-- [DeriveCredentialError](modules.md#derivecredentialerror)
-- [DeriveCredentialOptions](modules.md#derivecredentialoptions)
+- [DeprecatedWebSemanticCredentialOffered](modules.md#deprecatedwebsemanticcredentialoffered)
+- [DeriveWebSemanticCredentialError](modules.md#derivewebsemanticcredentialerror)
+- [DeriveWebSemanticCredentialOptions](modules.md#derivewebsemanticcredentialoptions)
 - [DidConfigurationValidateResult](modules.md#didconfigurationvalidateresult)
 - [DidDeletionError](modules.md#diddeletionerror)
 - [DidNotFoundError](modules.md#didnotfounderror)
@@ -76,11 +84,11 @@
 - [EncryptError](modules.md#encrypterror)
 - [EncryptOptions](modules.md#encryptoptions)
 - [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror)
-- [ExpandCredentialError](modules.md#expandcredentialerror)
-- [ExpandCredentialOptions](modules.md#expandcredentialoptions)
-- [FilterCredentialsByQueryError](modules.md#filtercredentialsbyqueryerror)
-- [FilterCredentialsByQueryOptions](modules.md#filtercredentialsbyqueryoptions)
-- [FilterCredentialsByQueryResponse](modules.md#filtercredentialsbyqueryresponse)
+- [ExpandWebSemanticCredentialError](modules.md#expandwebsemanticcredentialerror)
+- [ExpandWebSemanticCredentialOptions](modules.md#expandwebsemanticcredentialoptions)
+- [FilterWebSemanticCredentialsByQueryError](modules.md#filterwebsemanticcredentialsbyqueryerror)
+- [FilterWebSemanticCredentialsByQueryOptions](modules.md#filterwebsemanticcredentialsbyqueryoptions)
+- [FilterWebSemanticCredentialsByQueryResponse](modules.md#filterwebsemanticcredentialsbyqueryresponse)
 - [GenerateAuthorizeResult](modules.md#generateauthorizeresult)
 - [GenerateAuthorizeUrlOptions](modules.md#generateauthorizeurloptions)
 - [GenericSdkError](modules.md#genericsdkerror)
@@ -101,39 +109,51 @@
 - [OpenidIssuanceDiscoverResult](modules.md#openidissuancediscoverresult)
 - [OpenidIssuanceGenerateAuthorizeResult](modules.md#openidissuancegenerateauthorizeresult)
 - [OpenidIssuanceGenerateAuthorizeUrlOptions](modules.md#openidissuancegenerateauthorizeurloptions)
+- [OpenidIssuanceRetrieveCompactCredentialsResult](modules.md#openidissuanceretrievecompactcredentialsresult)
+- [OpenidIssuanceRetrieveCompactSemanticCredentialsResult](modules.md#openidissuanceretrievecompactsemanticcredentialsresult)
+- [OpenidIssuanceRetrieveCredentials](modules.md#openidissuanceretrievecredentials)
 - [OpenidIssuanceRetrieveCredentialsOptions](modules.md#openidissuanceretrievecredentialsoptions)
 - [OpenidIssuanceRetrieveCredentialsResult](modules.md#openidissuanceretrievecredentialsresult)
 - [OpenidIssuanceRetrieveTokenOptions](modules.md#openidissuanceretrievetokenoptions)
 - [OpenidIssuanceRetrieveTokenResult](modules.md#openidissuanceretrievetokenresult)
+- [OpenidIssuanceRetrieveWebSemanticCredentialsResult](modules.md#openidissuanceretrievewebsemanticcredentialsresult)
 - [PresentationRequestError](modules.md#presentationrequesterror)
 - [PresentationRequestJwm](modules.md#presentationrequestjwm)
 - [Result](modules.md#result)
 - [RetrieveCredentialError](modules.md#retrievecredentialerror)
 - [RetrieveCredentialOptions](modules.md#retrievecredentialoptions)
 - [RetrieveCredentialResult](modules.md#retrievecredentialresult)
-- [SendPresentationErrorMissingSender](modules.md#sendpresentationerrormissingsender)
-- [SendPresentationResponseOptions](modules.md#sendpresentationresponseoptions)
+- [SendWebSemanticPresentationErrorMissingSender](modules.md#sendwebsemanticpresentationerrormissingsender)
+- [SendWebSemanticPresentationResponseOptions](modules.md#sendwebsemanticpresentationresponseoptions)
 - [SignError](modules.md#signerror)
 - [VerifiableCredential](modules.md#verifiablecredential)
 - [VerifiablePresentationRequestQuery](modules.md#verifiablepresentationrequestquery)
-- [VerifyCredentialError](modules.md#verifycredentialerror)
-- [VerifyCredentialOptions](modules.md#verifycredentialoptions)
-- [VerifyCredentialResult](modules.md#verifycredentialresult)
+- [VerifyCompactCredentialResult](modules.md#verifycompactcredentialresult)
+- [VerifyCompactSemanticCredentialResult](modules.md#verifycompactsemanticcredentialresult)
 - [VerifyCredentialStatus](modules.md#verifycredentialstatus)
 - [VerifyError](modules.md#verifyerror)
+- [VerifyWebSemanticCredentialError](modules.md#verifywebsemanticcredentialerror)
+- [VerifyWebSemanticCredentialOptions](modules.md#verifywebsemanticcredentialoptions)
+- [VerifyWebSemanticCredentialResult](modules.md#verifywebsemanticcredentialresult)
 - [Wallet](modules.md#wallet)
 - [WalletAlreadyCreatedError](modules.md#walletalreadycreatederror)
 - [WalletBase](modules.md#walletbase)
 - [WalletExtension](modules.md#walletextension)
+- [WebSemanticCredentialData](modules.md#websemanticcredentialdata)
+- [WebSemanticCredentialOffered](modules.md#websemanticcredentialoffered)
 
 ### Variables
 
 - [AuthorizeRequestParametersValidator](modules.md#authorizerequestparametersvalidator)
+- [CompactCredentialOfferedValidator](modules.md#compactcredentialofferedvalidator)
+- [CompactSemanticCredentialOfferedValidator](modules.md#compactsemanticcredentialofferedvalidator)
 - [CredentialOfferedValidator](modules.md#credentialofferedvalidator)
+- [DeprecatedWebSemanticCredentialOfferedValidator](modules.md#deprecatedwebsemanticcredentialofferedvalidator)
 - [OpenidIssuanceCredentialOfferValidator](modules.md#openidissuancecredentialoffervalidator)
 - [OpenidIssuanceGenerateAuthorizeUrlOptionsValidator](modules.md#openidissuancegenerateauthorizeurloptionsvalidator)
 - [OpenidIssuanceRetrieveCredentialsOptionsValidator](modules.md#openidissuanceretrievecredentialsoptionsvalidator)
 - [RNSecureKeyStoreLegacy](modules.md#rnsecurekeystorelegacy)
+- [WebSemanticCredentialOfferedValidator](modules.md#websemanticcredentialofferedvalidator)
 
 ### Functions
 
@@ -179,6 +199,30 @@ ___
 
 ___
 
+### CompactCredentialOffered
+
+Ƭ **CompactCredentialOffered**: `BaseCredentialOffered` & { `profile`: [`Compact`](enums/CredentialProfileSupported.md#compact) ; `type`: `string`  }
+
+___
+
+### CompactCredentialPayload
+
+Ƭ **CompactCredentialPayload**: `ImplementsZodType`<`z$1.infer`<typeof `CompactCredentialPayloadValidator`\>, [`CwtPayload`](modules.md#cwtpayload) & [`CwtPayloadRecord`](modules.md#cwtpayloadrecord)\>
+
+___
+
+### CompactSemanticCredentialOffered
+
+Ƭ **CompactSemanticCredentialOffered**: `BaseCredentialOffered` & { `profile`: [`CompactSemantic`](enums/CredentialProfileSupported.md#compactsemantic) ; `types`: `string`[]  }
+
+___
+
+### CompactSemanticCredentialPayload
+
+Ƭ **CompactSemanticCredentialPayload**: `ImplementsZodType`<`z$1.infer`<typeof `CompactSemanticCredentialPayloadValidator`\>, { `aud?`: `string` ; `exp?`: `number` ; `iat?`: `number` ; `iss`: `string` ; `jti`: `string` ; `nbf`: `number` ; `status?`: `CwtStatus` ; `sub?`: `string` ; `vc`: `CompactSemanticCredentialVcPayload`  }\>
+
+___
+
 ### CreateDidError
 
 Ƭ **CreateDidError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreateDidError"``  }
@@ -197,39 +241,39 @@ ___
 
 ___
 
-### CreatePresentationErrorCouldNotFindSubjectSigningKey
+### CreateWebSemanticPresentationErrorCouldNotFindSubjectSigningKey
 
-Ƭ **CreatePresentationErrorCouldNotFindSubjectSigningKey**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorCouldNotFindSubjectSigningKey"``  }
-
-___
-
-### CreatePresentationErrorHolderNotADid
-
-Ƭ **CreatePresentationErrorHolderNotADid**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorHolderNotADid"``  }
+Ƭ **CreateWebSemanticPresentationErrorCouldNotFindSubjectSigningKey**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorCouldNotFindSubjectSigningKey"``  }
 
 ___
 
-### CreatePresentationErrorSubjectDidHasNoAuthenticationUrl
+### CreateWebSemanticPresentationErrorHolderNotADid
 
-Ƭ **CreatePresentationErrorSubjectDidHasNoAuthenticationUrl**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorSubjectDidHasNoAuthenticationUrl"``  }
-
-___
-
-### CreatePresentationErrorSubjectNotADid
-
-Ƭ **CreatePresentationErrorSubjectNotADid**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorSubjectNotADid"``  }
+Ƭ **CreateWebSemanticPresentationErrorHolderNotADid**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorHolderNotADid"``  }
 
 ___
 
-### CreatePresentationErrors
+### CreateWebSemanticPresentationErrorSubjectDidHasNoAuthenticationUrl
 
-Ƭ **CreatePresentationErrors**: [`CreatePresentationErrorSubjectNotADid`](modules.md#createpresentationerrorsubjectnotadid) \| [`CreatePresentationErrorHolderNotADid`](modules.md#createpresentationerrorholdernotadid) \| [`CreatePresentationErrorSubjectDidHasNoAuthenticationUrl`](modules.md#createpresentationerrorsubjectdidhasnoauthenticationurl) \| [`CreatePresentationErrorCouldNotFindSubjectSigningKey`](modules.md#createpresentationerrorcouldnotfindsubjectsigningkey)
+Ƭ **CreateWebSemanticPresentationErrorSubjectDidHasNoAuthenticationUrl**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorSubjectDidHasNoAuthenticationUrl"``  }
 
 ___
 
-### CreatePresentationOptions
+### CreateWebSemanticPresentationErrorSubjectNotADid
 
-Ƭ **CreatePresentationOptions**: `Object`
+Ƭ **CreateWebSemanticPresentationErrorSubjectNotADid**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorSubjectNotADid"``  }
+
+___
+
+### CreateWebSemanticPresentationErrors
+
+Ƭ **CreateWebSemanticPresentationErrors**: [`CreateWebSemanticPresentationErrorSubjectNotADid`](modules.md#createwebsemanticpresentationerrorsubjectnotadid) \| [`CreateWebSemanticPresentationErrorHolderNotADid`](modules.md#createwebsemanticpresentationerrorholdernotadid) \| [`CreateWebSemanticPresentationErrorSubjectDidHasNoAuthenticationUrl`](modules.md#createwebsemanticpresentationerrorsubjectdidhasnoauthenticationurl) \| [`CreateWebSemanticPresentationErrorCouldNotFindSubjectSigningKey`](modules.md#createwebsemanticpresentationerrorcouldnotfindsubjectsigningkey)
+
+___
+
+### CreateWebSemanticPresentationOptions
+
+Ƭ **CreateWebSemanticPresentationOptions**: `Object`
 
 #### Type declaration
 
@@ -239,18 +283,6 @@ ___
 | `credentials?` | readonly [`VerifiableCredential`](modules.md#verifiablecredential)[] |
 | `domain?` | `string` |
 | `holder?` | `string` |
-
-___
-
-### CredentialData
-
-Ƭ **CredentialData**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `credential` | [`Credential`](interfaces/Credential.md) |
 
 ___
 
@@ -270,19 +302,19 @@ ___
 
 ### CredentialOffered
 
-Ƭ **CredentialOffered**: `Object`
+Ƭ **CredentialOffered**: [`CompactCredentialOffered`](modules.md#compactcredentialoffered) \| [`CompactSemanticCredentialOffered`](modules.md#compactsemanticcredentialoffered) \| [`WebSemanticCredentialOffered`](modules.md#websemanticcredentialoffered) \| [`DeprecatedWebSemanticCredentialOffered`](modules.md#deprecatedwebsemanticcredentialoffered)
 
-#### Type declaration
+___
 
-| Name | Type |
-| :------ | :------ |
-| `claims?` | `CredentialOfferedClaim`[] |
-| `credentialDefinition` | [`OpenidIssuanceCredentialDefinition`](modules.md#openidissuancecredentialdefinition) |
-| `cryptographicBindingMethodsSupported?` | `string`[] |
-| `cryptographicSuitesSupported?` | `string`[] |
-| `format` | [`LinkedDataProofsVerifiableCredential`](enums/CredentialFormatSupported.md#linkeddataproofsverifiablecredential) |
-| `name?` | `string` |
-| `scope` | `string` |
+### CwtPayload
+
+Ƭ **CwtPayload**: `ImplementsZodType`<`z$1.infer`<typeof `CwtPayloadValidator`\>, { `aud?`: `string` ; `exp?`: `number` ; `iat?`: `number` ; `iss`: `string` ; `jti`: `string` ; `nbf?`: `number` ; `status?`: `CwtStatus` ; `sub?`: `string` ; `type?`: `string`  }\>
+
+___
+
+### CwtPayloadRecord
+
+Ƭ **CwtPayloadRecord**: `ImplementsZodType`<`z$1.infer`<typeof `CwtPayloadRecordValidator`\>, { `[key: string]`: `string` \| `boolean` \| `number` \| `Uint8Array` \| `CwtStatus` \| `undefined`;  }\>
 
 ___
 
@@ -298,15 +330,33 @@ ___
 
 ___
 
-### DeriveCredentialError
+### DeprecatedWebSemanticCredentialOffered
 
-Ƭ **DeriveCredentialError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"DeriveCredentialError"``  }
+Ƭ **DeprecatedWebSemanticCredentialOffered**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `claims?` | `CredentialOfferedClaim`[] |
+| `cryptographicBindingMethodsSupported?` | ``"did"`` |
+| `cryptographicSuitesSupported?` | ``"Ed25519Signature2018"`` |
+| `name?` | `string` |
+| `profile` | [`WebSemantic`](enums/CredentialProfileSupported.md#websemantic) |
+| `scope` | `string` |
+| `type` | `string` |
 
 ___
 
-### DeriveCredentialOptions
+### DeriveWebSemanticCredentialError
 
-Ƭ **DeriveCredentialOptions**: `Object`
+Ƭ **DeriveWebSemanticCredentialError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"DeriveCredentialError"``  }
+
+___
+
+### DeriveWebSemanticCredentialOptions
+
+Ƭ **DeriveWebSemanticCredentialOptions**: `Object`
 
 #### Type declaration
 
@@ -387,15 +437,15 @@ ___
 
 ___
 
-### ExpandCredentialError
+### ExpandWebSemanticCredentialError
 
-Ƭ **ExpandCredentialError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"ExpandCredentialError"``  }
+Ƭ **ExpandWebSemanticCredentialError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"ExpandWebSemanticCredentialError"``  }
 
 ___
 
-### ExpandCredentialOptions
+### ExpandWebSemanticCredentialOptions
 
-Ƭ **ExpandCredentialOptions**: `Object`
+Ƭ **ExpandWebSemanticCredentialOptions**: `Object`
 
 #### Type declaration
 
@@ -405,15 +455,15 @@ ___
 
 ___
 
-### FilterCredentialsByQueryError
+### FilterWebSemanticCredentialsByQueryError
 
-Ƭ **FilterCredentialsByQueryError**: [`PresentationRequestError`](modules.md#presentationrequesterror)
+Ƭ **FilterWebSemanticCredentialsByQueryError**: [`PresentationRequestError`](modules.md#presentationrequesterror)
 
 ___
 
-### FilterCredentialsByQueryOptions
+### FilterWebSemanticCredentialsByQueryOptions
 
-Ƭ **FilterCredentialsByQueryOptions**<`T`\>: `Object`
+Ƭ **FilterWebSemanticCredentialsByQueryOptions**<`T`\>: `Object`
 
 Filter credentials by query options
 
@@ -421,7 +471,7 @@ Filter credentials by query options
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `T` | extends [`CredentialData`](modules.md#credentialdata) | Additional data extending [CredentialData](modules.md#credentialdata) |
+| `T` | extends [`WebSemanticCredentialData`](modules.md#websemanticcredentialdata) | Additional data extending [WebSemanticCredentialData](modules.md#websemanticcredentialdata) |
 
 #### Type declaration
 
@@ -433,9 +483,9 @@ Filter credentials by query options
 
 ___
 
-### FilterCredentialsByQueryResponse
+### FilterWebSemanticCredentialsByQueryResponse
 
-Ƭ **FilterCredentialsByQueryResponse**<`T`\>: `FilterCredentialsByExampleResponse`<`T`\> \| `FilterCredentialsByFrameResponse`<`T`\> \| `FilterCredentialsByDidAuthResponse`<`T`\>
+Ƭ **FilterWebSemanticCredentialsByQueryResponse**<`T`\>: `FilterCredentialsByExampleResponse`<`T`\> \| `FilterCredentialsByFrameResponse`<`T`\> \| `FilterCredentialsByDidAuthResponse`<`T`\>
 
 Filter credentials by query response
 
@@ -443,7 +493,7 @@ Filter credentials by query response
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `T` | extends [`CredentialData`](modules.md#credentialdata) | Additional data extending [CredentialData](modules.md#credentialdata) |
+| `T` | extends [`WebSemanticCredentialData`](modules.md#websemanticcredentialdata) | Additional data extending [WebSemanticCredentialData](modules.md#websemanticcredentialdata) |
 
 ___
 
@@ -602,7 +652,7 @@ ___
 | `authorizeEndpoint` | `string` |
 | `authorizeRequestParameters?` | [`AuthorizeRequestParameters`](modules.md#authorizerequestparameters) |
 | `credentialEndpoint` | `string` |
-| `credentials` | ([`CredentialOffered`](modules.md#credentialoffered) \| `DeprecatedCredentialOffered`)[] |
+| `credentials` | [`CredentialOffered`](modules.md#credentialoffered)[] |
 | `issuer` | `string` |
 | `tokenEndpoint` | `string` |
 
@@ -654,6 +704,38 @@ Options for generate authorize url
 
 ___
 
+### OpenidIssuanceRetrieveCompactCredentialsResult
+
+Ƭ **OpenidIssuanceRetrieveCompactCredentialsResult**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `credential` | `string` |
+| `profile` | [`Compact`](enums/CredentialProfileSupported.md#compact) |
+
+___
+
+### OpenidIssuanceRetrieveCompactSemanticCredentialsResult
+
+Ƭ **OpenidIssuanceRetrieveCompactSemanticCredentialsResult**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `credential` | `string` |
+| `profile` | [`CompactSemantic`](enums/CredentialProfileSupported.md#compactsemantic) |
+
+___
+
+### OpenidIssuanceRetrieveCredentials
+
+Ƭ **OpenidIssuanceRetrieveCredentials**: [`OpenidIssuanceRetrieveWebSemanticCredentialsResult`](modules.md#openidissuanceretrievewebsemanticcredentialsresult) \| [`OpenidIssuanceRetrieveCompactCredentialsResult`](modules.md#openidissuanceretrievecompactcredentialsresult) \| [`OpenidIssuanceRetrieveCompactSemanticCredentialsResult`](modules.md#openidissuanceretrievecompactsemanticcredentialsresult)
+
+___
+
 ### OpenidIssuanceRetrieveCredentialsOptions
 
 Ƭ **OpenidIssuanceRetrieveCredentialsOptions**: `Object`
@@ -674,13 +756,11 @@ ___
 
 Ƭ **OpenidIssuanceRetrieveCredentialsResult**: `Object`
 
-Result for retrieve credentials
-
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `credentials` | { `credential`: [`VerifiableCredential`](modules.md#verifiablecredential) ; `did`: `string` ; `format`: [`LinkedDataProofsVerifiableCredential`](enums/CredentialFormatSupported.md#linkeddataproofsverifiablecredential)  }[] |
+| `credentials` | [`OpenidIssuanceRetrieveCredentials`](modules.md#openidissuanceretrievecredentials)[] |
 
 ___
 
@@ -714,6 +794,22 @@ Result for retrieve token
 | :------ | :------ | :------ |
 | `accessToken` | `string` | - |
 | `expiresIn?` | `number` | expires in second |
+
+___
+
+### OpenidIssuanceRetrieveWebSemanticCredentialsResult
+
+Ƭ **OpenidIssuanceRetrieveWebSemanticCredentialsResult**: `Object`
+
+Result for retrieve credentials
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `credential` | [`VerifiableCredential`](modules.md#verifiablecredential) |
+| `did` | `string` |
+| `profile` | [`WebSemantic`](enums/CredentialProfileSupported.md#websemantic) |
 
 ___
 
@@ -777,15 +873,15 @@ ___
 
 ___
 
-### SendPresentationErrorMissingSender
+### SendWebSemanticPresentationErrorMissingSender
 
-Ƭ **SendPresentationErrorMissingSender**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"SendPresentationErrorMissingSender"``  }
+Ƭ **SendWebSemanticPresentationErrorMissingSender**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"SendPresentationErrorMissingSender"``  }
 
 ___
 
-### SendPresentationResponseOptions
+### SendWebSemanticPresentationResponseOptions
 
-Ƭ **SendPresentationResponseOptions**: `Object`
+Ƭ **SendWebSemanticPresentationResponseOptions**: `Object`
 
 #### Type declaration
 
@@ -815,35 +911,15 @@ ___
 
 ___
 
-### VerifyCredentialError
+### VerifyCompactCredentialResult
 
-Ƭ **VerifyCredentialError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"VerifyCredentialError"``  }
-
-___
-
-### VerifyCredentialOptions
-
-Ƭ **VerifyCredentialOptions**: `Object`
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `credential` | [`VerifiableCredential`](modules.md#verifiablecredential) | The credential to verify |
+Ƭ **VerifyCompactCredentialResult**: `CompactVerifyResult`
 
 ___
 
-### VerifyCredentialResult
+### VerifyCompactSemanticCredentialResult
 
-Ƭ **VerifyCredentialResult**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `credentialVerified` | `boolean` |
-| `expired` | `boolean` |
-| `status?` | [`VerifyCredentialStatus`](modules.md#verifycredentialstatus) |
+Ƭ **VerifyCompactSemanticCredentialResult**: `CompactSemanticVerifyResult`
 
 ___
 
@@ -856,6 +932,38 @@ ___
 ### VerifyError
 
 Ƭ **VerifyError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"VerifyError"``  }
+
+___
+
+### VerifyWebSemanticCredentialError
+
+Ƭ **VerifyWebSemanticCredentialError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"VerifyWebSemanticCredentialError"``  }
+
+___
+
+### VerifyWebSemanticCredentialOptions
+
+Ƭ **VerifyWebSemanticCredentialOptions**: `Object`
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `credential` | [`VerifiableCredential`](modules.md#verifiablecredential) | The credential to verify |
+
+___
+
+### VerifyWebSemanticCredentialResult
+
+Ƭ **VerifyWebSemanticCredentialResult**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `credentialVerified` | `boolean` |
+| `expired` | `boolean` |
+| `status?` | [`VerifyCredentialStatus`](modules.md#verifycredentialstatus) |
 
 ___
 
@@ -883,28 +991,39 @@ An instance of a wallet
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `credential` | { `derive`: (`options`: [`DeriveCredentialOptions`](modules.md#derivecredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifiableCredential`](modules.md#verifiablecredential), [`DeriveCredentialError`](modules.md#derivecredentialerror)\>\> ; `expand`: (`options`: [`ExpandCredentialOptions`](modules.md#expandcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<`Record`<`string`, `unknown`\>, [`ExpandCredentialError`](modules.md#expandcredentialerror) \| `ExpandCredentialContextResolutionError`\>\> ; `isSelectivelyDisclosable`: (`credential`: [`VerifiableCredential`](modules.md#verifiablecredential)) => `boolean` ; `verify`: (`options`: [`VerifyCredentialOptions`](modules.md#verifycredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifyCredentialResult`](modules.md#verifycredentialresult), [`VerifyCredentialError`](modules.md#verifycredentialerror)\>\>  } | Namespace for credential operations |
-| `credential.derive` | [object Object] | Derives a credential based on a frame |
-| `credential.expand` | [object Object] | Expands a verifiable credential using jsonld |
-| `credential.isSelectivelyDisclosable` | [object Object] | Determines if a credential is capable of selective disclosure |
-| `credential.verify` | [object Object] | Attempts to verify a credential |
-| `did` | { `create`: () => `Promise`<[`Result`](modules.md#result)<[`CreateDidResponse`](modules.md#createdidresponse), [`CreateDidError`](modules.md#creatediderror)\>\> ; `delete`: (`did`: `string`) => `Promise`<[`Result`](modules.md#result)<`void`, [`DeleteDidError`](modules.md#deletediderror)\>\> ; `list`: () => `Promise`<[`Result`](modules.md#result)<readonly `string`[], [`GetDidsError`](modules.md#getdidserror)\>\> ; `resolve`: (`did`: `string`) => `Promise`<[`Result`](modules.md#result)<[`DidServiceInfoResponse`](interfaces/DidServiceInfoResponse.md), [`DidResolutionError`](modules.md#didresolutionerror)\>\>  } | Namespace for DID operations |
-| `did.create` | [object Object] | Create a new DID in the wallet |
-| `did.delete` | [object Object] | Delete an existing DID in the wallet |
-| `did.list` | [object Object] | List all DIDs created within the wallet |
-| `did.resolve` | [object Object] | Resolves any DID into a DID document and the local metadata |
+| `credential` | { `compact`: { `verifyCredential`: (`options`: { `assertExpiry?`: `boolean` ; `assertNotBefore?`: `boolean` ; `checkRevocation?`: `boolean` ; `payload`: `string` ; `trustedIssuers?`: `string`[]  }) => `Promise`<[`Result`](modules.md#result)<`CompactVerifyResult`, `VerifyCompactCredentialError`\>\>  } ; `compactSemantic`: { `verifyCredential`: (`options`: { `assertExpiry?`: `boolean` ; `assertNotBefore?`: `boolean` ; `checkRevocation?`: `boolean` ; `payload`: `string` ; `trustedIssuers?`: `string`[]  }) => `Promise`<[`Result`](modules.md#result)<`CompactSemanticVerifyResult`, `VerifyCompactSemanticCredentialError`\>\>  } ; `webSemantic`: { `createPresentation`: (`options`: [`CreateWebSemanticPresentationOptions`](modules.md#createwebsemanticpresentationoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifiablePresentation`](interfaces/VerifiablePresentation.md), [`CreateWebSemanticPresentationErrors`](modules.md#createwebsemanticpresentationerrors)\>\> ; `deriveCredential`: (`options`: [`DeriveWebSemanticCredentialOptions`](modules.md#derivewebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifiableCredential`](modules.md#verifiablecredential), [`DeriveWebSemanticCredentialError`](modules.md#derivewebsemanticcredentialerror)\>\> ; `expandCredential`: (`options`: [`ExpandWebSemanticCredentialOptions`](modules.md#expandwebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<`Record`<`string`, `unknown`\>, [`ExpandWebSemanticCredentialError`](modules.md#expandwebsemanticcredentialerror) \| `ExpandWebSemanticCredentialContextResolutionError`\>\> ; `filterCredentialsByQuery`: <T\>(`options`: [`FilterWebSemanticCredentialsByQueryOptions`](modules.md#filterwebsemanticcredentialsbyqueryoptions)<`T`\>) => `Promise`<[`Result`](modules.md#result)<[`FilterWebSemanticCredentialsByQueryResponse`](modules.md#filterwebsemanticcredentialsbyqueryresponse)<`T`\>, [`PresentationRequestError`](modules.md#presentationrequesterror)\>\> ; `isSelectivelyDisclosable`: (`credential`: [`VerifiableCredential`](modules.md#verifiablecredential)) => `boolean` ; `sendPresentationResponse`: (`options`: [`SendWebSemanticPresentationResponseOptions`](modules.md#sendwebsemanticpresentationresponseoptions)) => `Promise`<[`Result`](modules.md#result)<`void`, [`EncryptError`](modules.md#encrypterror) \| `HttpError` \| [`SendWebSemanticPresentationErrorMissingSender`](modules.md#sendwebsemanticpresentationerrormissingsender)\>\> ; `verifyCredential`: (`options`: [`VerifyWebSemanticCredentialOptions`](modules.md#verifywebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifyWebSemanticCredentialResult`](modules.md#verifywebsemanticcredentialresult), [`VerifyWebSemanticCredentialError`](modules.md#verifywebsemanticcredentialerror)\>\>  }  } | Namespace for credential operations |
+| `credential.compact` | { `verifyCredential`: (`options`: { `assertExpiry?`: `boolean` ; `assertNotBefore?`: `boolean` ; `checkRevocation?`: `boolean` ; `payload`: `string` ; `trustedIssuers?`: `string`[]  }) => `Promise`<[`Result`](modules.md#result)<`CompactVerifyResult`, `VerifyCompactCredentialError`\>\>  } | - |
+| `credential.compact.verifyCredential` | [object Object] | Attempts to verify a Compact credential |
+| `credential.compactSemantic` | { `verifyCredential`: (`options`: { `assertExpiry?`: `boolean` ; `assertNotBefore?`: `boolean` ; `checkRevocation?`: `boolean` ; `payload`: `string` ; `trustedIssuers?`: `string`[]  }) => `Promise`<[`Result`](modules.md#result)<`CompactSemanticVerifyResult`, `VerifyCompactSemanticCredentialError`\>\>  } | - |
+| `credential.compactSemantic.verifyCredential` | [object Object] | Attempts to verify a Compact Semantic credential |
+| `credential.webSemantic` | { `createPresentation`: (`options`: [`CreateWebSemanticPresentationOptions`](modules.md#createwebsemanticpresentationoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifiablePresentation`](interfaces/VerifiablePresentation.md), [`CreateWebSemanticPresentationErrors`](modules.md#createwebsemanticpresentationerrors)\>\> ; `deriveCredential`: (`options`: [`DeriveWebSemanticCredentialOptions`](modules.md#derivewebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifiableCredential`](modules.md#verifiablecredential), [`DeriveWebSemanticCredentialError`](modules.md#derivewebsemanticcredentialerror)\>\> ; `expandCredential`: (`options`: [`ExpandWebSemanticCredentialOptions`](modules.md#expandwebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<`Record`<`string`, `unknown`\>, [`ExpandWebSemanticCredentialError`](modules.md#expandwebsemanticcredentialerror) \| `ExpandWebSemanticCredentialContextResolutionError`\>\> ; `filterCredentialsByQuery`: <T\>(`options`: [`FilterWebSemanticCredentialsByQueryOptions`](modules.md#filterwebsemanticcredentialsbyqueryoptions)<`T`\>) => `Promise`<[`Result`](modules.md#result)<[`FilterWebSemanticCredentialsByQueryResponse`](modules.md#filterwebsemanticcredentialsbyqueryresponse)<`T`\>, [`PresentationRequestError`](modules.md#presentationrequesterror)\>\> ; `isSelectivelyDisclosable`: (`credential`: [`VerifiableCredential`](modules.md#verifiablecredential)) => `boolean` ; `sendPresentationResponse`: (`options`: [`SendWebSemanticPresentationResponseOptions`](modules.md#sendwebsemanticpresentationresponseoptions)) => `Promise`<[`Result`](modules.md#result)<`void`, [`EncryptError`](modules.md#encrypterror) \| `HttpError` \| [`SendWebSemanticPresentationErrorMissingSender`](modules.md#sendwebsemanticpresentationerrormissingsender)\>\> ; `verifyCredential`: (`options`: [`VerifyWebSemanticCredentialOptions`](modules.md#verifywebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifyWebSemanticCredentialResult`](modules.md#verifywebsemanticcredentialresult), [`VerifyWebSemanticCredentialError`](modules.md#verifywebsemanticcredentialerror)\>\>  } | - |
+| `credential.webSemantic.createPresentation` | [object Object] | Create a Web Semantic verifiable presentation |
+| `credential.webSemantic.deriveCredential` | [object Object] | Derives a Web Semantic credential based on a frame |
+| `credential.webSemantic.expandCredential` | [object Object] | Expands a verifiable Web Semantic credential using jsonld |
+| `credential.webSemantic.filterCredentialsByQuery` | [object Object] | Filters a list of Web Semantic credentials based on a query |
+| `credential.webSemantic.isSelectivelyDisclosable` | [object Object] | Determines if a Web Semantic credential is capable of selective disclosure |
+| `credential.webSemantic.sendPresentationResponse` | [object Object] | Sends a Web Semantic presentation response |
+| `credential.webSemantic.verifyCredential` | [object Object] | Attempts to verify a Web Semantic credential |
+| `did` | { `messaging`: { `encrypt`: (`options`: [`EncryptOptions`](modules.md#encryptoptions)) => `Promise`<[`Result`](modules.md#result)<`JweJsonSerialization`, [`EncryptError`](modules.md#encrypterror)\>\> ; `openDidCommMessage`: (`message`: `unknown`) => `Promise`<[`Result`](modules.md#result)<[`Jwm`](interfaces/Jwm.md), [`OpenDidCommError`](modules.md#opendidcommerror) \| [`VerifyError`](modules.md#verifyerror) \| [`DecryptError`](modules.md#decrypterror)\>\> ; `resolveDidCommUri`: (`didCommUri`: `string`) => `Promise`<[`Result`](modules.md#result)<`unknown`, [`BaseError`](interfaces/BaseError.md)<[`ResolveDidCommUriErrorType`](enums/ResolveDidCommUriErrorType.md)\>\>\> ; `sign`: (`payload`: `string` \| `Record`<`string`, `unknown`\>, `senderDid`: `string`) => `Promise`<[`Result`](modules.md#result)<`string`, [`SignError`](modules.md#signerror)\>\>  } ; `wellKnownDidConfiguration`: { `validate`: (`domain`: `string`, `did`: `string`) => `Promise`<`boolean`\> ; `validateMultipleDids`: (`domain`: `string`, `dids`: readonly `string`[]) => `Promise`<readonly [`DidConfigurationValidateResult`](modules.md#didconfigurationvalidateresult)[]\>  } ; `createDid`: () => `Promise`<[`Result`](modules.md#result)<[`CreateDidResponse`](modules.md#createdidresponse), [`CreateDidError`](modules.md#creatediderror)\>\> ; `deleteDid`: (`did`: `string`) => `Promise`<[`Result`](modules.md#result)<`void`, [`DeleteDidError`](modules.md#deletediderror)\>\> ; `listDids`: () => `Promise`<[`Result`](modules.md#result)<readonly `string`[], [`GetDidsError`](modules.md#getdidserror)\>\> ; `resolveDid`: (`did`: `string`) => `Promise`<[`Result`](modules.md#result)<[`DidServiceInfoResponse`](interfaces/DidServiceInfoResponse.md), [`DidResolutionError`](modules.md#didresolutionerror)\>\>  } | Namespace for DID operations |
+| `did.messaging` | { `encrypt`: (`options`: [`EncryptOptions`](modules.md#encryptoptions)) => `Promise`<[`Result`](modules.md#result)<`JweJsonSerialization`, [`EncryptError`](modules.md#encrypterror)\>\> ; `openDidCommMessage`: (`message`: `unknown`) => `Promise`<[`Result`](modules.md#result)<[`Jwm`](interfaces/Jwm.md), [`OpenDidCommError`](modules.md#opendidcommerror) \| [`VerifyError`](modules.md#verifyerror) \| [`DecryptError`](modules.md#decrypterror)\>\> ; `resolveDidCommUri`: (`didCommUri`: `string`) => `Promise`<[`Result`](modules.md#result)<`unknown`, [`BaseError`](interfaces/BaseError.md)<[`ResolveDidCommUriErrorType`](enums/ResolveDidCommUriErrorType.md)\>\>\> ; `sign`: (`payload`: `string` \| `Record`<`string`, `unknown`\>, `senderDid`: `string`) => `Promise`<[`Result`](modules.md#result)<`string`, [`SignError`](modules.md#signerror)\>\>  } | Namespace for messaging operations |
+| `did.messaging.encrypt` | [object Object] | Encrypts a message |
+| `did.messaging.openDidCommMessage` | [object Object] | Opens a DIDComm message |
+| `did.messaging.resolveDidCommUri` | [object Object] | Resolves a DIDComm URI into an object |
+| `did.messaging.sign` | [object Object] | Signs a message |
+| `did.wellKnownDidConfiguration` | { `validate`: (`domain`: `string`, `did`: `string`) => `Promise`<`boolean`\> ; `validateMultipleDids`: (`domain`: `string`, `dids`: readonly `string`[]) => `Promise`<readonly [`DidConfigurationValidateResult`](modules.md#didconfigurationvalidateresult)[]\>  } | Namespace for wellknown configuration operations |
+| `did.wellKnownDidConfiguration.validate` | [object Object] | Validates a DID belongs to a domain |
+| `did.wellKnownDidConfiguration.validateMultipleDids` | [object Object] | Validates multiple DIDs belong to a domain |
+| `did.createDid` | [object Object] | Create a new DID in the wallet |
+| `did.deleteDid` | [object Object] | Delete an existing DID in the wallet |
+| `did.listDids` | [object Object] | List all DIDs created within the wallet |
+| `did.resolveDid` | [object Object] | Resolves any DID into a DID document and the local metadata |
 | `didService` | [`DidService`](interfaces/DidService.md) | An exposed [DidService](interfaces/DidService.md)  **`privateremarks`** Direct exposure of DidService will be removed in the future |
 | `kms` | [`KeyManagementService`](interfaces/KeyManagementService.md) | An exposed [KeyManagementService](interfaces/KeyManagementService.md)  **`privateremarks`** Direct exposure of KeyManagementService will be removed in the future |
 | `linkedData` | { `cborld`: { `decode`: (`byteArray`: `Uint8Array`) => `ResultAsync`<`unknown`, `InvalidCborldDecodeError`\> ; `encode`: (`jsonldDocument`: `Record`<`string`, `unknown`\>) => `ResultAsync`<`Uint8Array`, `InvalidCborldEncodeError`\>  }  } | Namespace for linked data operations |
 | `linkedData.cborld` | { `decode`: (`byteArray`: `Uint8Array`) => `ResultAsync`<`unknown`, `InvalidCborldDecodeError`\> ; `encode`: (`jsonldDocument`: `Record`<`string`, `unknown`\>) => `ResultAsync`<`Uint8Array`, `InvalidCborldEncodeError`\>  } | Namespace for cborld conversion operations |
 | `linkedData.cborld.decode` | [object Object] | Decode CBOR-LD bytes intoto JSON-LD document |
 | `linkedData.cborld.encode` | [object Object] | Encode a JSON-LD document into CBOR-LD bytes |
-| `messaging` | { `encrypt`: (`options`: [`EncryptOptions`](modules.md#encryptoptions)) => `Promise`<[`Result`](modules.md#result)<`JweJsonSerialization`, [`EncryptError`](modules.md#encrypterror)\>\> ; `openDidCommMessage`: (`message`: `unknown`) => `Promise`<[`Result`](modules.md#result)<[`Jwm`](interfaces/Jwm.md), [`OpenDidCommError`](modules.md#opendidcommerror) \| [`VerifyError`](modules.md#verifyerror) \| [`DecryptError`](modules.md#decrypterror)\>\> ; `resolveDidCommUri`: (`didCommUri`: `string`) => `Promise`<[`Result`](modules.md#result)<`unknown`, [`BaseError`](interfaces/BaseError.md)<[`ResolveDidCommUriErrorType`](enums/ResolveDidCommUriErrorType.md)\>\>\> ; `sign`: (`payload`: `string` \| `Record`<`string`, `unknown`\>, `senderDid`: `string`) => `Promise`<[`Result`](modules.md#result)<`string`, [`SignError`](modules.md#signerror)\>\>  } | Namespace for messaging operations |
-| `messaging.encrypt` | [object Object] | Encrypts a message |
-| `messaging.openDidCommMessage` | [object Object] | Opens a DIDComm message |
-| `messaging.resolveDidCommUri` | [object Object] | Resolves a DIDComm URI into an object |
-| `messaging.sign` | [object Object] | Signs a message |
-| `oidc` | { `discover`: (`issuerUri`: `string`) => `Promise`<[`Result`](modules.md#result)<[`DiscoverResult`](modules.md#discoverresult), [`InvalidIssuerUriError`](modules.md#invalidissuerurierror) \| [`InvalidOpenIdConfigurationError`](modules.md#invalidopenidconfigurationerror)\>\> ; `generateAuthorizeUrl`: (`options`: [`GenerateAuthorizeUrlOptions`](modules.md#generateauthorizeurloptions)) => `Promise`<[`Result`](modules.md#result)<[`GenerateAuthorizeResult`](modules.md#generateauthorizeresult), [`InvalidDidError`](modules.md#invaliddiderror) \| [`SignError`](modules.md#signerror)\>\> ; `retrieveCredential`: (`options`: [`RetrieveCredentialOptions`](modules.md#retrievecredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`RetrieveCredentialResult`](modules.md#retrievecredentialresult), [`RetrieveCredentialError`](modules.md#retrievecredentialerror) \| [`InvalidIdTokenError`](modules.md#invalididtokenerror) \| [`CredentialNotFoundInTokenError`](modules.md#credentialnotfoundintokenerror)\>\>  } | Namespace for OIDC operations |
+| `oidc` | { `discover`: (`issuerUri`: `string`) => `Promise`<[`Result`](modules.md#result)<[`DiscoverResult`](modules.md#discoverresult), [`InvalidIssuerUriError`](modules.md#invalidissuerurierror) \| [`InvalidOpenIdConfigurationError`](modules.md#invalidopenidconfigurationerror)\>\> ; `generateAuthorizeUrl`: (`options`: [`GenerateAuthorizeUrlOptions`](modules.md#generateauthorizeurloptions)) => `Promise`<[`Result`](modules.md#result)<[`GenerateAuthorizeResult`](modules.md#generateauthorizeresult), [`SignError`](modules.md#signerror) \| [`InvalidDidError`](modules.md#invaliddiderror)\>\> ; `retrieveCredential`: (`options`: [`RetrieveCredentialOptions`](modules.md#retrievecredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`RetrieveCredentialResult`](modules.md#retrievecredentialresult), [`RetrieveCredentialError`](modules.md#retrievecredentialerror) \| [`InvalidIdTokenError`](modules.md#invalididtokenerror) \| [`CredentialNotFoundInTokenError`](modules.md#credentialnotfoundintokenerror)\>\>  } | Namespace for OIDC operations |
 | `oidc.discover` | [object Object] | Discover credential offer from OIDC's wellknown configuration endpoint |
 | `oidc.generateAuthorizeUrl` | [object Object] | Generates an authorization URL |
 | `oidc.retrieveCredential` | [object Object] | Retrieves a credential from the OIDC provider |
@@ -914,13 +1033,6 @@ An instance of a wallet
 | `openid.issuance.generateAuthorizeUrl` | [object Object] | Generates an authorization URL |
 | `openid.issuance.retrieveCredentials` | [object Object] | Retrieves credential from the openid issuance provider |
 | `openid.issuance.retrieveToken` | [object Object] | Retrieves token from the openid issuance provider |
-| `presentation` | { `create`: (`options`: [`CreatePresentationOptions`](modules.md#createpresentationoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifiablePresentation`](interfaces/VerifiablePresentation.md), [`CreatePresentationErrors`](modules.md#createpresentationerrors)\>\> ; `filterCredentialsByQuery`: <T\>(`options`: [`FilterCredentialsByQueryOptions`](modules.md#filtercredentialsbyqueryoptions)<`T`\>) => `Promise`<[`Result`](modules.md#result)<[`FilterCredentialsByQueryResponse`](modules.md#filtercredentialsbyqueryresponse)<`T`\>, [`PresentationRequestError`](modules.md#presentationrequesterror)\>\> ; `sendPresentationResponse`: (`options`: [`SendPresentationResponseOptions`](modules.md#sendpresentationresponseoptions)) => `Promise`<[`Result`](modules.md#result)<`void`, `HttpError` \| [`EncryptError`](modules.md#encrypterror) \| [`SendPresentationErrorMissingSender`](modules.md#sendpresentationerrormissingsender)\>\>  } | Namespace for presentation operations |
-| `presentation.create` | [object Object] | Create a verifiable presentation |
-| `presentation.filterCredentialsByQuery` | [object Object] | Filters a list of credentials based on a query |
-| `presentation.sendPresentationResponse` | [object Object] | Sends a presentation response |
-| `wellKnownDidConfiguration` | { `validate`: (`domain`: `string`, `did`: `string`) => `Promise`<`boolean`\> ; `validateMultipleDids`: (`domain`: `string`, `dids`: readonly `string`[]) => `Promise`<readonly [`DidConfigurationValidateResult`](modules.md#didconfigurationvalidateresult)[]\>  } | Namespace for wellknown configuration operations |
-| `wellKnownDidConfiguration.validate` | [object Object] | Validates a DID belongs to a domain |
-| `wellKnownDidConfiguration.validateMultipleDids` | [object Object] | Validates multiple DIDs belong to a domain |
 | `close` | () => `Promise`<[`Result`](modules.md#result)<`void`, [`CloseWalletError`](modules.md#closewalleterror)\>\> | Closes the wallet  **`remarks`** Wallet instance will not function anymore after close |
 | `isOpen` | () => `boolean` | Indicates if the wallet is open |
 
@@ -940,6 +1052,24 @@ React Native specific wallet extensions.
 | `httpCache.clear` | [object Object] | Removes all entries from HTTP cache storage directory for the wallet  **`remarks`** This is a destructive operation that cannot be undone. If a [walletId](modules.md#walletid) is not provided, storage for the default wallet will be removed. |
 | `httpCache.getSize` | [object Object] | Retrieve the total number of cached contexts in the wallet |
 
+___
+
+### WebSemanticCredentialData
+
+Ƭ **WebSemanticCredentialData**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `credential` | [`Credential`](interfaces/Credential.md) |
+
+___
+
+### WebSemanticCredentialOffered
+
+Ƭ **WebSemanticCredentialOffered**: `BaseCredentialOffered` & { `credentialDefinition`: [`OpenidIssuanceCredentialDefinition`](modules.md#openidissuancecredentialdefinition) ; `profile`: [`WebSemantic`](enums/CredentialProfileSupported.md#websemantic)  }
+
 ## Variables
 
 ### AuthorizeRequestParametersValidator
@@ -950,9 +1080,27 @@ request_parameters, that supported by wallet-sdk
 
 ___
 
+### CompactCredentialOfferedValidator
+
+• `Const` **CompactCredentialOfferedValidator**: `z$1.ZodType`<[`CompactCredentialOffered`](modules.md#compactcredentialoffered)\>
+
+___
+
+### CompactSemanticCredentialOfferedValidator
+
+• `Const` **CompactSemanticCredentialOfferedValidator**: `z$1.ZodType`<[`CompactSemanticCredentialOffered`](modules.md#compactsemanticcredentialoffered)\>
+
+___
+
 ### CredentialOfferedValidator
 
-• `Const` **CredentialOfferedValidator**: `z$1.ZodType`<[`CredentialOffered`](modules.md#credentialoffered)\>
+• `Const` **CredentialOfferedValidator**: `z$1.ZodObject`<{ `claims`: `z$1.ZodOptional`<`z$1.ZodArray`<`z$1.ZodType`<`CredentialOfferedClaim`, `z$1.ZodTypeDef`, `CredentialOfferedClaim`\>, ``"many"``\>\> ; `name`: `z$1.ZodOptional`<`z$1.ZodString`\> ; `scope`: `z$1.ZodString`  }, ``"strip"``, `z$1.ZodTypeAny`, { `claims?`: `CredentialOfferedClaim`[] ; `name?`: `string` ; `scope`: `string`  }, { `claims?`: `CredentialOfferedClaim`[] ; `name?`: `string` ; `scope`: `string`  }\>
+
+___
+
+### DeprecatedWebSemanticCredentialOfferedValidator
+
+• `Const` **DeprecatedWebSemanticCredentialOfferedValidator**: `z$1.ZodType`<[`DeprecatedWebSemanticCredentialOffered`](modules.md#deprecatedwebsemanticcredentialoffered)\>
 
 ___
 
@@ -981,6 +1129,12 @@ ___
 ### RNSecureKeyStoreLegacy
 
 • **RNSecureKeyStoreLegacy**: `any`
+
+___
+
+### WebSemanticCredentialOfferedValidator
+
+• `Const` **WebSemanticCredentialOfferedValidator**: `z$1.ZodType`<[`WebSemanticCredentialOffered`](modules.md#websemanticcredentialoffered)\>
 
 ## Functions
 

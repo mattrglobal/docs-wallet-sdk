@@ -6,10 +6,24 @@
 
 ### Enumeration Members
 
-- [LinkedDataProofsVerifiableCredential](CredentialFormatSupported.md#linkeddataproofsverifiablecredential)
+- [CWT](CredentialFormatSupported.md#cwt)
+- [CWT\_VC](CredentialFormatSupported.md#cwt_vc)
+- [LDP\_VC](CredentialFormatSupported.md#ldp_vc)
 
 ## Enumeration Members
 
-### LinkedDataProofsVerifiableCredential
+### CWT
 
-• **LinkedDataProofsVerifiableCredential**
+• **CWT**
+
+___
+
+### CWT\_VC
+
+• **CWT\_VC**
+
+___
+
+### LDP\_VC
+
+• **LDP\_VC**

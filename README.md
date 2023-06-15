@@ -147,7 +147,7 @@ Use the open wallet:
 
 ```typescript
 // Create a new DID
-const createDidResult = await wallet.did.create();
+const createDidResult = await wallet.did.createDid();
 
 if (createDidResult.isErr()) {
   // Handle error from createDidResult.error
@@ -200,7 +200,7 @@ const { offer } = discoverResult.value;
 Create a local subject DID for the credential
 
 ```typescript
-const createDidResult = await wallet.did.create();
+const createDidResult = await wallet.did.createDid();
 
 if (createDidResult.isErr()) {
   // Handle error from createDidResult.error
@@ -244,10 +244,10 @@ if (retrieveResult.isErr()) {
 const { credential } = retrieveResult.value;
 ```
 
-Verify a credential
+Verify a Web Semantic credential
 
 ```typescript
-const verifyResult = await wallet.credential.verify({ credential });
+const verifyResult = await wallet.credential.webSemantic.verifyCredential({ credential });
 
 if (verifyResult.isErr()) {
   // Handle error from verifyResult.error
@@ -266,7 +266,7 @@ Discover credential offer details via offer URI
  * openid-credential-offer://?credential_offer=encodeURIComponent(JSON.stringify({ credential_issuer, credentials: [{credentialId}], request_parameters? }))
  */
 const uri =
-  "openid-credential-offer://?credential_offer=%7B%22credential_issuer%22%3A%22https%3A%2F%2Fmyissuer.example.com%22%2C%22credentials%22%3A%5B%22707e920a-f342-443b-ae24-6946b7b5033e%22%5D%2C%22request_parameters%22%3A%7B%22login_hint%22%3A%22ken.huang%40mattr.global%22%2C%22prompt%22%3A%22login%22%7D%7D";
+  "openid-credential-offer://?credential_offer=%7B%22credential_issuer%22%3A%22https%3A%2F%2Fmyissuer.example.com%22%2C%22credentials%22%3A%5B%22707e920a-f342-443b-ae24-6946b7b5033e%22%5D%2C%22request_parameters%22%3A%7B%22login_hint%22%3A%22user%40example.com%22%2C%22prompt%22%3A%22login%22%7D%7D";
 
 const offer = unwrap(await wallet.openid.issuance.discover(uri));
 ```
@@ -281,7 +281,7 @@ const offer: OpenidIssuanceCredentialOffer = {
   credentialEndpoint: "https://example.com/oauth/credential",
   credentials: [
     {
-      format: "ldp_vc",
+      profile: "web-semantic",
       scope: "ldp_vc:UniversityDegreeCredential",
       credentialDefinition: {
         "@context": ["https://www.w3.org/2018/credentials/v1"],
@@ -354,7 +354,7 @@ if (retrieveCredentialsResult.isErr()) {
   return;
 }
 
-retrieveCredentialsResult.value.credentials.forEach(({ credential, format, did }) => {
+retrieveCredentialsResult.value.credentials.forEach(({ credential, profile, did }) => {
   // present to user and/or store
 });
 ```
@@ -362,7 +362,7 @@ retrieveCredentialsResult.value.credentials.forEach(({ credential, format, did }
 ## Resolving a DIDCommUri
 
 ```typescript
-const resolveDidCommUriResult = await wallet.messaging.resolveDidCommUri(uri);
+const resolveDidCommUriResult = await wallet.did.messaging.resolveDidCommUri(uri);
 if (resolveDidCommUriResult.isErr()) {
   return;
 }
@@ -375,7 +375,7 @@ Open a presentation request DIDComm message
 
 ```typescript
 import { isPresentationRequestJwm } from "wallet-sdk-react-native";
-const openResult = await wallet.messaging.openDidCommMessage(message);
+const openResult = await wallet.did.messaging.openDidCommMessage(message);
 
 if (openResult.isErr() || !isPresentationRequestJwm(openResult.value)) {
   return;
@@ -392,17 +392,17 @@ const credentialData = [
   { id: "b", credential: credentailB },
 ];
 
-const filterResult = await wallet.presentation.filterCredentialsByQuery({
+const filterResult = await wallet.credential.webSemantic.filterCredentialsByQuery({
   credentials: credentialData,
   // Note that only the presentation request body should contain single query only, under the same query could contain multiple sub queries.
   query: presentationRequest.body.query[0],
 });
 ```
 
-Create and send presentation
+Create and send a Web Semantic credential presentation
 
 ```typescript
-const createPresentationResult = await wallet.presentation.create({
+const createPresentationResult = await wallet.credential.webSemantic.createPresentation({
   challenge: presentationRequest.body.challenge,
   domain: presentationRequest.body.domain,
   credentials,
@@ -415,7 +415,7 @@ if (createPresentationResult.isErr()) {
 }
 
 const presentaiton = createPresentationResult.value;
-const sendPresentationResult = await wallet.presentation.sendPresentationResponse({
+const sendPresentationResult = await wallet.credential.webSemantic.sendPresentationResponse({
   presentationRequest,
   presentation,
 });
