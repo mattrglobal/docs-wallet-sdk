@@ -25,7 +25,6 @@ Allows for extension fields to be added to the DID Document
 - [id](DidDocument.md#id)
 - [keyAgreement](DidDocument.md#keyagreement)
 - [proof](DidDocument.md#proof)
-- [publicKey](DidDocument.md#publickey)
 - [service](DidDocument.md#service)
 - [updated](DidDocument.md#updated)
 - [verificationMethod](DidDocument.md#verificationmethod)
@@ -99,16 +98,6 @@ ___
 Cryptographic proof of the integrity of this DID document
 
 **`see`** https://w3c-ccg.github.io/did-spec/#proof-optional
-
-___
-
-### publicKey
-
-• `Optional` `Readonly` **publicKey**: readonly `DidDocumentPublicKey`[]
-
-Array of public keys associated with the DID.
-
-**`see`** https://w3c-ccg.github.io/did-spec/#public-keys
 
 ___
 

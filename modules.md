@@ -23,6 +23,7 @@
 - [RetrieveCredentialsErrorType](enums/RetrieveCredentialsErrorType.md)
 - [RetrieveTokenErrorType](enums/RetrieveTokenErrorType.md)
 - [SecureKeyValueStoreErrorType](enums/SecureKeyValueStoreErrorType.md)
+- [VerifyFailureReasonType](enums/VerifyFailureReasonType.md)
 
 ### Interfaces
 
@@ -58,6 +59,8 @@
 - [CompactCredentialPayload](modules.md#compactcredentialpayload)
 - [CompactSemanticCredentialOffered](modules.md#compactsemanticcredentialoffered)
 - [CompactSemanticCredentialPayload](modules.md#compactsemanticcredentialpayload)
+- [CompactSemanticVerifyFailureReasonType](modules.md#compactsemanticverifyfailurereasontype)
+- [CompactVerifyFailureReasonType](modules.md#compactverifyfailurereasontype)
 - [CreateDidError](modules.md#creatediderror)
 - [CreateDidResponse](modules.md#createdidresponse)
 - [CreateWebSemanticPresentationErrorCouldNotFindSubjectSigningKey](modules.md#createwebsemanticpresentationerrorcouldnotfindsubjectsigningkey)
@@ -220,6 +223,18 @@ ___
 ### CompactSemanticCredentialPayload
 
 Ƭ **CompactSemanticCredentialPayload**: `ImplementsZodType`<`z$1.infer`<typeof `CompactSemanticCredentialPayloadValidator`\>, { `aud?`: `string` ; `exp?`: `number` ; `iat?`: `number` ; `iss`: `string` ; `jti`: `string` ; `nbf`: `number` ; `status?`: `CwtStatus` ; `sub?`: `string` ; `vc`: `CompactSemanticCredentialVcPayload`  }\>
+
+___
+
+### CompactSemanticVerifyFailureReasonType
+
+Ƭ **CompactSemanticVerifyFailureReasonType**: [`VerifyFailureReasonType`](enums/VerifyFailureReasonType.md)
+
+___
+
+### CompactVerifyFailureReasonType
+
+Ƭ **CompactVerifyFailureReasonType**: [`VerifyFailureReasonType`](enums/VerifyFailureReasonType.md)
 
 ___
 
@@ -621,6 +636,13 @@ Options to configure when opening an existing wallet
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
+| `credential?` | { `compact?`: { `issuerResolverTtl?`: `number` ; `revocationListTtl?`: `number`  } ; `compactSemantic?`: { `issuerResolverTtl?`: `number` ; `revocationListTtl?`: `number`  }  } | Configurations for credential operations |
+| `credential.compact?` | { `issuerResolverTtl?`: `number` ; `revocationListTtl?`: `number`  } | Configurations for compact credential operations |
+| `credential.compact.issuerResolverTtl?` | `number` | Duration that an issuer is kept in the cache after it is added or re-added |
+| `credential.compact.revocationListTtl?` | `number` | Duration that a revocation list is kept in the cache after it is added or re-added |
+| `credential.compactSemantic?` | { `issuerResolverTtl?`: `number` ; `revocationListTtl?`: `number`  } | Configurations for compact-semantic credential operations |
+| `credential.compactSemantic.issuerResolverTtl?` | `number` | Duration that an issuer is kept in the cache after it is added or re-added |
+| `credential.compactSemantic.revocationListTtl?` | `number` | Duration that a revocation list is kept in the cache after it is added or re-added |
 | `httpRequestTimeoutMs?` | `number` | The number of milliseconds a request can take before automatically being terminated. The default value is 5000. |
 | `httpResolverBaseUrl?` | `string` | Specifies the base URL including path that http resolver will use  **`defaultvalue`** https://uniresolver-api.mattr.global |
 | `httpResolverPath?` | `string` | Specifies the URL path that http resolver will use  **`defaultvalue`** /1.0/identifiers/ |
