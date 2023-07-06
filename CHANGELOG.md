@@ -1,6 +1,11 @@
 # Change Log
 
-# [Unreleased]
+# 2.1.1
+
+- Update change log
+- Address cve in semver dependency
+
+# 2.1.0
 
 ### Features
 
@@ -14,8 +19,6 @@
 ### Notes
 
 - A new peer dependency is required `@mattrglobal/react-native-cryptography`
-
-<!-- Add any changes pending release here -->
 
 # 2.0.0
 
