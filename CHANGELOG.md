@@ -1,5 +1,10 @@
 # Change Log
 
+# [2.1.2]
+
+- Add support for `BbsSignature2022` verifiable credentials
+- A new peer dependency is required `@mattrglobal/pairing-crypto-rn`
+
 # 2.1.1
 
 - Update change log

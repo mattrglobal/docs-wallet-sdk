@@ -59,7 +59,7 @@ dependencies will be autolinked.
 Install the peer dependencies:
 
 ```
-yarn add react-native-securerandom@1.0.1 realm@11.3.1 react-native-fs@2.17.0 react-native-secure-key-store@2.0.10 @mattrglobal/rn-bbs-signatures@1.0.0 react-native-get-random-values@1.7.0 @mattrglobal/react-native-cryptography@1.1.0
+yarn add react-native-securerandom@1.0.1 realm@11.3.1 react-native-fs@2.17.0 react-native-secure-key-store@2.0.10 @mattrglobal/rn-bbs-signatures@1.0.0 react-native-get-random-values@1.7.0 @mattrglobal/react-native-cryptography@1.1.0 @mattrglobal/pairing-crypto-rn@0.4.1
 
 Note: we tested with react-native 0.68.5 and 0.70.6
 ```
@@ -101,6 +101,16 @@ show the following changes under `xxx.xcodeproj` for each of the profiles
 
 ```
 "EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+```
+
+If your app was initially created with `react-native@0.61.*` or older you may need to change update your
+`ios/*.xcodeproj` configuration.
+
+Any reference of the `DEAD_CODE_STRIPPING` flag must be removed or set to `YES`, this is required to maintain
+compatibility for the newer & older versions of `react-native`.
+
+```diff
+- DEAD_CODE_STRIPPING = NO;
 ```
 
 # Usage
