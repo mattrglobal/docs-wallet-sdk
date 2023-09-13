@@ -17,12 +17,14 @@
 - [CredentialProfileSupported](enums/CredentialProfileSupported.md)
 - [CredentialStatusType](enums/CredentialStatusType.md)
 - [DiscoverErrorType](enums/DiscoverErrorType.md)
+- [ExpandWebSemanticCredentialErrorType](enums/ExpandWebSemanticCredentialErrorType.md)
 - [GenerateAuthorizeUrlErrorType](enums/GenerateAuthorizeUrlErrorType.md)
 - [QueryType](enums/QueryType.md)
 - [ResolveDidCommUriErrorType](enums/ResolveDidCommUriErrorType.md)
 - [RetrieveCredentialsErrorType](enums/RetrieveCredentialsErrorType.md)
 - [RetrieveTokenErrorType](enums/RetrieveTokenErrorType.md)
 - [SecureKeyValueStoreErrorType](enums/SecureKeyValueStoreErrorType.md)
+- [SendWebSemanticPresentationResponseErrorType](enums/SendWebSemanticPresentationResponseErrorType.md)
 - [VerifyFailureReasonType](enums/VerifyFailureReasonType.md)
 
 ### Interfaces
@@ -53,7 +55,6 @@
 ### Type Aliases
 
 - [AuthorizeRequestParameters](modules.md#authorizerequestparameters)
-- [BaseSDKError](modules.md#basesdkerror)
 - [CloseWalletError](modules.md#closewalleterror)
 - [CompactCredentialOffered](modules.md#compactcredentialoffered)
 - [CompactCredentialPayload](modules.md#compactcredentialpayload)
@@ -87,7 +88,6 @@
 - [EncryptError](modules.md#encrypterror)
 - [EncryptOptions](modules.md#encryptoptions)
 - [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror)
-- [ExpandWebSemanticCredentialError](modules.md#expandwebsemanticcredentialerror)
 - [ExpandWebSemanticCredentialOptions](modules.md#expandwebsemanticcredentialoptions)
 - [FilterWebSemanticCredentialsByQueryError](modules.md#filterwebsemanticcredentialsbyqueryerror)
 - [FilterWebSemanticCredentialsByQueryOptions](modules.md#filterwebsemanticcredentialsbyqueryoptions)
@@ -97,6 +97,7 @@
 - [GenericSdkError](modules.md#genericsdkerror)
 - [GetDidsError](modules.md#getdidserror)
 - [HttpCacheError](modules.md#httpcacheerror)
+- [InitialiseOptions](modules.md#initialiseoptions)
 - [InvalidBase64URLDecodeError](modules.md#invalidbase64urldecodeerror)
 - [InvalidDidError](modules.md#invaliddiderror)
 - [InvalidIdTokenError](modules.md#invalididtokenerror)
@@ -106,7 +107,6 @@
 - [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror)
 - [OidcCredentialOffer](modules.md#oidccredentialoffer)
 - [OpenDidCommError](modules.md#opendidcommerror)
-- [OpenOptions](modules.md#openoptions)
 - [OpenidIssuanceCredentialDefinition](modules.md#openidissuancecredentialdefinition)
 - [OpenidIssuanceCredentialOffer](modules.md#openidissuancecredentialoffer)
 - [OpenidIssuanceDiscoverResult](modules.md#openidissuancediscoverresult)
@@ -114,7 +114,9 @@
 - [OpenidIssuanceGenerateAuthorizeUrlOptions](modules.md#openidissuancegenerateauthorizeurloptions)
 - [OpenidIssuanceRetrieveCompactCredentialsResult](modules.md#openidissuanceretrievecompactcredentialsresult)
 - [OpenidIssuanceRetrieveCompactSemanticCredentialsResult](modules.md#openidissuanceretrievecompactsemanticcredentialsresult)
-- [OpenidIssuanceRetrieveCredentials](modules.md#openidissuanceretrievecredentials)
+- [OpenidIssuanceRetrieveCredential](modules.md#openidissuanceretrievecredential)
+- [OpenidIssuanceRetrieveCredentialFailure](modules.md#openidissuanceretrievecredentialfailure)
+- [OpenidIssuanceRetrieveCredentialSuccess](modules.md#openidissuanceretrievecredentialsuccess)
 - [OpenidIssuanceRetrieveCredentialsOptions](modules.md#openidissuanceretrievecredentialsoptions)
 - [OpenidIssuanceRetrieveCredentialsResult](modules.md#openidissuanceretrievecredentialsresult)
 - [OpenidIssuanceRetrieveTokenOptions](modules.md#openidissuanceretrievetokenoptions)
@@ -126,7 +128,6 @@
 - [RetrieveCredentialError](modules.md#retrievecredentialerror)
 - [RetrieveCredentialOptions](modules.md#retrievecredentialoptions)
 - [RetrieveCredentialResult](modules.md#retrievecredentialresult)
-- [SendWebSemanticPresentationErrorMissingSender](modules.md#sendwebsemanticpresentationerrormissingsender)
 - [SendWebSemanticPresentationResponseOptions](modules.md#sendwebsemanticpresentationresponseoptions)
 - [SignError](modules.md#signerror)
 - [VerifiableCredential](modules.md#verifiablecredential)
@@ -139,7 +140,6 @@
 - [VerifyWebSemanticCredentialOptions](modules.md#verifywebsemanticcredentialoptions)
 - [VerifyWebSemanticCredentialResult](modules.md#verifywebsemanticcredentialresult)
 - [Wallet](modules.md#wallet)
-- [WalletAlreadyCreatedError](modules.md#walletalreadycreatederror)
 - [WalletBase](modules.md#walletbase)
 - [WalletExtension](modules.md#walletextension)
 - [WebSemanticCredentialData](modules.md#websemanticcredentialdata)
@@ -162,15 +162,14 @@
 
 - [assertType](modules.md#asserttype)
 - [assertUnreachable](modules.md#assertunreachable)
-- [create](modules.md#create)
 - [destroy](modules.md#destroy)
+- [initialise](modules.md#initialise)
 - [isCredentialSubject](modules.md#iscredentialsubject)
 - [isJwm](modules.md#isjwm)
 - [isPresentationRequestJwm](modules.md#ispresentationrequestjwm)
 - [isRevocationList2020CredentialStatus](modules.md#isrevocationlist2020credentialstatus)
 - [isType](modules.md#istype)
 - [isVerifiableCredential](modules.md#isverifiablecredential)
-- [open](modules.md#open)
 - [unwrap](modules.md#unwrap)
 
 ## Type Aliases
@@ -188,17 +187,9 @@
 
 ___
 
-### BaseSDKError
-
-Ƭ **BaseSDKError**: [`BaseError`](interfaces/BaseError.md) & { `message`: `string`  }
-
-**`deprecated`** use BaseError with generic support
-
-___
-
 ### CloseWalletError
 
-Ƭ **CloseWalletError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CloseWalletError"``  }
+Ƭ **CloseWalletError**: `BaseSDKError` & { `type`: ``"CloseWalletError"``  }
 
 ___
 
@@ -240,7 +231,7 @@ ___
 
 ### CreateDidError
 
-Ƭ **CreateDidError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreateDidError"``  }
+Ƭ **CreateDidError**: `BaseSDKError` & { `type`: ``"CreateDidError"``  }
 
 ___
 
@@ -258,25 +249,25 @@ ___
 
 ### CreateWebSemanticPresentationErrorCouldNotFindSubjectSigningKey
 
-Ƭ **CreateWebSemanticPresentationErrorCouldNotFindSubjectSigningKey**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorCouldNotFindSubjectSigningKey"``  }
+Ƭ **CreateWebSemanticPresentationErrorCouldNotFindSubjectSigningKey**: `BaseSDKError` & { `type`: ``"CreatePresentationErrorCouldNotFindSubjectSigningKey"``  }
 
 ___
 
 ### CreateWebSemanticPresentationErrorHolderNotADid
 
-Ƭ **CreateWebSemanticPresentationErrorHolderNotADid**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorHolderNotADid"``  }
+Ƭ **CreateWebSemanticPresentationErrorHolderNotADid**: `BaseSDKError` & { `type`: ``"CreatePresentationErrorHolderNotADid"``  }
 
 ___
 
 ### CreateWebSemanticPresentationErrorSubjectDidHasNoAuthenticationUrl
 
-Ƭ **CreateWebSemanticPresentationErrorSubjectDidHasNoAuthenticationUrl**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorSubjectDidHasNoAuthenticationUrl"``  }
+Ƭ **CreateWebSemanticPresentationErrorSubjectDidHasNoAuthenticationUrl**: `BaseSDKError` & { `type`: ``"CreatePresentationErrorSubjectDidHasNoAuthenticationUrl"``  }
 
 ___
 
 ### CreateWebSemanticPresentationErrorSubjectNotADid
 
-Ƭ **CreateWebSemanticPresentationErrorSubjectNotADid**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CreatePresentationErrorSubjectNotADid"``  }
+Ƭ **CreateWebSemanticPresentationErrorSubjectNotADid**: `BaseSDKError` & { `type`: ``"CreatePresentationErrorSubjectNotADid"``  }
 
 ___
 
@@ -311,13 +302,13 @@ ___
 
 ### CredentialNotFoundInTokenError
 
-Ƭ **CredentialNotFoundInTokenError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"CredentialNotFoundInTokenError"``  }
+Ƭ **CredentialNotFoundInTokenError**: `BaseSDKError` & { `type`: ``"CredentialNotFoundInTokenError"``  }
 
 ___
 
 ### CredentialOffered
 
-Ƭ **CredentialOffered**: [`CompactCredentialOffered`](modules.md#compactcredentialoffered) \| [`CompactSemanticCredentialOffered`](modules.md#compactsemanticcredentialoffered) \| [`WebSemanticCredentialOffered`](modules.md#websemanticcredentialoffered) \| [`DeprecatedWebSemanticCredentialOffered`](modules.md#deprecatedwebsemanticcredentialoffered)
+Ƭ **CredentialOffered**: [`CompactCredentialOffered`](modules.md#compactcredentialoffered) \| [`CompactSemanticCredentialOffered`](modules.md#compactsemanticcredentialoffered) \| [`WebSemanticCredentialOffered`](modules.md#websemanticcredentialoffered) \| [`DeprecatedWebSemanticCredentialOffered`](modules.md#deprecatedwebsemanticcredentialoffered) \| `MobileCredentialOffered`
 
 ___
 
@@ -335,7 +326,7 @@ ___
 
 ### DecryptError
 
-Ƭ **DecryptError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"DecryptError"``  }
+Ƭ **DecryptError**: `BaseSDKError` & { `type`: ``"DecryptError"``  }
 
 ___
 
@@ -365,7 +356,7 @@ ___
 
 ### DeriveWebSemanticCredentialError
 
-Ƭ **DeriveWebSemanticCredentialError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"DeriveCredentialError"``  }
+Ƭ **DeriveWebSemanticCredentialError**: `BaseError$1`<`DeriveWebSemanticCredentialErrorType`\>
 
 ___
 
@@ -398,19 +389,19 @@ ___
 
 ### DidDeletionError
 
-Ƭ **DidDeletionError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"DidDeletionError"``  }
+Ƭ **DidDeletionError**: `BaseSDKError` & { `type`: ``"DidDeletionError"``  }
 
 ___
 
 ### DidNotFoundError
 
-Ƭ **DidNotFoundError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"DidNotFoundError"``  }
+Ƭ **DidNotFoundError**: `BaseSDKError` & { `type`: ``"DidNotFoundError"``  }
 
 ___
 
 ### DidResolutionError
 
-Ƭ **DidResolutionError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"DidResolutionError"``  }
+Ƭ **DidResolutionError**: `BaseSDKError` & { `type`: ``"DidResolutionError"``  }
 
 ___
 
@@ -428,7 +419,7 @@ ___
 
 ### EncryptError
 
-Ƭ **EncryptError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"EncryptError"``  }
+Ƭ **EncryptError**: `BaseSDKError` & { `type`: ``"EncryptError"``  }
 
 ___
 
@@ -448,13 +439,7 @@ ___
 
 ### EncryptionKeyNotFoundError
 
-Ƭ **EncryptionKeyNotFoundError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"EncryptionKeyNotFoundError"``  }
-
-___
-
-### ExpandWebSemanticCredentialError
-
-Ƭ **ExpandWebSemanticCredentialError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"ExpandWebSemanticCredentialError"``  }
+Ƭ **EncryptionKeyNotFoundError**: [`BaseError`](interfaces/BaseError.md)<``"EncryptionKeyNotFoundError"``\>
 
 ___
 
@@ -550,55 +535,79 @@ ___
 
 ### GetDidsError
 
-Ƭ **GetDidsError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"GetDidsError"``  }
+Ƭ **GetDidsError**: `BaseSDKError` & { `type`: ``"GetDidsError"``  }
 
 ___
 
 ### HttpCacheError
 
-Ƭ **HttpCacheError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"HttpCacheError"``  }
+Ƭ **HttpCacheError**: `BaseSDKError` & { `type`: ``"HttpCacheError"``  }
+
+___
+
+### InitialiseOptions
+
+Ƭ **InitialiseOptions**: `Object`
+
+Options to configure when initialise a wallet
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `credential?` | { `compact?`: { `issuerResolverTtl?`: `number` ; `revocationListTtl?`: `number`  } ; `compactSemantic?`: { `issuerResolverTtl?`: `number` ; `revocationListTtl?`: `number`  }  } | Configurations for credential operations |
+| `credential.compact?` | { `issuerResolverTtl?`: `number` ; `revocationListTtl?`: `number`  } | Configurations for compact credential operations |
+| `credential.compact.issuerResolverTtl?` | `number` | Duration that an issuer is kept in the cache after it is added or re-added |
+| `credential.compact.revocationListTtl?` | `number` | Duration that a revocation list is kept in the cache after it is added or re-added |
+| `credential.compactSemantic?` | { `issuerResolverTtl?`: `number` ; `revocationListTtl?`: `number`  } | Configurations for compact-semantic credential operations |
+| `credential.compactSemantic.issuerResolverTtl?` | `number` | Duration that an issuer is kept in the cache after it is added or re-added |
+| `credential.compactSemantic.revocationListTtl?` | `number` | Duration that a revocation list is kept in the cache after it is added or re-added |
+| `httpRequestTimeoutMs?` | `number` | The number of milliseconds a request can take before automatically being terminated. The default value is 5000. |
+| `httpResolverBaseUrl?` | `string` | Specifies the base URL including path that http resolver will use  **`defaultvalue`** https://uniresolver-api.mattr.global |
+| `httpResolverPath?` | `string` | Specifies the URL path that http resolver will use  **`defaultvalue`** /1.0/identifiers/ |
+| `walletId?` | `string` | Specifies the wallet ID to use |
 
 ___
 
 ### InvalidBase64URLDecodeError
 
-Ƭ **InvalidBase64URLDecodeError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"InvalidBase64URLDecodeError"``  }
+Ƭ **InvalidBase64URLDecodeError**: `BaseSDKError` & { `type`: ``"InvalidBase64URLDecodeError"``  }
 
 ___
 
 ### InvalidDidError
 
-Ƭ **InvalidDidError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"InvalidDidError"``  }
+Ƭ **InvalidDidError**: `BaseSDKError` & { `type`: ``"InvalidDidError"``  }
 
 ___
 
 ### InvalidIdTokenError
 
-Ƭ **InvalidIdTokenError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"InvalidIdTokenError"``  }
+Ƭ **InvalidIdTokenError**: `BaseSDKError` & { `type`: ``"InvalidIdTokenError"``  }
 
 ___
 
 ### InvalidIssuerUriError
 
-Ƭ **InvalidIssuerUriError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: `OidcErrorType.InvalidIssuerUriError`  }
+Ƭ **InvalidIssuerUriError**: `BaseSDKError` & { `type`: `OidcErrorType.InvalidIssuerUriError`  }
 
 ___
 
 ### InvalidJSONError
 
-Ƭ **InvalidJSONError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"InvalidJSONError"``  }
+Ƭ **InvalidJSONError**: `BaseSDKError` & { `type`: ``"InvalidJSONError"``  }
 
 ___
 
 ### InvalidOpenIdConfigurationError
 
-Ƭ **InvalidOpenIdConfigurationError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: `OidcErrorType.InvalidOpenIdConfigurationError`  }
+Ƭ **InvalidOpenIdConfigurationError**: `BaseSDKError` & { `type`: `OidcErrorType.InvalidOpenIdConfigurationError`  }
 
 ___
 
 ### MalformedEncryptionKeyError
 
-Ƭ **MalformedEncryptionKeyError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"MalformedEncryptionKeyError"``  }
+Ƭ **MalformedEncryptionKeyError**: [`BaseError`](interfaces/BaseError.md)<``"MalformedEncryptionKeyError"``\>
 
 ___
 
@@ -622,31 +631,7 @@ ___
 
 ### OpenDidCommError
 
-Ƭ **OpenDidCommError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"OpenDidCommError"``  }
-
-___
-
-### OpenOptions
-
-Ƭ **OpenOptions**: `Object`
-
-Options to configure when opening an existing wallet
-
-#### Type declaration
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `credential?` | { `compact?`: { `issuerResolverTtl?`: `number` ; `revocationListTtl?`: `number`  } ; `compactSemantic?`: { `issuerResolverTtl?`: `number` ; `revocationListTtl?`: `number`  }  } | Configurations for credential operations |
-| `credential.compact?` | { `issuerResolverTtl?`: `number` ; `revocationListTtl?`: `number`  } | Configurations for compact credential operations |
-| `credential.compact.issuerResolverTtl?` | `number` | Duration that an issuer is kept in the cache after it is added or re-added |
-| `credential.compact.revocationListTtl?` | `number` | Duration that a revocation list is kept in the cache after it is added or re-added |
-| `credential.compactSemantic?` | { `issuerResolverTtl?`: `number` ; `revocationListTtl?`: `number`  } | Configurations for compact-semantic credential operations |
-| `credential.compactSemantic.issuerResolverTtl?` | `number` | Duration that an issuer is kept in the cache after it is added or re-added |
-| `credential.compactSemantic.revocationListTtl?` | `number` | Duration that a revocation list is kept in the cache after it is added or re-added |
-| `httpRequestTimeoutMs?` | `number` | The number of milliseconds a request can take before automatically being terminated. The default value is 5000. |
-| `httpResolverBaseUrl?` | `string` | Specifies the base URL including path that http resolver will use  **`defaultvalue`** https://uniresolver-api.mattr.global |
-| `httpResolverPath?` | `string` | Specifies the URL path that http resolver will use  **`defaultvalue`** /1.0/identifiers/ |
-| `walletId?` | `string` | Specifies the wallet ID to use |
+Ƭ **OpenDidCommError**: `BaseSDKError` & { `type`: ``"OpenDidCommError"``  }
 
 ___
 
@@ -676,6 +661,7 @@ ___
 | `credentialEndpoint` | `string` |
 | `credentials` | [`CredentialOffered`](modules.md#credentialoffered)[] |
 | `issuer` | `string` |
+| `mdocIacasUri?` | `string` |
 | `tokenEndpoint` | `string` |
 
 ___
@@ -752,9 +738,35 @@ ___
 
 ___
 
-### OpenidIssuanceRetrieveCredentials
+### OpenidIssuanceRetrieveCredential
 
-Ƭ **OpenidIssuanceRetrieveCredentials**: [`OpenidIssuanceRetrieveWebSemanticCredentialsResult`](modules.md#openidissuanceretrievewebsemanticcredentialsresult) \| [`OpenidIssuanceRetrieveCompactCredentialsResult`](modules.md#openidissuanceretrievecompactcredentialsresult) \| [`OpenidIssuanceRetrieveCompactSemanticCredentialsResult`](modules.md#openidissuanceretrievecompactsemanticcredentialsresult)
+Ƭ **OpenidIssuanceRetrieveCredential**: [`OpenidIssuanceRetrieveWebSemanticCredentialsResult`](modules.md#openidissuanceretrievewebsemanticcredentialsresult) \| [`OpenidIssuanceRetrieveCompactCredentialsResult`](modules.md#openidissuanceretrievecompactcredentialsresult) \| [`OpenidIssuanceRetrieveCompactSemanticCredentialsResult`](modules.md#openidissuanceretrievecompactsemanticcredentialsresult) \| `OpenidIssuanceRetrieveMobileCredentialsResult`
+
+___
+
+### OpenidIssuanceRetrieveCredentialFailure
+
+Ƭ **OpenidIssuanceRetrieveCredentialFailure**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `error` | `unknown` |
+| `offer` | [`CredentialOffered`](modules.md#credentialoffered) |
+
+___
+
+### OpenidIssuanceRetrieveCredentialSuccess
+
+Ƭ **OpenidIssuanceRetrieveCredentialSuccess**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `offer` | [`CredentialOffered`](modules.md#credentialoffered) |
+| `result` | [`OpenidIssuanceRetrieveCredential`](modules.md#openidissuanceretrievecredential) |
 
 ___
 
@@ -766,23 +778,18 @@ Options for retrieve credentials
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `accessToken` | `string` |
-| `clientId?` | `string` |
-| `offer` | [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `accessToken` | `string` | - |
+| `autoTrustMobileCredentialIaca?` | `boolean` | optional, default false  when true and mdocIacasUri is available in the offer, it will automatically download and add all the certificates as trusted issuers certificates for any mobile credentials |
+| `clientId?` | `string` | - |
+| `offer` | [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer) | - |
 
 ___
 
 ### OpenidIssuanceRetrieveCredentialsResult
 
-Ƭ **OpenidIssuanceRetrieveCredentialsResult**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `credentials` | [`OpenidIssuanceRetrieveCredentials`](modules.md#openidissuanceretrievecredentials)[] |
+Ƭ **OpenidIssuanceRetrieveCredentialsResult**: ([`OpenidIssuanceRetrieveCredentialSuccess`](modules.md#openidissuanceretrievecredentialsuccess) \| [`OpenidIssuanceRetrieveCredentialFailure`](modules.md#openidissuanceretrievecredentialfailure))[]
 
 ___
 
@@ -837,7 +844,7 @@ ___
 
 ### PresentationRequestError
 
-Ƭ **PresentationRequestError**: [`BaseError`](interfaces/BaseError.md)<`PresentationRequestErrorType`\>
+Ƭ **PresentationRequestError**: `BaseError$1`<`PresentationRequestErrorType`\>
 
 ___
 
@@ -862,7 +869,7 @@ ___
 
 ### RetrieveCredentialError
 
-Ƭ **RetrieveCredentialError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"RetrieveCredentialError"``  }
+Ƭ **RetrieveCredentialError**: `BaseSDKError` & { `type`: ``"RetrieveCredentialError"``  }
 
 ___
 
@@ -895,12 +902,6 @@ ___
 
 ___
 
-### SendWebSemanticPresentationErrorMissingSender
-
-Ƭ **SendWebSemanticPresentationErrorMissingSender**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"SendPresentationErrorMissingSender"``  }
-
-___
-
 ### SendWebSemanticPresentationResponseOptions
 
 Ƭ **SendWebSemanticPresentationResponseOptions**: `Object`
@@ -917,7 +918,7 @@ ___
 
 ### SignError
 
-Ƭ **SignError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"SignError"``  }
+Ƭ **SignError**: `BaseSDKError` & { `type`: ``"SignError"``  }
 
 ___
 
@@ -953,13 +954,13 @@ ___
 
 ### VerifyError
 
-Ƭ **VerifyError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"VerifyError"``  }
+Ƭ **VerifyError**: `BaseSDKError` & { `type`: ``"VerifyError"``  }
 
 ___
 
 ### VerifyWebSemanticCredentialError
 
-Ƭ **VerifyWebSemanticCredentialError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"VerifyWebSemanticCredentialError"``  }
+Ƭ **VerifyWebSemanticCredentialError**: `BaseError$1`<`VerifyWebSemanticCredentialErrorType`\>
 
 ___
 
@@ -984,7 +985,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `credentialVerified` | `boolean` |
-| `expired` | `boolean` |
+| `expired?` | `boolean` |
 | `status?` | [`VerifyCredentialStatus`](modules.md#verifycredentialstatus) |
 
 ___
@@ -994,12 +995,6 @@ ___
 Ƭ **Wallet**: [`WalletBase`](modules.md#walletbase) & [`WalletExtension`](modules.md#walletextension)
 
 An instance of a wallet with React Native specific extensions.
-
-___
-
-### WalletAlreadyCreatedError
-
-Ƭ **WalletAlreadyCreatedError**: [`BaseSDKError`](modules.md#basesdkerror) & { `type`: ``"WalletAlreadyCreatedError"``  }
 
 ___
 
@@ -1013,12 +1008,23 @@ An instance of a wallet
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `credential` | { `compact`: { `verifyCredential`: (`options`: { `assertExpiry?`: `boolean` ; `assertNotBefore?`: `boolean` ; `checkRevocation?`: `boolean` ; `payload`: `string` ; `trustedIssuers?`: `string`[]  }) => `Promise`<[`Result`](modules.md#result)<`CompactVerifyResult`, `VerifyCompactCredentialError`\>\>  } ; `compactSemantic`: { `verifyCredential`: (`options`: { `assertExpiry?`: `boolean` ; `assertNotBefore?`: `boolean` ; `checkRevocation?`: `boolean` ; `payload`: `string` ; `trustedIssuers?`: `string`[]  }) => `Promise`<[`Result`](modules.md#result)<`CompactSemanticVerifyResult`, `VerifyCompactSemanticCredentialError`\>\>  } ; `webSemantic`: { `createPresentation`: (`options`: [`CreateWebSemanticPresentationOptions`](modules.md#createwebsemanticpresentationoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifiablePresentation`](interfaces/VerifiablePresentation.md), [`CreateWebSemanticPresentationErrors`](modules.md#createwebsemanticpresentationerrors)\>\> ; `deriveCredential`: (`options`: [`DeriveWebSemanticCredentialOptions`](modules.md#derivewebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifiableCredential`](modules.md#verifiablecredential), [`DeriveWebSemanticCredentialError`](modules.md#derivewebsemanticcredentialerror)\>\> ; `expandCredential`: (`options`: [`ExpandWebSemanticCredentialOptions`](modules.md#expandwebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<`Record`<`string`, `unknown`\>, [`ExpandWebSemanticCredentialError`](modules.md#expandwebsemanticcredentialerror) \| `ExpandWebSemanticCredentialContextResolutionError`\>\> ; `filterCredentialsByQuery`: <T\>(`options`: [`FilterWebSemanticCredentialsByQueryOptions`](modules.md#filterwebsemanticcredentialsbyqueryoptions)<`T`\>) => `Promise`<[`Result`](modules.md#result)<[`FilterWebSemanticCredentialsByQueryResponse`](modules.md#filterwebsemanticcredentialsbyqueryresponse)<`T`\>, [`PresentationRequestError`](modules.md#presentationrequesterror)\>\> ; `isSelectivelyDisclosable`: (`credential`: [`VerifiableCredential`](modules.md#verifiablecredential)) => `boolean` ; `sendPresentationResponse`: (`options`: [`SendWebSemanticPresentationResponseOptions`](modules.md#sendwebsemanticpresentationresponseoptions)) => `Promise`<[`Result`](modules.md#result)<`void`, [`EncryptError`](modules.md#encrypterror) \| `HttpError` \| [`SendWebSemanticPresentationErrorMissingSender`](modules.md#sendwebsemanticpresentationerrormissingsender)\>\> ; `verifyCredential`: (`options`: [`VerifyWebSemanticCredentialOptions`](modules.md#verifywebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifyWebSemanticCredentialResult`](modules.md#verifywebsemanticcredentialresult), [`VerifyWebSemanticCredentialError`](modules.md#verifywebsemanticcredentialerror)\>\>  }  } | Namespace for credential operations |
+| `credential` | { `compact`: { `verifyCredential`: (`options`: { `assertExpiry?`: `boolean` ; `assertNotBefore?`: `boolean` ; `checkRevocation?`: `boolean` ; `payload`: `string` ; `trustedIssuers?`: `string`[]  }) => `Promise`<[`Result`](modules.md#result)<`CompactVerifyResult`, `VerifyCompactCredentialError`\>\>  } ; `compactSemantic`: { `verifyCredential`: (`options`: { `assertExpiry?`: `boolean` ; `assertNotBefore?`: `boolean` ; `checkRevocation?`: `boolean` ; `payload`: `string` ; `trustedIssuers?`: `string`[]  }) => `Promise`<[`Result`](modules.md#result)<`CompactSemanticVerifyResult`, `VerifyCompactSemanticCredentialError`\>\>  } ; `mobile`: { `addTrustedIssuerCertificates`: (`certificates`: `AddTrustedIssuerCertificatesOptions`) => `Promise`<[`Result`](modules.md#result)<`string`[], `AddTrustedIssuerCertificatesError`\>\> ; `createProximityPresentationSession`: (`options`: { `onConnected?`: (...`args`: `unknown`[]) => `void` ; `onSessionTerminated?`: (`args_0`: { `message`: `string` ; `sessionStatus?`: `SessionStatus` \| ``null`` ; `type`: `ProximityPresentationSessionTerminationError`  } \| `undefined`, ...`args_1`: `unknown`[]) => `unknown` ; `onRequestReceived`: (`args_0`: { `request`: { `matchedCredentials`: { `claims`: `Record`<`string`, `Record`<`string`, `ClaimData`\>\> ; `deviceKeyId`: `string` ; `docType`: `string` ; `id`: `string` ; `issuerInfo`: { `commonName`: `string` ; `trustedIssuerCertificateId`: `string`  } ; `validityInfo`: { `expectedUpdate?`: `Date` ; `signed?`: `Date` ; `validFrom`: `Date` ; `validUntil`: `Date`  } ; `verificationResult`: { `verified`: ``true``  } \| { `reason`: { `details?`: `string` ; `message`: `string`  } ; `verified`: ``false``  }  }[] ; `request`: { `docType`: `string` ; `namespaces`: `Record`<`string`, `Record`<`string`, `boolean`\>\>  }  }[]  } \| { `error`: { `message`: `string` ; `type`: `ProximityPresentationSessionErrorType`  }  }, ...`args_1`: `unknown`[]) => `unknown`  }) => `Promise`<[`Result`](modules.md#result)<{ `deviceEngagement`: `string`  }, `CreateProximityPresentationSessionError`\>\> ; `deleteCredential`: (`credentialId`: `string`) => `Promise`<`void`\> ; `deleteTrustedIssuerCertificate`: (`certificateId`: `string`) => `Promise`<[`Result`](modules.md#result)<`void`, `DeleteTrustedIssuerCertificateError`\>\> ; `getCredential`: (`credentialId`: `string`) => `Promise`<[`Result`](modules.md#result)<{ `claims`: `Record`<`string`, `Record`<`string`, `ClaimData`\>\> ; `deviceKeyId`: `string` ; `docType`: `string` ; `id`: `string` ; `issuerInfo`: { `commonName`: `string` ; `trustedIssuerCertificateId`: `string`  } ; `validityInfo`: { `expectedUpdate?`: `Date` ; `signed?`: `Date` ; `validFrom`: `Date` ; `validUntil`: `Date`  } ; `verificationResult`: { `verified`: ``true``  } \| { `reason`: { `details?`: `string` ; `message`: `string`  } ; `verified`: ``false``  }  }, `GetMobileCredentialError`\>\> ; `getCredentials`: () => `Promise`<{ `claims`: `Record`<`string`, `Record`<`string`, `ClaimData`\>\> ; `deviceKeyId`: `string` ; `docType`: `string` ; `id`: `string` ; `issuerInfo`: { `commonName`: `string` ; `trustedIssuerCertificateId`: `string`  } ; `validityInfo`: { `expectedUpdate?`: `Date` ; `signed?`: `Date` ; `validFrom`: `Date` ; `validUntil`: `Date`  } ; `verificationResult`: { `verified`: ``true``  } \| { `reason`: { `details?`: `string` ; `message`: `string`  } ; `verified`: ``false``  }  }[]\> ; `getCurrentProximityPresentationSession`: () => `Promise`<`undefined` \| { `deviceEngagement`: `string`  }\> ; `getTrustedIssuerCertificates`: () => `Promise`<{ `commonName`: `string` ; `id`: `string` ; `pem`: `string`  }[]\> ; `sendProximityPresentationResponse`: (`options`: { `credentialIds`: [`string`, ...string[]]  }) => `Promise`<[`Result`](modules.md#result)<`void`, `SendProximityPresentationResponseError`\>\> ; `terminateProximityPresentationSession`: () => `Promise`<`void`\>  } ; `webSemantic`: { `createPresentation`: (`options`: [`CreateWebSemanticPresentationOptions`](modules.md#createwebsemanticpresentationoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifiablePresentation`](interfaces/VerifiablePresentation.md), [`CreateWebSemanticPresentationErrors`](modules.md#createwebsemanticpresentationerrors)\>\> ; `deriveCredential`: (`options`: [`DeriveWebSemanticCredentialOptions`](modules.md#derivewebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifiableCredential`](modules.md#verifiablecredential), [`DeriveWebSemanticCredentialError`](modules.md#derivewebsemanticcredentialerror)\>\> ; `expandCredential`: (`options`: [`ExpandWebSemanticCredentialOptions`](modules.md#expandwebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<`Record`<`string`, `unknown`\>, `BaseError$1`<[`ExpandWebSemanticCredentialErrorType`](enums/ExpandWebSemanticCredentialErrorType.md)\>\>\> ; `filterCredentialsByQuery`: <T\>(`options`: [`FilterWebSemanticCredentialsByQueryOptions`](modules.md#filterwebsemanticcredentialsbyqueryoptions)<`T`\>) => `Promise`<[`Result`](modules.md#result)<[`FilterWebSemanticCredentialsByQueryResponse`](modules.md#filterwebsemanticcredentialsbyqueryresponse)<`T`\>, [`PresentationRequestError`](modules.md#presentationrequesterror)\>\> ; `isSelectivelyDisclosable`: (`credential`: [`VerifiableCredential`](modules.md#verifiablecredential)) => `boolean` ; `sendPresentationResponse`: (`options`: [`SendWebSemanticPresentationResponseOptions`](modules.md#sendwebsemanticpresentationresponseoptions)) => `Promise`<[`Result`](modules.md#result)<`void`, `BaseError$1`<[`SendWebSemanticPresentationResponseErrorType`](enums/SendWebSemanticPresentationResponseErrorType.md)\>\>\> ; `verifyCredential`: (`options`: [`VerifyWebSemanticCredentialOptions`](modules.md#verifywebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifyWebSemanticCredentialResult`](modules.md#verifywebsemanticcredentialresult), [`VerifyWebSemanticCredentialError`](modules.md#verifywebsemanticcredentialerror)\>\>  }  } | Namespace for credential operations |
 | `credential.compact` | { `verifyCredential`: (`options`: { `assertExpiry?`: `boolean` ; `assertNotBefore?`: `boolean` ; `checkRevocation?`: `boolean` ; `payload`: `string` ; `trustedIssuers?`: `string`[]  }) => `Promise`<[`Result`](modules.md#result)<`CompactVerifyResult`, `VerifyCompactCredentialError`\>\>  } | - |
 | `credential.compact.verifyCredential` | [object Object] | Attempts to verify a Compact credential |
 | `credential.compactSemantic` | { `verifyCredential`: (`options`: { `assertExpiry?`: `boolean` ; `assertNotBefore?`: `boolean` ; `checkRevocation?`: `boolean` ; `payload`: `string` ; `trustedIssuers?`: `string`[]  }) => `Promise`<[`Result`](modules.md#result)<`CompactSemanticVerifyResult`, `VerifyCompactSemanticCredentialError`\>\>  } | - |
 | `credential.compactSemantic.verifyCredential` | [object Object] | Attempts to verify a Compact Semantic credential |
-| `credential.webSemantic` | { `createPresentation`: (`options`: [`CreateWebSemanticPresentationOptions`](modules.md#createwebsemanticpresentationoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifiablePresentation`](interfaces/VerifiablePresentation.md), [`CreateWebSemanticPresentationErrors`](modules.md#createwebsemanticpresentationerrors)\>\> ; `deriveCredential`: (`options`: [`DeriveWebSemanticCredentialOptions`](modules.md#derivewebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifiableCredential`](modules.md#verifiablecredential), [`DeriveWebSemanticCredentialError`](modules.md#derivewebsemanticcredentialerror)\>\> ; `expandCredential`: (`options`: [`ExpandWebSemanticCredentialOptions`](modules.md#expandwebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<`Record`<`string`, `unknown`\>, [`ExpandWebSemanticCredentialError`](modules.md#expandwebsemanticcredentialerror) \| `ExpandWebSemanticCredentialContextResolutionError`\>\> ; `filterCredentialsByQuery`: <T\>(`options`: [`FilterWebSemanticCredentialsByQueryOptions`](modules.md#filterwebsemanticcredentialsbyqueryoptions)<`T`\>) => `Promise`<[`Result`](modules.md#result)<[`FilterWebSemanticCredentialsByQueryResponse`](modules.md#filterwebsemanticcredentialsbyqueryresponse)<`T`\>, [`PresentationRequestError`](modules.md#presentationrequesterror)\>\> ; `isSelectivelyDisclosable`: (`credential`: [`VerifiableCredential`](modules.md#verifiablecredential)) => `boolean` ; `sendPresentationResponse`: (`options`: [`SendWebSemanticPresentationResponseOptions`](modules.md#sendwebsemanticpresentationresponseoptions)) => `Promise`<[`Result`](modules.md#result)<`void`, [`EncryptError`](modules.md#encrypterror) \| `HttpError` \| [`SendWebSemanticPresentationErrorMissingSender`](modules.md#sendwebsemanticpresentationerrormissingsender)\>\> ; `verifyCredential`: (`options`: [`VerifyWebSemanticCredentialOptions`](modules.md#verifywebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifyWebSemanticCredentialResult`](modules.md#verifywebsemanticcredentialresult), [`VerifyWebSemanticCredentialError`](modules.md#verifywebsemanticcredentialerror)\>\>  } | - |
+| `credential.mobile` | { `addTrustedIssuerCertificates`: (`certificates`: `AddTrustedIssuerCertificatesOptions`) => `Promise`<[`Result`](modules.md#result)<`string`[], `AddTrustedIssuerCertificatesError`\>\> ; `createProximityPresentationSession`: (`options`: { `onConnected?`: (...`args`: `unknown`[]) => `void` ; `onSessionTerminated?`: (`args_0`: { `message`: `string` ; `sessionStatus?`: `SessionStatus` \| ``null`` ; `type`: `ProximityPresentationSessionTerminationError`  } \| `undefined`, ...`args_1`: `unknown`[]) => `unknown` ; `onRequestReceived`: (`args_0`: { `request`: { `matchedCredentials`: { `claims`: `Record`<`string`, `Record`<`string`, `ClaimData`\>\> ; `deviceKeyId`: `string` ; `docType`: `string` ; `id`: `string` ; `issuerInfo`: { `commonName`: `string` ; `trustedIssuerCertificateId`: `string`  } ; `validityInfo`: { `expectedUpdate?`: `Date` ; `signed?`: `Date` ; `validFrom`: `Date` ; `validUntil`: `Date`  } ; `verificationResult`: { `verified`: ``true``  } \| { `reason`: { `details?`: `string` ; `message`: `string`  } ; `verified`: ``false``  }  }[] ; `request`: { `docType`: `string` ; `namespaces`: `Record`<`string`, `Record`<`string`, `boolean`\>\>  }  }[]  } \| { `error`: { `message`: `string` ; `type`: `ProximityPresentationSessionErrorType`  }  }, ...`args_1`: `unknown`[]) => `unknown`  }) => `Promise`<[`Result`](modules.md#result)<{ `deviceEngagement`: `string`  }, `CreateProximityPresentationSessionError`\>\> ; `deleteCredential`: (`credentialId`: `string`) => `Promise`<`void`\> ; `deleteTrustedIssuerCertificate`: (`certificateId`: `string`) => `Promise`<[`Result`](modules.md#result)<`void`, `DeleteTrustedIssuerCertificateError`\>\> ; `getCredential`: (`credentialId`: `string`) => `Promise`<[`Result`](modules.md#result)<{ `claims`: `Record`<`string`, `Record`<`string`, `ClaimData`\>\> ; `deviceKeyId`: `string` ; `docType`: `string` ; `id`: `string` ; `issuerInfo`: { `commonName`: `string` ; `trustedIssuerCertificateId`: `string`  } ; `validityInfo`: { `expectedUpdate?`: `Date` ; `signed?`: `Date` ; `validFrom`: `Date` ; `validUntil`: `Date`  } ; `verificationResult`: { `verified`: ``true``  } \| { `reason`: { `details?`: `string` ; `message`: `string`  } ; `verified`: ``false``  }  }, `GetMobileCredentialError`\>\> ; `getCredentials`: () => `Promise`<{ `claims`: `Record`<`string`, `Record`<`string`, `ClaimData`\>\> ; `deviceKeyId`: `string` ; `docType`: `string` ; `id`: `string` ; `issuerInfo`: { `commonName`: `string` ; `trustedIssuerCertificateId`: `string`  } ; `validityInfo`: { `expectedUpdate?`: `Date` ; `signed?`: `Date` ; `validFrom`: `Date` ; `validUntil`: `Date`  } ; `verificationResult`: { `verified`: ``true``  } \| { `reason`: { `details?`: `string` ; `message`: `string`  } ; `verified`: ``false``  }  }[]\> ; `getCurrentProximityPresentationSession`: () => `Promise`<`undefined` \| { `deviceEngagement`: `string`  }\> ; `getTrustedIssuerCertificates`: () => `Promise`<{ `commonName`: `string` ; `id`: `string` ; `pem`: `string`  }[]\> ; `sendProximityPresentationResponse`: (`options`: { `credentialIds`: [`string`, ...string[]]  }) => `Promise`<[`Result`](modules.md#result)<`void`, `SendProximityPresentationResponseError`\>\> ; `terminateProximityPresentationSession`: () => `Promise`<`void`\>  } | - |
+| `credential.mobile.addTrustedIssuerCertificates` | [object Object] | Add a trusted issuer certificate to storage.  Issuer certificates are used to verify mobile credentials when added storage. This function validates the certificate in accordance with the IACA profile defined in 18013-5 with the additional constraint of requiring the certificate to be self signed. The operation is idempotent meaning repeated calls to add the same issuer certificates do not result in duplicates instead the id's of the existing certificates as stored by the SDK are returned. |
+| `credential.mobile.createProximityPresentationSession` | [object Object] | Create a proximity based presentation session with a mobile credential verifier using ISO 18013-5 based DeviceRetrieval. |
+| `credential.mobile.deleteCredential` | [object Object] | Delete a mobile credential from storage by id |
+| `credential.mobile.deleteTrustedIssuerCertificate` | [object Object] | Delete a trusted issuer certificate from storage.  This operation is idempotent, meaning calls to this function for issuer certificates that do not exist will not return an error. |
+| `credential.mobile.getCredential` | [object Object] | Get mobile credential from storage by id |
+| `credential.mobile.getCredentials` | [object Object] | Get all mobile credentials from storage |
+| `credential.mobile.getCurrentProximityPresentationSession` | [object Object] | Get the current proximity presentation session. |
+| `credential.mobile.getTrustedIssuerCertificates` | [object Object] | Retrieve all trusted issuer certificates from storage. |
+| `credential.mobile.sendProximityPresentationResponse` | [object Object] | Use the referenced mobile credentials to construct and send a response to the current request from the verifier. |
+| `credential.mobile.terminateProximityPresentationSession` | [object Object] | Create a proximity based presentation session with a mobile credential verifier using ISO 18013-5 based DeviceRetrieval. |
+| `credential.webSemantic` | { `createPresentation`: (`options`: [`CreateWebSemanticPresentationOptions`](modules.md#createwebsemanticpresentationoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifiablePresentation`](interfaces/VerifiablePresentation.md), [`CreateWebSemanticPresentationErrors`](modules.md#createwebsemanticpresentationerrors)\>\> ; `deriveCredential`: (`options`: [`DeriveWebSemanticCredentialOptions`](modules.md#derivewebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifiableCredential`](modules.md#verifiablecredential), [`DeriveWebSemanticCredentialError`](modules.md#derivewebsemanticcredentialerror)\>\> ; `expandCredential`: (`options`: [`ExpandWebSemanticCredentialOptions`](modules.md#expandwebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<`Record`<`string`, `unknown`\>, `BaseError$1`<[`ExpandWebSemanticCredentialErrorType`](enums/ExpandWebSemanticCredentialErrorType.md)\>\>\> ; `filterCredentialsByQuery`: <T\>(`options`: [`FilterWebSemanticCredentialsByQueryOptions`](modules.md#filterwebsemanticcredentialsbyqueryoptions)<`T`\>) => `Promise`<[`Result`](modules.md#result)<[`FilterWebSemanticCredentialsByQueryResponse`](modules.md#filterwebsemanticcredentialsbyqueryresponse)<`T`\>, [`PresentationRequestError`](modules.md#presentationrequesterror)\>\> ; `isSelectivelyDisclosable`: (`credential`: [`VerifiableCredential`](modules.md#verifiablecredential)) => `boolean` ; `sendPresentationResponse`: (`options`: [`SendWebSemanticPresentationResponseOptions`](modules.md#sendwebsemanticpresentationresponseoptions)) => `Promise`<[`Result`](modules.md#result)<`void`, `BaseError$1`<[`SendWebSemanticPresentationResponseErrorType`](enums/SendWebSemanticPresentationResponseErrorType.md)\>\>\> ; `verifyCredential`: (`options`: [`VerifyWebSemanticCredentialOptions`](modules.md#verifywebsemanticcredentialoptions)) => `Promise`<[`Result`](modules.md#result)<[`VerifyWebSemanticCredentialResult`](modules.md#verifywebsemanticcredentialresult), [`VerifyWebSemanticCredentialError`](modules.md#verifywebsemanticcredentialerror)\>\>  } | - |
 | `credential.webSemantic.createPresentation` | [object Object] | Create a Web Semantic verifiable presentation |
 | `credential.webSemantic.deriveCredential` | [object Object] | Derives a Web Semantic credential based on a frame |
 | `credential.webSemantic.expandCredential` | [object Object] | Expands a verifiable Web Semantic credential using jsonld |
@@ -1026,8 +1032,8 @@ An instance of a wallet
 | `credential.webSemantic.isSelectivelyDisclosable` | [object Object] | Determines if a Web Semantic credential is capable of selective disclosure |
 | `credential.webSemantic.sendPresentationResponse` | [object Object] | Sends a Web Semantic presentation response |
 | `credential.webSemantic.verifyCredential` | [object Object] | Attempts to verify a Web Semantic credential |
-| `did` | { `messaging`: { `encrypt`: (`options`: [`EncryptOptions`](modules.md#encryptoptions)) => `Promise`<[`Result`](modules.md#result)<`JweJsonSerialization`, [`EncryptError`](modules.md#encrypterror)\>\> ; `openDidCommMessage`: (`message`: `unknown`) => `Promise`<[`Result`](modules.md#result)<[`Jwm`](interfaces/Jwm.md), [`OpenDidCommError`](modules.md#opendidcommerror) \| [`VerifyError`](modules.md#verifyerror) \| [`DecryptError`](modules.md#decrypterror)\>\> ; `resolveDidCommUri`: (`didCommUri`: `string`) => `Promise`<[`Result`](modules.md#result)<`unknown`, [`BaseError`](interfaces/BaseError.md)<[`ResolveDidCommUriErrorType`](enums/ResolveDidCommUriErrorType.md)\>\>\> ; `sign`: (`payload`: `string` \| `Record`<`string`, `unknown`\>, `senderDid`: `string`) => `Promise`<[`Result`](modules.md#result)<`string`, [`SignError`](modules.md#signerror)\>\>  } ; `wellKnownDidConfiguration`: { `validate`: (`domain`: `string`, `did`: `string`) => `Promise`<`boolean`\> ; `validateMultipleDids`: (`domain`: `string`, `dids`: readonly `string`[]) => `Promise`<readonly [`DidConfigurationValidateResult`](modules.md#didconfigurationvalidateresult)[]\>  } ; `createDid`: () => `Promise`<[`Result`](modules.md#result)<[`CreateDidResponse`](modules.md#createdidresponse), [`CreateDidError`](modules.md#creatediderror)\>\> ; `deleteDid`: (`did`: `string`) => `Promise`<[`Result`](modules.md#result)<`void`, [`DeleteDidError`](modules.md#deletediderror)\>\> ; `listDids`: () => `Promise`<[`Result`](modules.md#result)<readonly `string`[], [`GetDidsError`](modules.md#getdidserror)\>\> ; `resolveDid`: (`did`: `string`) => `Promise`<[`Result`](modules.md#result)<[`DidServiceInfoResponse`](interfaces/DidServiceInfoResponse.md), [`DidResolutionError`](modules.md#didresolutionerror)\>\>  } | Namespace for DID operations |
-| `did.messaging` | { `encrypt`: (`options`: [`EncryptOptions`](modules.md#encryptoptions)) => `Promise`<[`Result`](modules.md#result)<`JweJsonSerialization`, [`EncryptError`](modules.md#encrypterror)\>\> ; `openDidCommMessage`: (`message`: `unknown`) => `Promise`<[`Result`](modules.md#result)<[`Jwm`](interfaces/Jwm.md), [`OpenDidCommError`](modules.md#opendidcommerror) \| [`VerifyError`](modules.md#verifyerror) \| [`DecryptError`](modules.md#decrypterror)\>\> ; `resolveDidCommUri`: (`didCommUri`: `string`) => `Promise`<[`Result`](modules.md#result)<`unknown`, [`BaseError`](interfaces/BaseError.md)<[`ResolveDidCommUriErrorType`](enums/ResolveDidCommUriErrorType.md)\>\>\> ; `sign`: (`payload`: `string` \| `Record`<`string`, `unknown`\>, `senderDid`: `string`) => `Promise`<[`Result`](modules.md#result)<`string`, [`SignError`](modules.md#signerror)\>\>  } | Namespace for messaging operations |
+| `did` | { `messaging`: { `encrypt`: (`options`: [`EncryptOptions`](modules.md#encryptoptions)) => `Promise`<[`Result`](modules.md#result)<`JweJsonSerialization`, `BaseError$1`<`EncryptErrorType`\>\>\> ; `openDidCommMessage`: (`message`: `unknown`) => `Promise`<[`Result`](modules.md#result)<[`Jwm`](interfaces/Jwm.md), [`OpenDidCommError`](modules.md#opendidcommerror) \| [`VerifyError`](modules.md#verifyerror) \| [`DecryptError`](modules.md#decrypterror)\>\> ; `resolveDidCommUri`: (`didCommUri`: `string`) => `Promise`<[`Result`](modules.md#result)<`unknown`, `BaseError$1`<[`ResolveDidCommUriErrorType`](enums/ResolveDidCommUriErrorType.md)\>\>\> ; `sign`: (`payload`: `string` \| `Record`<`string`, `unknown`\>, `senderDid`: `string`) => `Promise`<[`Result`](modules.md#result)<`string`, [`SignError`](modules.md#signerror)\>\>  } ; `wellKnownDidConfiguration`: { `validate`: (`domain`: `string`, `did`: `string`) => `Promise`<`boolean`\> ; `validateMultipleDids`: (`domain`: `string`, `dids`: readonly `string`[]) => `Promise`<readonly [`DidConfigurationValidateResult`](modules.md#didconfigurationvalidateresult)[]\>  } ; `createDid`: () => `Promise`<[`Result`](modules.md#result)<[`CreateDidResponse`](modules.md#createdidresponse), [`CreateDidError`](modules.md#creatediderror)\>\> ; `deleteDid`: (`did`: `string`) => `Promise`<[`Result`](modules.md#result)<`void`, [`DeleteDidError`](modules.md#deletediderror)\>\> ; `listDids`: () => `Promise`<[`Result`](modules.md#result)<readonly `string`[], [`GetDidsError`](modules.md#getdidserror)\>\> ; `resolveDid`: (`did`: `string`) => `Promise`<[`Result`](modules.md#result)<[`DidServiceInfoResponse`](interfaces/DidServiceInfoResponse.md), [`DidResolutionError`](modules.md#didresolutionerror)\>\>  } | Namespace for DID operations |
+| `did.messaging` | { `encrypt`: (`options`: [`EncryptOptions`](modules.md#encryptoptions)) => `Promise`<[`Result`](modules.md#result)<`JweJsonSerialization`, `BaseError$1`<`EncryptErrorType`\>\>\> ; `openDidCommMessage`: (`message`: `unknown`) => `Promise`<[`Result`](modules.md#result)<[`Jwm`](interfaces/Jwm.md), [`OpenDidCommError`](modules.md#opendidcommerror) \| [`VerifyError`](modules.md#verifyerror) \| [`DecryptError`](modules.md#decrypterror)\>\> ; `resolveDidCommUri`: (`didCommUri`: `string`) => `Promise`<[`Result`](modules.md#result)<`unknown`, `BaseError$1`<[`ResolveDidCommUriErrorType`](enums/ResolveDidCommUriErrorType.md)\>\>\> ; `sign`: (`payload`: `string` \| `Record`<`string`, `unknown`\>, `senderDid`: `string`) => `Promise`<[`Result`](modules.md#result)<`string`, [`SignError`](modules.md#signerror)\>\>  } | Namespace for messaging operations |
 | `did.messaging.encrypt` | [object Object] | Encrypts a message |
 | `did.messaging.openDidCommMessage` | [object Object] | Opens a DIDComm message |
 | `did.messaging.resolveDidCommUri` | [object Object] | Resolves a DIDComm URI into an object |
@@ -1049,8 +1055,8 @@ An instance of a wallet
 | `oidc.discover` | [object Object] | Discover credential offer from OIDC's wellknown configuration endpoint |
 | `oidc.generateAuthorizeUrl` | [object Object] | Generates an authorization URL |
 | `oidc.retrieveCredential` | [object Object] | Retrieves a credential from the OIDC provider |
-| `openid` | { `issuance`: { `discover`: (`uri`: `string`) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceDiscoverResult`](modules.md#openidissuancediscoverresult), [`BaseError`](interfaces/BaseError.md)<[`DiscoverErrorType`](enums/DiscoverErrorType.md)\>\>\> ; `generateAuthorizeUrl`: (`options`: [`OpenidIssuanceGenerateAuthorizeUrlOptions`](modules.md#openidissuancegenerateauthorizeurloptions)) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceGenerateAuthorizeResult`](modules.md#openidissuancegenerateauthorizeresult), [`BaseError`](interfaces/BaseError.md)<[`InvalidOptions`](enums/GenerateAuthorizeUrlErrorType.md#invalidoptions)\>\>\> ; `retrieveCredentials`: (`options`: [`OpenidIssuanceRetrieveCredentialsOptions`](modules.md#openidissuanceretrievecredentialsoptions)) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceRetrieveCredentialsResult`](modules.md#openidissuanceretrievecredentialsresult), [`BaseError`](interfaces/BaseError.md)<[`RetrieveCredentialsErrorType`](enums/RetrieveCredentialsErrorType.md)\>\>\> ; `retrieveToken`: (`options`: [`OpenidIssuanceRetrieveTokenOptions`](modules.md#openidissuanceretrievetokenoptions)) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceRetrieveTokenResult`](modules.md#openidissuanceretrievetokenresult), [`BaseError`](interfaces/BaseError.md)<[`RetrieveTokenErrorType`](enums/RetrieveTokenErrorType.md)\>\>\>  }  } | Namespace for openid operations |
-| `openid.issuance` | { `discover`: (`uri`: `string`) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceDiscoverResult`](modules.md#openidissuancediscoverresult), [`BaseError`](interfaces/BaseError.md)<[`DiscoverErrorType`](enums/DiscoverErrorType.md)\>\>\> ; `generateAuthorizeUrl`: (`options`: [`OpenidIssuanceGenerateAuthorizeUrlOptions`](modules.md#openidissuancegenerateauthorizeurloptions)) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceGenerateAuthorizeResult`](modules.md#openidissuancegenerateauthorizeresult), [`BaseError`](interfaces/BaseError.md)<[`InvalidOptions`](enums/GenerateAuthorizeUrlErrorType.md#invalidoptions)\>\>\> ; `retrieveCredentials`: (`options`: [`OpenidIssuanceRetrieveCredentialsOptions`](modules.md#openidissuanceretrievecredentialsoptions)) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceRetrieveCredentialsResult`](modules.md#openidissuanceretrievecredentialsresult), [`BaseError`](interfaces/BaseError.md)<[`RetrieveCredentialsErrorType`](enums/RetrieveCredentialsErrorType.md)\>\>\> ; `retrieveToken`: (`options`: [`OpenidIssuanceRetrieveTokenOptions`](modules.md#openidissuanceretrievetokenoptions)) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceRetrieveTokenResult`](modules.md#openidissuanceretrievetokenresult), [`BaseError`](interfaces/BaseError.md)<[`RetrieveTokenErrorType`](enums/RetrieveTokenErrorType.md)\>\>\>  } | Namespace for openid issuance operations |
+| `openid` | { `issuance`: { `discover`: (`uri`: `string`) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceDiscoverResult`](modules.md#openidissuancediscoverresult), `BaseError$1`<[`DiscoverErrorType`](enums/DiscoverErrorType.md)\>\>\> ; `generateAuthorizeUrl`: (`options`: [`OpenidIssuanceGenerateAuthorizeUrlOptions`](modules.md#openidissuancegenerateauthorizeurloptions)) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceGenerateAuthorizeResult`](modules.md#openidissuancegenerateauthorizeresult), `BaseError$1`<[`InvalidOptions`](enums/GenerateAuthorizeUrlErrorType.md#invalidoptions)\>\>\> ; `retrieveCredentials`: (`options`: [`OpenidIssuanceRetrieveCredentialsOptions`](modules.md#openidissuanceretrievecredentialsoptions)) => `Promise`<[`OpenidIssuanceRetrieveCredentialsResult`](modules.md#openidissuanceretrievecredentialsresult)\> ; `retrieveToken`: (`options`: [`OpenidIssuanceRetrieveTokenOptions`](modules.md#openidissuanceretrievetokenoptions)) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceRetrieveTokenResult`](modules.md#openidissuanceretrievetokenresult), `BaseError$1`<[`RetrieveTokenErrorType`](enums/RetrieveTokenErrorType.md)\>\>\>  }  } | Namespace for openid operations |
+| `openid.issuance` | { `discover`: (`uri`: `string`) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceDiscoverResult`](modules.md#openidissuancediscoverresult), `BaseError$1`<[`DiscoverErrorType`](enums/DiscoverErrorType.md)\>\>\> ; `generateAuthorizeUrl`: (`options`: [`OpenidIssuanceGenerateAuthorizeUrlOptions`](modules.md#openidissuancegenerateauthorizeurloptions)) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceGenerateAuthorizeResult`](modules.md#openidissuancegenerateauthorizeresult), `BaseError$1`<[`InvalidOptions`](enums/GenerateAuthorizeUrlErrorType.md#invalidoptions)\>\>\> ; `retrieveCredentials`: (`options`: [`OpenidIssuanceRetrieveCredentialsOptions`](modules.md#openidissuanceretrievecredentialsoptions)) => `Promise`<[`OpenidIssuanceRetrieveCredentialsResult`](modules.md#openidissuanceretrievecredentialsresult)\> ; `retrieveToken`: (`options`: [`OpenidIssuanceRetrieveTokenOptions`](modules.md#openidissuanceretrievetokenoptions)) => `Promise`<[`Result`](modules.md#result)<[`OpenidIssuanceRetrieveTokenResult`](modules.md#openidissuanceretrievetokenresult), `BaseError$1`<[`RetrieveTokenErrorType`](enums/RetrieveTokenErrorType.md)\>\>\>  } | Namespace for openid issuance operations |
 | `openid.issuance.discover` | [object Object] | Discover credential offer |
 | `openid.issuance.generateAuthorizeUrl` | [object Object] | Generates an authorization URL |
 | `openid.issuance.retrieveCredentials` | [object Object] | Retrieves credential from the openid issuance provider |
@@ -1071,7 +1077,7 @@ React Native specific wallet extensions.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `httpCache` | { `clear`: () => `Promise`<[`Result`](modules.md#result)<`void`, [`HttpCacheError`](modules.md#httpcacheerror)\>\> ; `getSize`: () => `Promise`<[`Result`](modules.md#result)<`number`, [`HttpCacheError`](modules.md#httpcacheerror)\>\>  } | Namespace for HTTP request cache |
-| `httpCache.clear` | [object Object] | Removes all entries from HTTP cache storage directory for the wallet  **`remarks`** This is a destructive operation that cannot be undone. If a [walletId](modules.md#walletid) is not provided, storage for the default wallet will be removed. |
+| `httpCache.clear` | [object Object] | Removes all entries from HTTP cache storage directory for the wallet  **`remarks`** This is a destructive operation that cannot be undone. |
 | `httpCache.getSize` | [object Object] | Retrieve the total number of cached contexts in the wallet |
 
 ___
@@ -1116,7 +1122,7 @@ ___
 
 ### CredentialOfferedValidator
 
-• `Const` **CredentialOfferedValidator**: `z$1.ZodObject`<{ `claims`: `z$1.ZodOptional`<`z$1.ZodArray`<`z$1.ZodType`<`CredentialOfferedClaim`, `z$1.ZodTypeDef`, `CredentialOfferedClaim`\>, ``"many"``\>\> ; `name`: `z$1.ZodOptional`<`z$1.ZodString`\> ; `scope`: `z$1.ZodString`  }, ``"strip"``, `z$1.ZodTypeAny`, { `claims?`: `CredentialOfferedClaim`[] ; `name?`: `string` ; `scope`: `string`  }, { `claims?`: `CredentialOfferedClaim`[] ; `name?`: `string` ; `scope`: `string`  }\>
+• `Const` **CredentialOfferedValidator**: `z$1.ZodObject`<{ `claims`: `z$1.ZodOptional`<`z$1.ZodArray`<`z$1.ZodObject`<{ `name`: `z$1.ZodString`  }, ``"strip"``, `z$1.ZodTypeAny`, { `name`: `string`  }, { `name`: `string`  }\>, ``"many"``\>\> ; `name`: `z$1.ZodOptional`<`z$1.ZodString`\> ; `scope`: `z$1.ZodString`  }, ``"strip"``, `z$1.ZodTypeAny`, { `claims?`: { `name`: `string`  }[] ; `name?`: `string` ; `scope`: `string`  }, { `claims?`: { `name`: `string`  }[] ; `name?`: `string` ; `scope`: `string`  }\>
 
 ___
 
@@ -1134,7 +1140,7 @@ ___
 
 ### OpenidIssuanceGenerateAuthorizeUrlOptionsValidator
 
-• `Const` **OpenidIssuanceGenerateAuthorizeUrlOptionsValidator**: `z$1.ZodObject`<{ `clientId`: `z$1.ZodOptional`<`z$1.ZodString`\> ; `offer`: `z$1.ZodType`<[`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer), `z$1.ZodTypeDef`, [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer)\> ; `redirectUri`: `z$1.ZodOptional`<`z$1.ZodString`\> ; `state`: `z$1.ZodOptional`<`z$1.ZodString`\>  }, ``"strip"``, `z$1.ZodTypeAny`, { `clientId?`: `string` ; `offer`: [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer) ; `redirectUri?`: `string` ; `state?`: `string`  }, { `clientId?`: `string` ; `offer`: [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer) ; `redirectUri?`: `string` ; `state?`: `string`  }\>
+• `Const` **OpenidIssuanceGenerateAuthorizeUrlOptionsValidator**: `z$1.ZodType`<[`OpenidIssuanceGenerateAuthorizeUrlOptions`](modules.md#openidissuancegenerateauthorizeurloptions)\>
 
 types for wallet.openid.issuance.generateAuthorizeUrl()
 
@@ -1142,7 +1148,7 @@ ___
 
 ### OpenidIssuanceRetrieveCredentialsOptionsValidator
 
-• `Const` **OpenidIssuanceRetrieveCredentialsOptionsValidator**: `z$1.ZodObject`<{ `accessToken`: `z$1.ZodString` ; `clientId`: `z$1.ZodOptional`<`z$1.ZodString`\> ; `offer`: `z$1.ZodType`<[`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer), `z$1.ZodTypeDef`, [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer)\>  }, ``"strip"``, `z$1.ZodTypeAny`, { `accessToken`: `string` ; `clientId?`: `string` ; `offer`: [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer)  }, { `accessToken`: `string` ; `clientId?`: `string` ; `offer`: [`OpenidIssuanceCredentialOffer`](modules.md#openidissuancecredentialoffer)  }\>
+• `Const` **OpenidIssuanceRetrieveCredentialsOptionsValidator**: `z$1.ZodType`<[`OpenidIssuanceRetrieveCredentialsOptions`](modules.md#openidissuanceretrievecredentialsoptions)\>
 
 types for wallet.openid.issuance.retrieveCredentials()
 
@@ -1234,30 +1240,6 @@ const getFruitName = (fruit: Fruit): string => {
 
 ___
 
-### create
-
-▸ **create**(`walletId?`): `Promise`<[`Result`](modules.md#result)<`void`, [`MalformedEncryptionKeyError`](modules.md#malformedencryptionkeyerror) \| [`WalletAlreadyCreatedError`](modules.md#walletalreadycreatederror)\>\>
-
-Generates new encryption keys and storage directories required for a wallet
-
-**`remarks`**
-This function must be called before trying to open the wallet.
-If a [walletId](modules.md#walletid) is not provided, the default wallet will be created.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `walletId?` | `string` | optional walletId for the create function |
-
-#### Returns
-
-`Promise`<[`Result`](modules.md#result)<`void`, [`MalformedEncryptionKeyError`](modules.md#malformedencryptionkeyerror) \| [`WalletAlreadyCreatedError`](modules.md#walletalreadycreatederror)\>\>
-
-A [Result](modules.md#result) containing void on ok and either a [WalletAlreadyCreatedError](modules.md#walletalreadycreatederror) or [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) on error
-
-___
-
 ### destroy
 
 ▸ **destroy**(`walletId?`): `Promise`<[`Result`](modules.md#result)<`void`, [`MalformedEncryptionKeyError`](modules.md#malformedencryptionkeyerror) \| `WalletNotFoundError`\>\>
@@ -1266,19 +1248,34 @@ Removes encryption keys and storage directories associated with the wallet
 
 **`remarks`**
 This is a destructive operation that cannot be undone. The wallet will have to be re created from scratch if destroyed.
-If a [walletId](modules.md#walletid) is not provided, the default wallet will be destroyed.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `walletId?` | `string` | optional walletId for the destroy function |
+| Name | Type |
+| :------ | :------ |
+| `walletId?` | `string` |
 
 #### Returns
 
 `Promise`<[`Result`](modules.md#result)<`void`, [`MalformedEncryptionKeyError`](modules.md#malformedencryptionkeyerror) \| `WalletNotFoundError`\>\>
 
 A [Result](modules.md#result) containing void on ok and a {@link WalletNotFoundError} on error
+
+___
+
+### initialise
+
+▸ **initialise**(`options`): `Promise`<[`Result`](modules.md#result)<[`Wallet`](modules.md#wallet), [`MalformedEncryptionKeyError`](modules.md#malformedencryptionkeyerror) \| [`EncryptionKeyNotFoundError`](modules.md#encryptionkeynotfounderror)\>\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | [`InitialiseOptions`](modules.md#initialiseoptions) |
+
+#### Returns
+
+`Promise`<[`Result`](modules.md#result)<[`Wallet`](modules.md#wallet), [`MalformedEncryptionKeyError`](modules.md#malformedencryptionkeyerror) \| [`EncryptionKeyNotFoundError`](modules.md#encryptionkeynotfounderror)\>\>
 
 ___
 
@@ -1395,30 +1392,6 @@ ___
 #### Returns
 
 val is VerifiableCredential
-
-___
-
-### open
-
-▸ **open**(`options`): `Promise`<[`Result`](modules.md#result)<[`Wallet`](modules.md#wallet), `WalletNotFoundError` \| [`MalformedEncryptionKeyError`](modules.md#malformedencryptionkeyerror) \| [`EncryptionKeyNotFoundError`](modules.md#encryptionkeynotfounderror)\>\>
-
-Open an existing wallet with stored encryption keys
-
-**`remarks`**
-The wallet must have been created before trying to call open so the storage directories and encryption keys exist
-If a {@link OpenOptions.walletId} is not provided, the default wallet will be opened.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `options` | [`OpenOptions`](modules.md#openoptions) | [OpenOptions](modules.md#openoptions) containing the options for the open function |
-
-#### Returns
-
-`Promise`<[`Result`](modules.md#result)<[`Wallet`](modules.md#wallet), `WalletNotFoundError` \| [`MalformedEncryptionKeyError`](modules.md#malformedencryptionkeyerror) \| [`EncryptionKeyNotFoundError`](modules.md#encryptionkeynotfounderror)\>\>
-
-A [Result](modules.md#result) containing the open [Wallet](modules.md#wallet) object on ok or a [MalformedEncryptionKeyError](modules.md#malformedencryptionkeyerror) or [EncryptionKeyNotFoundError](modules.md#encryptionkeynotfounderror) on error
 
 ___
 

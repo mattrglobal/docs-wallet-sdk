@@ -8,6 +8,7 @@
 
 - [Compact](CredentialProfileSupported.md#compact)
 - [CompactSemantic](CredentialProfileSupported.md#compactsemantic)
+- [Mobile](CredentialProfileSupported.md#mobile)
 - [WebSemantic](CredentialProfileSupported.md#websemantic)
 
 ## Enumeration Members
@@ -21,6 +22,12 @@ ___
 ### CompactSemantic
 
 • **CompactSemantic**
+
+___
+
+### Mobile
+
+• **Mobile**
 
 ___
 

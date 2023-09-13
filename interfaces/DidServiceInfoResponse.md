@@ -8,6 +8,7 @@
 
 - [didDocument](DidServiceInfoResponse.md#diddocument)
 - [localMetadata](DidServiceInfoResponse.md#localmetadata)
+- [rawError](DidServiceInfoResponse.md#rawerror)
 - [registrationStatus](DidServiceInfoResponse.md#registrationstatus)
 
 ## Properties
@@ -25,6 +26,14 @@ ___
 • `Optional` `Readonly` **localMetadata**: `DidMetadata`
 
 Local metadata for the resolved DID document.
+
+___
+
+### rawError
+
+• `Optional` `Readonly` **rawError**: `Error`
+
+Error that occurred during did resolution
 
 ___
 

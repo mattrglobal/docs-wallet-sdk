@@ -20,7 +20,7 @@ ___
 
 ### isRevoked
 
-• `Readonly` **isRevoked**: `boolean`
+• `Optional` `Readonly` **isRevoked**: `boolean`
 
 ___
 

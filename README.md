@@ -59,9 +59,9 @@ dependencies will be autolinked.
 Install the peer dependencies:
 
 ```
-yarn add react-native-securerandom@1.0.1 realm@11.3.1 react-native-fs@2.17.0 react-native-secure-key-store@2.0.10 @mattrglobal/rn-bbs-signatures@1.0.0 react-native-get-random-values@1.7.0 @mattrglobal/react-native-cryptography@1.1.0 @mattrglobal/pairing-crypto-rn@0.4.1
+yarn add react-native-securerandom@1.0.1 realm@11.10.2 react-native-fs@2.17.0 react-native-secure-key-store@2.0.10 @mattrglobal/rn-bbs-signatures@1.0.0 react-native-get-random-values@1.7.0 @mattrglobal/react-native-cryptography@1.1.0 @mattrglobal/pairing-crypto-rn@0.4.1 @mattrglobal/mobile-credential-holder-react-native@0.1.0
 
-Note: we tested with react-native 0.68.5 and 0.70.6
+Note: we tested with react-native 0.71.12, previous supported react-native version 0.70.6, 0.68.5
 ```
 
 **React Native <0.60**
@@ -83,6 +83,9 @@ allprojects {
 ```
 
 ## iOS only
+
+Update iOS `Info.plist` description for keys `NSBluetoothAlwaysUsageDescription` and
+`NSBluetoothPeripheralUsageDescription`
 
 Add the pod for bbs-signatures to the podfile in `ios/Podfile`:
 
@@ -125,35 +128,22 @@ const bytes = codec.stringToBytes("a string");
 
 ## Wallet
 
-Create a new wallet:
+Initialise the wallet:
 
 ```typescript
-import { create } from "@mattrglobal/wallet-sdk-react-native";
+import { initialise } from "@mattrglobal/wallet-sdk-react-native";
 
-const createWalletResult = await create();
+const initialiseWalletResult = await initialise();
 
-if (createWalletResult.isErr()) {
-  // Handle error from createWalletResult.error
-  return;
-}
-```
-
-Open an existing wallet:
-
-```typescript
-import { open } from "@mattrglobal/wallet-sdk-react-native";
-
-const openWalletResult = await open();
-
-if (openWalletResult.isErr()) {
-  // Handle error from openWalletResult.error
+if (initialiseWalletResult.isErr()) {
+  // Handle error from initialiseWalletResult.error
   return;
 }
 
-const wallet = openWalletResult.value;
+const wallet = initialiseWalletResult.value;
 ```
 
-Use the open wallet:
+Use the initialised wallet:
 
 ```typescript
 // Create a new DID
@@ -244,6 +234,7 @@ const retrieveResult = (retrieveCredential = await wallet.oidc.retrieveCredentia
   codeVerifier,
   nonce,
   code: route.params.code, // code comes from part of the callback url
+  autoTrustMobileCredentialIaca: false, // optional, default false
 }));
 
 if (retrieveResult.isErr()) {
@@ -359,13 +350,17 @@ const retrieveCredentialsResult = await wallet.openid.issuance.retrieveCredentia
   clientId,
 });
 
-if (retrieveCredentialsResult.isErr()) {
-  // Handle error from retrieveCredentialsResult.error
-  return;
-}
+retrieveCredentialsResult.forEach((credentialOfferResult) => {
+  if ("error" in credentialOfferResult) {
+    const { offer, error } = credentialOfferResult;
 
-retrieveCredentialsResult.value.credentials.forEach(({ credential, profile, did }) => {
-  // present to user and/or store
+    // Handle error from retrieveCredentialsResult.error
+  } else {
+    const { offer, result } = credentialOfferResult;
+    const { credential, profile, did } = result;
+
+    // present to user and/or store
+  }
 });
 ```
 
@@ -441,16 +436,16 @@ Although this pattern is more verbose, it encourages the handling of possibly er
 for truly exceptional situations.
 
 ```typescript
-import { open } from "@mattrglobal/wallet-sdk-react-native";
+import { initialise } from "@mattrglobal/wallet-sdk-react-native";
 
-const openWalletResult = await open();
+const initialiseWalletResult = await initialise();
 
-if (openWalletResult.isErr()) {
-  // Handle error from openWalletResult.error
+if (initialiseWalletResult.isErr()) {
+  // Handle error from initialiseWalletResult.error
   return;
 }
 
-const wallet = openWalletResult.value;
+const wallet = initialiseWalletResult.value;
 ```
 
 ### unwrap
@@ -462,7 +457,7 @@ simply throw an error if the function passed in returns a `Result` where `Resut.
 import { unwrap } from "@mattrglobal/wallet-sdk-react-native";
 
 try {
-  const wallet = unwrap(await open());
+  const wallet = unwrap(await initialise());
 } catch (error) {
   // Handle thrown error
 }

@@ -1,6 +1,90 @@
 # Change Log
 
-# [2.1.2]
+# 3.0.0
+
+### BREAKING CHANGES
+
+- Support partial failure in `wallet.webSemantic.retrieveCredentials` method:
+
+  - `retrieveCredentials` method no longer return error result if it fails to retrieve one of the credentials, instead
+    it returns a union of credentials and errors.
+
+    ```typescript
+    const retrieveCredentialsResult = await wallet.openid.issuance.retrieveCredentials({
+      offer,
+      accessToken,
+      clientId,
+    });
+
+    /**
+     * Example `retrieveCredentialsResult`
+     * [
+     *   {
+     *     offer,
+     *     credential, // Successfully retrieved verifiable credential
+     *   },
+     *   {
+     *     offer,
+     *     error: { type, message, cause }, // Failure
+     *   }
+     * ]
+     */
+    ```
+
+- Expose `NetworkError` in case a remote request fails due to a network error or timeout in the following methods:
+
+  - `wallet.credential.webSemantic.verifyCredential` could return type
+    `VerifyWebSemanticCredentialErrorType.NetworkError`
+  - `wallet.credential.webSemantic.deriveCredential` could return type
+    `DeriveWebSemanticCredentialErrorType.NetworkError`
+  - `wallet.credential.webSemantic.expandCredential` could return type
+    `ExpandWebSemanticCredentialErrorType.NetworkError`
+  - `wallet.credential.webSemantic.sendPresentationResponse` could return type
+    `SendWebSemanticPresentationResponseErrorType.NetworkError`
+  - `wallet.credential.webSemantic.filterCredentialsByQuery` could return type
+    `PresentationRequestErrorType.NetworkError`
+  - `wallet.openid.issuance.retrieveCredentials` could return type `RetrieveCredentialsErrorType.NetworkError` in the
+    new partial error format (see item above)
+
+- Consolidate `create` and `open` into `initialise` method
+
+  ```typescript
+  // Previously
+  import { create, open } from "@mattrglobal/wallet-sdk-react-native";
+  const createWalletResult = await create();
+  if (createWalletResult.isErr()) {
+    return; // Handle error from createWalletResult.error
+  }
+  const openWalletResult = await open();
+  if (openWalletResult.isErr()) {
+    return; // Handle error from openWalletResult.error
+  }
+  const wallet = openWalletResult.value;
+  ...
+
+  // Now
+  import { initialise } from "@mattrglobal/wallet-sdk-react-native";
+  const initialiseResult = await initialise();
+  if (initialiseResult.isErr()) {
+    return; // Handle error from initialiseResult.error
+  }
+  const wallet = initialiseResult.value;
+  ...
+  ```
+
+### Bug Fixes
+
+- Fix `webSemantic.verifyCredentials` results
+  - Do not assume `isRevoked` to be `true` if revocation status check failed
+  - Do not assume `expired` to be `false` if credential signature verification failed
+
+### Notes
+
+- Add support for React Native `0.71`
+
+  - Require `realm>=11.10.2`
+
+# 2.1.2
 
 - Add support for `BbsSignature2022` verifiable credentials
 - A new peer dependency is required `@mattrglobal/pairing-crypto-rn`

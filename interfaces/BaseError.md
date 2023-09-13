@@ -2,25 +2,17 @@
 
 # Interface: BaseError<T\>
 
-Error type used for the Neverthrow error handling pattern.
-
-Example:
-```
-export enum SignErrorType {
-  InvalidPayload = "InvalidPayload",
-  ...
-}
-
-export type SignError = BaseError & { readonly type: SignErrorType };
-
-const sign = async (): Promise<Result<SignResult, SignError>> => { ... }
-```
-
 ## Type parameters
 
 | Name | Type |
 | :------ | :------ |
 | `T` | `string` |
+
+## Hierarchy
+
+- `BaseError$1`<`T`\>
+
+  ↳ **`BaseError`**
 
 ## Table of contents
 
@@ -37,20 +29,36 @@ const sign = async (): Promise<Result<SignResult, SignError>> => { ... }
 
 • `Optional` `Readonly` **cause**: `unknown`
 
+#### Inherited from
+
+BaseError$1.cause
+
 ___
 
 ### details
 
 • `Optional` `Readonly` **details**: `unknown`
 
+#### Inherited from
+
+BaseError$1.details
+
 ___
 
 ### message
 
-• `Optional` `Readonly` **message**: `string`
+• `Readonly` **message**: `string`
+
+#### Overrides
+
+BaseError$1.message
 
 ___
 
 ### type
 
 • `Readonly` **type**: `T`
+
+#### Inherited from
+
+BaseError$1.type

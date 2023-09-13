@@ -9,6 +9,7 @@ Error type for retrieve credentials
 ### Enumeration Members
 
 - [InvalidOptions](RetrieveCredentialsErrorType.md#invalidoptions)
+- [NetworkError](RetrieveCredentialsErrorType.md#networkerror)
 - [RetrieveCredentialError](RetrieveCredentialsErrorType.md#retrievecredentialerror)
 
 ## Enumeration Members
@@ -16,6 +17,12 @@ Error type for retrieve credentials
 ### InvalidOptions
 
 • **InvalidOptions**
+
+___
+
+### NetworkError
+
+• **NetworkError**
 
 ___
 
