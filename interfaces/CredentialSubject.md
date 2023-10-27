@@ -2,7 +2,9 @@
 
 # Interface: CredentialSubject
 
-**`see`** https://www.w3.org/TR/vc-data-model/#types
+**`See`**
+
+https://www.w3.org/TR/vc-data-model/#types
 
 ## Indexable
 

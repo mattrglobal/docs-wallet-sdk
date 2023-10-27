@@ -79,13 +79,13 @@ ___
 
 ### InvalidCborldDecodeError
 
-Ƭ **InvalidCborldDecodeError**: `InvalidCborldDecodeError`
+Ƭ **InvalidCborldDecodeError**: [`InvalidCborldDecodeError`](../modules.md#invalidcborlddecodeerror)
 
 ___
 
 ### InvalidCborldEncodeError
 
-Ƭ **InvalidCborldEncodeError**: `InvalidCborldEncodeError`
+Ƭ **InvalidCborldEncodeError**: [`InvalidCborldEncodeError`](../modules.md#invalidcborldencodeerror)
 
 ___
 
@@ -117,6 +117,8 @@ ___
 
 ▸ **base32Decode**(`base32String`): [`Result`](../modules.md#result)<`Uint8Array`, `InvalidBase32DecodeError`\>
 
+Base32 decode to Uint8Array
+
 #### Parameters
 
 | Name | Type |
@@ -127,21 +129,27 @@ ___
 
 [`Result`](../modules.md#result)<`Uint8Array`, `InvalidBase32DecodeError`\>
 
+A [Result](../modules.md#result) containing the decoded Uint8Array on ok or a [InvalidBase32DecodeError](codec.md#invalidbase32decodeerror) on error
+
 ___
 
 ### base32DecodeToString
 
 ▸ **base32DecodeToString**(`base32String`): [`Result`](../modules.md#result)<`string`, `InvalidBase32DecodeError`\>
 
+Base32 decode to a string
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `base32String` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `base32String` | `string` | The base32 encoded string |
 
 #### Returns
 
 [`Result`](../modules.md#result)<`string`, `InvalidBase32DecodeError`\>
+
+A [Result](../modules.md#result) containing the decoded string on ok or a [InvalidBase32DecodeError](codec.md#invalidbase32decodeerror)  on error
 
 ___
 
@@ -149,15 +157,19 @@ ___
 
 ▸ **base32Encode**(`byteArray`): `string`
 
+Base32 encode an Uint8Array
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `byteArray` | `Uint8Array` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `byteArray` | `Uint8Array` | The bytes to encode |
 
 #### Returns
 
 `string`
+
+The string of the encoded bytes
 
 ___
 
@@ -165,15 +177,19 @@ ___
 
 ▸ **base32EncodeFromString**(`str`): `string`
 
+Base32 encode a string
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `str` | `string` | The string to encode |
 
 #### Returns
 
 `string`
+
+The base32 encoded string
 
 ___
 
@@ -181,15 +197,19 @@ ___
 
 ▸ **base64Decode**(`base64String`): [`Result`](../modules.md#result)<`Uint8Array`, `InvalidBase64DecodeError`\>
 
+Base64 decode to Uint8Array
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `base64String` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `base64String` | `string` | The base64 encoded string |
 
 #### Returns
 
 [`Result`](../modules.md#result)<`Uint8Array`, `InvalidBase64DecodeError`\>
+
+A [Result](../modules.md#result) containing the decoded Uint8Array on ok or a [InvalidBase64DecodeError](codec.md#invalidbase64decodeerror) on error
 
 ___
 
@@ -197,15 +217,19 @@ ___
 
 ▸ **base64DecodeToString**(`base64String`): [`Result`](../modules.md#result)<`string`, `InvalidBase64DecodeError`\>
 
+Base64 decode to a string
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `base64String` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `base64String` | `string` | The base64 encoded string |
 
 #### Returns
 
 [`Result`](../modules.md#result)<`string`, `InvalidBase64DecodeError`\>
+
+A [Result](../modules.md#result) containing the decoded string on ok or a [InvalidBase64DecodeError](codec.md#invalidbase64decodeerror) on error
 
 ___
 
@@ -213,15 +237,19 @@ ___
 
 ▸ **base64Encode**(`byteArray`): `string`
 
+Base64 encode an Uint8Array
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `byteArray` | `Uint8Array` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `byteArray` | `Uint8Array` | The bytes to encode |
 
 #### Returns
 
 `string`
+
+The string of the encoded bytes
 
 ___
 
@@ -229,15 +257,19 @@ ___
 
 ▸ **base64EncodeFromString**(`str`): `string`
 
+Base64 encode a string
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `str` | `string` | The string to encode |
 
 #### Returns
 
 `string`
+
+The base64 encoded string
 
 ___
 
@@ -245,15 +277,19 @@ ___
 
 ▸ **base64UrlDecode**(`base64urlString`): [`Result`](../modules.md#result)<`Uint8Array`, [`InvalidBase64URLDecodeError`](../modules.md#invalidbase64urldecodeerror)\>
 
+Base64URL decode to Uint8Array
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `base64urlString` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `base64urlString` | `string` | The base64url encoded string |
 
 #### Returns
 
 [`Result`](../modules.md#result)<`Uint8Array`, [`InvalidBase64URLDecodeError`](../modules.md#invalidbase64urldecodeerror)\>
+
+A [Result](../modules.md#result) containing the decoded Uint8Array on ok or a [InvalidBase64URLDecodeError](../modules.md#invalidbase64urldecodeerror) on error
 
 ___
 
@@ -261,15 +297,19 @@ ___
 
 ▸ **base64UrlDecodeToObject**(`base64urlString`): [`Result`](../modules.md#result)<`object`, [`InvalidBase64URLDecodeError`](../modules.md#invalidbase64urldecodeerror) \| [`InvalidJSONError`](../modules.md#invalidjsonerror)\>
 
+Base64URL decode to an object
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `base64urlString` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `base64urlString` | `string` | The base64url encoded string |
 
 #### Returns
 
 [`Result`](../modules.md#result)<`object`, [`InvalidBase64URLDecodeError`](../modules.md#invalidbase64urldecodeerror) \| [`InvalidJSONError`](../modules.md#invalidjsonerror)\>
+
+A [Result](../modules.md#result) containing the decoded object on ok or a [InvalidBase64URLDecodeError](../modules.md#invalidbase64urldecodeerror) or [InvalidJSONError](../modules.md#invalidjsonerror) on error
 
 ___
 
@@ -277,15 +317,19 @@ ___
 
 ▸ **base64UrlEncode**(`byteArray`): `string`
 
+Base64URL encode an Uint8Array
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `byteArray` | `Uint8Array` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `byteArray` | `Uint8Array` | The bytes to encode |
 
 #### Returns
 
 `string`
+
+The string of the encoded bytes
 
 ___
 
@@ -293,15 +337,19 @@ ___
 
 ▸ **base64UrlEncodeFromObject**(`obj`): `string`
 
+Base64URL encode an object
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `obj` | `Record`<`string`, `unknown`\> |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `obj` | `Record`<`string`, `unknown`\> | The object to create the encoded string from |
 
 #### Returns
 
 `string`
+
+The string of the encoded object
 
 ___
 
@@ -309,15 +357,19 @@ ___
 
 ▸ **base64UrlEncodeFromString**(`str`): `string`
 
+Base64URL encode a string
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `str` | `string` | The string to encode |
 
 #### Returns
 
 `string`
+
+The base64url encoded string
 
 ___
 
@@ -325,15 +377,19 @@ ___
 
 ▸ **base64UrlEncodeNoPadding**(`bytes`): `string`
 
+Base64URL encode with no padding from an Uint8Array to a string
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `bytes` | `Uint8Array` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `bytes` | `Uint8Array` | The bytes to encode |
 
 #### Returns
 
 `string`
+
+The base64url encoded string
 
 ___
 
@@ -341,15 +397,19 @@ ___
 
 ▸ **bytesToString**(`bytes`): `string`
 
+Convert a Uint8Array to a string
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `bytes` | `Uint8Array` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `bytes` | `Uint8Array` | The bytes to convert to a string |
 
 #### Returns
 
 `string`
+
+The string result from the converted bytes
 
 ___
 
@@ -357,33 +417,41 @@ ___
 
 ▸ **canonicalMultiHash**(`input`, `hashAlgorithm`): [`Result`](../modules.md#result)<`Uint8Array`, `MultiHashError`\>
 
+Creates a canonical multihash of the input object by canonicalizing the object.
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `input` | `Record`<`string`, `unknown`\> |
-| `hashAlgorithm` | `Sha256` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `input` | `Record`<`string`, `unknown`\> | The object to canonicalize and then hash |
+| `hashAlgorithm` | `Sha256` | The algorithm to hash and encode the data with |
 
 #### Returns
 
 [`Result`](../modules.md#result)<`Uint8Array`, `MultiHashError`\>
 
+A [Result](../modules.md#result) containing the encoded Uint8Array on ok or a [MultiHashError](codec.md#multihasherror) on error
+
 ___
 
 ### decodeCborld
 
-▸ **decodeCborld**(`byteArray`, `documentLoader`): `ResultAsync`<`unknown`, `InvalidCborldDecodeError`\>
+▸ **decodeCborld**(`byteArray`, `documentLoader`): `ResultAsync`<`unknown`, [`InvalidCborldDecodeError`](../modules.md#invalidcborlddecodeerror)\>
+
+Decode CBOR-LD bytes intoto JSON-LD document
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `byteArray` | `Uint8Array` |
-| `documentLoader` | `DocumentLoader` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `byteArray` | `Uint8Array` | The cborld bytes |
+| `documentLoader` | `DocumentLoader` | The document loader to resolve contexts |
 
 #### Returns
 
-`ResultAsync`<`unknown`, `InvalidCborldDecodeError`\>
+`ResultAsync`<`unknown`, [`InvalidCborldDecodeError`](../modules.md#invalidcborlddecodeerror)\>
+
+A ResultAsync containing the decoded object on ok or a [InvalidCborldDecodeError](../modules.md#invalidcborlddecodeerror) on error
 
 ___
 
@@ -391,32 +459,40 @@ ___
 
 ▸ **deflate**(`data`): [`Result`](../modules.md#result)<`Uint8Array`, `DeflateError`\>
 
+Deflate compression
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `Uint8Array` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data` | `Uint8Array` | The data to be compressed |
 
 #### Returns
 
 [`Result`](../modules.md#result)<`Uint8Array`, `DeflateError`\>
 
+A [Result](../modules.md#result) containing the compressed Uint8Array on ok or a [DeflateError](codec.md#deflateerror) on error
+
 ___
 
 ### encodeCborld
 
-▸ **encodeCborld**(`jsonldDocument`, `documentLoader`): `ResultAsync`<`Uint8Array`, `InvalidCborldEncodeError`\>
+▸ **encodeCborld**(`jsonldDocument`, `documentLoader`): `ResultAsync`<`Uint8Array`, [`InvalidCborldEncodeError`](../modules.md#invalidcborldencodeerror)\>
+
+Encode a JSON-LD document into CBOR-LD bytes
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `jsonldDocument` | `Record`<`string`, `unknown`\> |
-| `documentLoader` | `DocumentLoader` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `jsonldDocument` | `Record`<`string`, `unknown`\> | The json document to encode |
+| `documentLoader` | `DocumentLoader` | The document loader to resolve contexts |
 
 #### Returns
 
-`ResultAsync`<`Uint8Array`, `InvalidCborldEncodeError`\>
+`ResultAsync`<`Uint8Array`, [`InvalidCborldEncodeError`](../modules.md#invalidcborldencodeerror)\>
+
+A ResultAsync containing the decoded cborld bytes on ok or a [InvalidCborldEncodeError](../modules.md#invalidcborldencodeerror) on error
 
 ___
 
@@ -424,15 +500,19 @@ ___
 
 ▸ **inflate**(`data`): [`Result`](../modules.md#result)<`Uint8Array`, `InflateError`\>
 
+Inflate decompression
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `Uint8Array` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data` | `Uint8Array` | The data to be decompressed |
 
 #### Returns
 
 [`Result`](../modules.md#result)<`Uint8Array`, `InflateError`\>
+
+A [Result](../modules.md#result) containing the decompressed Uint8Array on ok or a [InflateError](codec.md#inflateerror) on error
 
 ___
 
@@ -440,12 +520,16 @@ ___
 
 ▸ **stringToBytes**(`str`): `Uint8Array`
 
+Convert a string to an Uint8Array
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `str` | `string` | The string to convert to bytes |
 
 #### Returns
 
 `Uint8Array`
+
+The bytes result from the converted string

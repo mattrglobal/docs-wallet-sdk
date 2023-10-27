@@ -4,7 +4,7 @@
 
 ## Table of contents
 
-### Methods
+### Properties
 
 - [create](DidService.md#create)
 - [delete](DidService.md#delete)
@@ -12,21 +12,25 @@
 - [info](DidService.md#info)
 - [list](DidService.md#list)
 
-## Methods
+## Properties
 
 ### create
 
-▸ `Readonly` **create**(`request`): `Promise`<`DidServiceCreateResponse`\>
+• `Readonly` **create**: (`request`: `DidServiceCreateRequest`) => `Promise`<`DidServiceCreateResponse`\>
+
+#### Type declaration
+
+▸ (`request`): `Promise`<`DidServiceCreateResponse`\>
 
 Creates a DID.
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `request` | `DidServiceCreateRequest` |
 
-#### Returns
+##### Returns
 
 `Promise`<`DidServiceCreateResponse`\>
 
@@ -34,17 +38,21 @@ ___
 
 ### delete
 
-▸ `Readonly` **delete**(`did`): `Promise`<`DidServiceDeleteResponse`\>
+• `Readonly` **delete**: (`did`: `string`) => `Promise`<`DidServiceDeleteResponse`\>
+
+#### Type declaration
+
+▸ (`did`): `Promise`<`DidServiceDeleteResponse`\>
 
 Deletes a DID where local metadata exists.
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `did` | `string` |
 
-#### Returns
+##### Returns
 
 `Promise`<`DidServiceDeleteResponse`\>
 
@@ -52,23 +60,27 @@ ___
 
 ### dereference
 
-▸ `Readonly` **dereference**<`T`\>(`didUrl`): `Promise`<`DidServiceDereferenceResponse`<`T`\>\>
+• `Readonly` **dereference**: <T\>(`didUrl`: `string`) => `Promise`<`DidServiceDereferenceResponse`<`T`\>\>
+
+#### Type declaration
+
+▸ <`T`\>(`didUrl`): `Promise`<`DidServiceDereferenceResponse`<`T`\>\>
 
 Resolves and dereferences DID url.
 
-#### Type parameters
+##### Type parameters
 
 | Name | Type |
 | :------ | :------ |
 | `T` | extends `object` |
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `didUrl` | `string` |
 
-#### Returns
+##### Returns
 
 `Promise`<`DidServiceDereferenceResponse`<`T`\>\>
 
@@ -76,17 +88,21 @@ ___
 
 ### info
 
-▸ `Readonly` **info**(`did`): `Promise`<[`DidServiceInfoResponse`](DidServiceInfoResponse.md)\>
+• `Readonly` **info**: (`did`: `string`) => `Promise`<[`DidServiceInfoResponse`](DidServiceInfoResponse.md)\>
+
+#### Type declaration
+
+▸ (`did`): `Promise`<[`DidServiceInfoResponse`](DidServiceInfoResponse.md)\>
 
 Resolves a DID and combines the result with local metadata if it exists.
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `did` | `string` |
 
-#### Returns
+##### Returns
 
 `Promise`<[`DidServiceInfoResponse`](DidServiceInfoResponse.md)\>
 
@@ -94,10 +110,14 @@ ___
 
 ### list
 
-▸ `Readonly` **list**(): `Promise`<readonly `string`[]\>
+• `Readonly` **list**: () => `Promise`<readonly `string`[]\>
+
+#### Type declaration
+
+▸ (): `Promise`<readonly `string`[]\>
 
 Lists all DIDs where local metadata exists.
 
-#### Returns
+##### Returns
 
 `Promise`<readonly `string`[]\>

@@ -15,22 +15,22 @@
 
 ### Compact
 
-• **Compact**
+• **Compact** = ``"compact"``
 
 ___
 
 ### CompactSemantic
 
-• **CompactSemantic**
+• **CompactSemantic** = ``"compact-semantic"``
 
 ___
 
 ### Mobile
 
-• **Mobile**
+• **Mobile** = ``"mobile"``
 
 ___
 
 ### WebSemantic
 
-• **WebSemantic**
+• **WebSemantic** = ``"web-semantic"``

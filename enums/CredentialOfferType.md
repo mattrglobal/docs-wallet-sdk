@@ -12,4 +12,4 @@
 
 ### OPEN\_ID
 
-• **OPEN\_ID**
+• **OPEN\_ID** = ``"openid"``

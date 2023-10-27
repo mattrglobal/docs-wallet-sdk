@@ -6,7 +6,7 @@ Defines the interface of the KMS interface
 
 ## Table of contents
 
-### Methods
+### Properties
 
 - [close](KeyManagementService.md#close)
 - [decrypt](KeyManagementService.md#decrypt)
@@ -23,15 +23,19 @@ Defines the interface of the KMS interface
 - [verify](KeyManagementService.md#verify)
 - [wrapKey](KeyManagementService.md#wrapkey)
 
-## Methods
+## Properties
 
 ### close
 
-▸ `Readonly` **close**(): `Promise`<`void`\>
+• `Readonly` **close**: () => `Promise`<`void`\>
+
+#### Type declaration
+
+▸ (): `Promise`<`void`\>
 
 Close and release resources
 
-#### Returns
+##### Returns
 
 `Promise`<`void`\>
 
@@ -41,17 +45,21 @@ ___
 
 ### decrypt
 
-▸ `Readonly` **decrypt**(`decryptOptions`): `Promise`<`Uint8Array`\>
+• `Readonly` **decrypt**: (`decryptOptions`: `EncryptionOptions`) => `Promise`<`Uint8Array`\>
+
+#### Type declaration
+
+▸ (`decryptOptions`): `Promise`<`Uint8Array`\>
 
 Takes in the necessary data to be decrypted
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `decryptOptions` | `EncryptionOptions` |
 
-#### Returns
+##### Returns
 
 `Promise`<`Uint8Array`\>
 
@@ -61,17 +69,21 @@ ___
 
 ### deleteKey
 
-▸ `Readonly` **deleteKey**(`keyId`): `Promise`<`undefined` \| `KeyInfo`\>
+• `Readonly` **deleteKey**: (`keyId`: `string`) => `Promise`<`undefined` \| `KeyInfo`\>
+
+#### Type declaration
+
+▸ (`keyId`): `Promise`<`undefined` \| `KeyInfo`\>
 
 Deletes a key by keyId
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `keyId` | `string` |
 
-#### Returns
+##### Returns
 
 `Promise`<`undefined` \| `KeyInfo`\>
 
@@ -81,17 +93,21 @@ ___
 
 ### deriveKey
 
-▸ `Readonly` **deriveKey**(`deriveKeyOptions`): `Promise`<`KeyInfo`\>
+• `Readonly` **deriveKey**: (`deriveKeyOptions`: `DeriveKeyOptions`) => `Promise`<`KeyInfo`\>
+
+#### Type declaration
+
+▸ (`deriveKeyOptions`): `Promise`<`KeyInfo`\>
 
 Derives a key and stores it in the KMS
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `deriveKeyOptions` | `DeriveKeyOptions` |
 
-#### Returns
+##### Returns
 
 `Promise`<`KeyInfo`\>
 
@@ -101,18 +117,22 @@ ___
 
 ### digest
 
-▸ `Readonly` **digest**(`algorithm`, `data`): `Promise`<`Uint8Array`\>
+• `Readonly` **digest**: (`algorithm`: `DigestAlgorithm`, `data`: `Uint8Array`) => `Promise`<`Uint8Array`\>
+
+#### Type declaration
+
+▸ (`algorithm`, `data`): `Promise`<`Uint8Array`\>
 
 Generates a hash digest of the data
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `algorithm` | `DigestAlgorithm` |
 | `data` | `Uint8Array` |
 
-#### Returns
+##### Returns
 
 `Promise`<`Uint8Array`\>
 
@@ -122,17 +142,21 @@ ___
 
 ### encrypt
 
-▸ `Readonly` **encrypt**(`encryptOptions`): `Promise`<`EncryptionResult`\>
+• `Readonly` **encrypt**: (`encryptOptions`: `EncryptionOptions`) => `Promise`<`EncryptionResult`\>
+
+#### Type declaration
+
+▸ (`encryptOptions`): `Promise`<`EncryptionResult`\>
 
 Takes in the necessary data to encrypt
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `encryptOptions` | `EncryptionOptions` |
 
-#### Returns
+##### Returns
 
 `Promise`<`EncryptionResult`\>
 
@@ -142,15 +166,19 @@ ___
 
 ### exportKey
 
-▸ `Readonly` **exportKey**(`keyId`): `Promise`<`undefined` \| `Uint8Array`\>
+• `Readonly` **exportKey**: (`keyId`: `string`) => `Promise`<`undefined` \| `Uint8Array`\>
 
-#### Parameters
+#### Type declaration
+
+▸ (`keyId`): `Promise`<`undefined` \| `Uint8Array`\>
+
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `keyId` | `string` |
 
-#### Returns
+##### Returns
 
 `Promise`<`undefined` \| `Uint8Array`\>
 
@@ -160,17 +188,21 @@ ___
 
 ### generateKey
 
-▸ `Readonly` **generateKey**(`generateKeyOptions`): `Promise`<`KeyInfo`\>
+• `Readonly` **generateKey**: (`generateKeyOptions`: `GenerateKeyOptions`) => `Promise`<`KeyInfo`\>
+
+#### Type declaration
+
+▸ (`generateKeyOptions`): `Promise`<`KeyInfo`\>
 
 Generates a key and stores it in the KMS
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `generateKeyOptions` | `GenerateKeyOptions` |
 
-#### Returns
+##### Returns
 
 `Promise`<`KeyInfo`\>
 
@@ -180,17 +212,21 @@ ___
 
 ### generateRandom
 
-▸ `Readonly` **generateRandom**(`size`): `Promise`<`Uint8Array`\>
+• `Readonly` **generateRandom**: (`size`: `number`) => `Promise`<`Uint8Array`\>
+
+#### Type declaration
+
+▸ (`size`): `Promise`<`Uint8Array`\>
 
 Generates an array of random bytes using a Cryptographically Secure Pseudo Random Number Generator (CSPRNG)
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `size` | `number` |
 
-#### Returns
+##### Returns
 
 `Promise`<`Uint8Array`\>
 
@@ -200,17 +236,21 @@ ___
 
 ### getKeyInfo
 
-▸ `Readonly` **getKeyInfo**(`keyId`): `Promise`<`undefined` \| `KeyInfo`\>
+• `Readonly` **getKeyInfo**: (`keyId`: `string`) => `Promise`<`undefined` \| `KeyInfo`\>
+
+#### Type declaration
+
+▸ (`keyId`): `Promise`<`undefined` \| `KeyInfo`\>
 
 Defines the parameters for getKeyInfo function interface into an object type
 
-#### Parameters
+##### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `keyId` | `string` | The identifier of the key |
 
-#### Returns
+##### Returns
 
 `Promise`<`undefined` \| `KeyInfo`\>
 
@@ -220,17 +260,21 @@ ___
 
 ### sign
 
-▸ `Readonly` **sign**(`signOptions`): `Promise`<`Uint8Array`\>
+• `Readonly` **sign**: (`signOptions`: `SignOptions`) => `Promise`<`Uint8Array`\>
+
+#### Type declaration
+
+▸ (`signOptions`): `Promise`<`Uint8Array`\>
 
 Signs a message provided as input
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `signOptions` | `SignOptions` |
 
-#### Returns
+##### Returns
 
 `Promise`<`Uint8Array`\>
 
@@ -240,17 +284,21 @@ ___
 
 ### unWrapKey
 
-▸ `Readonly` **unWrapKey**(`UnWrapKeyOptions`): `Promise`<`KeyInfo`\>
+• `Readonly` **unWrapKey**: (`UnWrapKeyOptions`: `UnWrapKeyOptions`) => `Promise`<`KeyInfo`\>
+
+#### Type declaration
+
+▸ (`UnWrapKeyOptions`): `Promise`<`KeyInfo`\>
 
 Un-wraps a key and stores it in the KMS
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `UnWrapKeyOptions` | `UnWrapKeyOptions` |
 
-#### Returns
+##### Returns
 
 `Promise`<`KeyInfo`\>
 
@@ -260,17 +308,21 @@ ___
 
 ### verify
 
-▸ `Readonly` **verify**(`verifyOptions`): `Promise`<`boolean`\>
+• `Readonly` **verify**: (`verifyOptions`: `VerifyOptions`) => `Promise`<`boolean`\>
+
+#### Type declaration
+
+▸ (`verifyOptions`): `Promise`<`boolean`\>
 
 Verifies a signature
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `verifyOptions` | `VerifyOptions` |
 
-#### Returns
+##### Returns
 
 `Promise`<`boolean`\>
 
@@ -280,17 +332,21 @@ ___
 
 ### wrapKey
 
-▸ `Readonly` **wrapKey**(`WrapKeyOptions`): `Promise`<`EncryptionResult`\>
+• `Readonly` **wrapKey**: (`WrapKeyOptions`: `WrapKeyOptions`) => `Promise`<`EncryptionResult`\>
+
+#### Type declaration
+
+▸ (`WrapKeyOptions`): `Promise`<`EncryptionResult`\>
 
 Wraps a key and returns it
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `WrapKeyOptions` | `WrapKeyOptions` |
 
-#### Returns
+##### Returns
 
 `Promise`<`EncryptionResult`\>
 

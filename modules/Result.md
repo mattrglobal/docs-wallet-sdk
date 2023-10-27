@@ -35,10 +35,7 @@ arguments but returning `Ok` if successful, `Err` if the function throws
 
 `fn`
 
-▸ (...`args`): [`Result`](../modules.md#result)<`ReturnType`<`Fn`\>, `E`\>
-
-Wraps a function with a try catch, creating a new function with the same
-arguments but returning `Ok` if successful, `Err` if the function throws
+▸ (`...args`): [`Result`](../modules.md#result)<`ReturnType`<`Fn`\>, `E`\>
 
 ##### Parameters
 

@@ -16,16 +16,16 @@ Error type for retrieve credentials
 
 ### InvalidOptions
 
-• **InvalidOptions**
+• **InvalidOptions** = ``"InvalidOptions"``
 
 ___
 
 ### NetworkError
 
-• **NetworkError**
+• **NetworkError** = ``"NetworkError"``
 
 ___
 
 ### RetrieveCredentialError
 
-• **RetrieveCredentialError**
+• **RetrieveCredentialError** = ``"RetrieveCredentialError"``

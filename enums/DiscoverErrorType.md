@@ -15,10 +15,10 @@ Error type for discover
 
 ### DiscoverError
 
-• **DiscoverError**
+• **DiscoverError** = ``"DiscoverError"``
 
 ___
 
 ### InvalidUri
 
-• **InvalidUri**
+• **InvalidUri** = ``"InvalidUri"``

@@ -20,7 +20,7 @@
 
 ### Expired
 
-• **Expired**
+• **Expired** = ``"Expired"``
 
 Credential is expired
 
@@ -28,7 +28,7 @@ ___
 
 ### IssuerNotTrusted
 
-• **IssuerNotTrusted**
+• **IssuerNotTrusted** = ``"IssuerNotTrusted"``
 
 Issuer of the credential is not trusted
 
@@ -36,7 +36,7 @@ ___
 
 ### IssuerPublicKeyInvalid
 
-• **IssuerPublicKeyInvalid**
+• **IssuerPublicKeyInvalid** = ``"IssuerPublicKeyInvalid"``
 
 Invalid issuer public key
 
@@ -44,7 +44,7 @@ ___
 
 ### NotActive
 
-• **NotActive**
+• **NotActive** = ``"NotActive"``
 
 Credential are not active
 
@@ -52,7 +52,7 @@ ___
 
 ### PayloadInvalid
 
-• **PayloadInvalid**
+• **PayloadInvalid** = ``"PayloadInvalid"``
 
 Credential payload is malformed
 
@@ -60,7 +60,7 @@ ___
 
 ### Revoked
 
-• **Revoked**
+• **Revoked** = ``"Revoked"``
 
 Credential has been revoked
 
@@ -68,7 +68,7 @@ ___
 
 ### SignatureInvalid
 
-• **SignatureInvalid**
+• **SignatureInvalid** = ``"SignatureInvalid"``
 
 The signature of the credential is invalid
 
@@ -76,7 +76,7 @@ ___
 
 ### UnsupportedAlgorithm
 
-• **UnsupportedAlgorithm**
+• **UnsupportedAlgorithm** = ``"UnsupportedAlgorithm"``
 
 Payload COSE encoded with an unsupported algorithm
 
@@ -84,6 +84,6 @@ ___
 
 ### UnsupportedRevocationType
 
-• **UnsupportedRevocationType**
+• **UnsupportedRevocationType** = ``"UnsupportedRevocationType"``
 
 Payload revocation encoded with an unsupported type

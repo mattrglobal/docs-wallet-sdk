@@ -14,16 +14,16 @@
 
 ### ExpandWebSemanticCredentialContextResolutionError
 
-• **ExpandWebSemanticCredentialContextResolutionError**
+• **ExpandWebSemanticCredentialContextResolutionError** = ``"ExpandWebSemanticCredentialContextResolutionError"``
 
 ___
 
 ### ExpandWebSemanticCredentialError
 
-• **ExpandWebSemanticCredentialError**
+• **ExpandWebSemanticCredentialError** = ``"ExpandWebSemanticCredentialError"``
 
 ___
 
 ### NetworkError
 
-• **NetworkError**
+• **NetworkError** = ``"NetworkError"``

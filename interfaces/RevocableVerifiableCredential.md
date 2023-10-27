@@ -28,11 +28,17 @@
 
 • `Readonly` **@context**: `JsonLdContext`
 
-JSON-LD @context property
+JSON-LD
+
+**`Context`**
+
+property
 
 first item must be a uri with the value `https://www.w3.org/2018/credentials/v1`
 
-**`see`** https://www.w3.org/TR/vc-data-model/#contexts
+**`See`**
+
+https://www.w3.org/TR/vc-data-model/#contexts
 
 #### Inherited from
 
@@ -54,7 +60,9 @@ ___
 
 • `Readonly` **credentialSubject**: `string` \| [`CredentialSubject`](CredentialSubject.md) \| readonly [`CredentialSubject`](CredentialSubject.md)[]
 
-**`see`** https://www.w3.org/TR/vc-data-model/#credential-subject
+**`See`**
+
+https://www.w3.org/TR/vc-data-model/#credential-subject
 
 #### Inherited from
 
@@ -66,7 +74,9 @@ ___
 
 • `Optional` `Readonly` **expirationDate**: `string`
 
-**`see`** https://www.w3.org/TR/vc-data-model/#expiration
+**`See`**
+
+https://www.w3.org/TR/vc-data-model/#expiration
 
 #### Inherited from
 
@@ -88,7 +98,9 @@ ___
 
 • `Readonly` **issuanceDate**: `string`
 
-**`see`** https://www.w3.org/TR/vc-data-model/#issuance-date
+**`See`**
+
+https://www.w3.org/TR/vc-data-model/#issuance-date
 
 #### Inherited from
 
@@ -100,7 +112,9 @@ ___
 
 • `Readonly` **issuer**: [`CredentialIssuer`](../modules.md#credentialissuer)
 
-**`see`** https://www.w3.org/TR/vc-data-model/#issuer
+**`See`**
+
+https://www.w3.org/TR/vc-data-model/#issuer
 
 #### Inherited from
 
@@ -122,7 +136,9 @@ ___
 
 • `Readonly` **type**: `string` \| readonly `string`[]
 
-**`see`** https://www.w3.org/TR/vc-data-model/#types
+**`See`**
+
+https://www.w3.org/TR/vc-data-model/#types
 
 #### Inherited from
 

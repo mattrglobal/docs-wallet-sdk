@@ -2,7 +2,9 @@
 
 # Interface: VerifiableCredentialProof
 
-**`see`** https://www.w3.org/TR/vc-data-model/#proofs-signatures
+**`See`**
+
+https://www.w3.org/TR/vc-data-model/#proofs-signatures
 
 ## Indexable
 

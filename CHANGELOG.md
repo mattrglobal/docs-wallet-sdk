@@ -1,5 +1,74 @@
 # Change Log
 
+# 4.0.0
+
+### BREAKING CHANGES
+
+- No longer allow having multiple wallet instance with difference walletIds initialised at the same time. Before
+  initialising a wallet instance with a different walletId, the current instance must be closed first.
+
+  ```typescript
+  import { initialise } from "@mattrglobal/wallet-sdk-react-native";
+  // Previously, the following is allowed.
+  const initialiseResult1 = await initialise(walletId1);
+  if (initialiseResult1.isErr()) {
+    return;
+  }
+  const wallet1 = initialiseResult1.value;
+
+  const initialiseResult2 = await initialise(walletId2);
+  if (initialiseResult2.isErr()) {
+    return;
+  }
+  const wallet2 = initialiseResult2.value;
+
+  // Now, the existing wallet must be closed first
+  const initialiseResult1 = await initialise(walletId1);
+  if (initialiseResult1.isErr()) {
+    return;
+  }
+  const wallet1 = initialiseResult1.value;
+  await wallet1.close();
+
+  const initialiseResult2 = await initialise(walletId2);
+  if (initialiseResult2.isErr()) {
+    return;
+  }
+  const wallet2 = initialiseResult2.value;
+  ```
+
+- Wallet instance must be closed if it is currently initialised before calling `destroy`, otherwise an exception will be
+  thrown.
+- Remove error type MalformedEncryptionKeyError that is actually unreacble on `destroy` method
+
+- Realm now requires `>=12.1.0` as peer dependencies to avoid security vulnerability issue in Realm 11.
+
+- refine error types for `wallet.credential.webSemantic.sendPresentationResponse`
+  - Removed `SendWebSemanticPresentationResponseErrorType.FailedToSendPresentationResponse` error type
+  - Return `SendWebSemanticPresentationResponseErrorType.VerificationFailed` error when presentation response endpoint
+    returns 400 Bad Request, which indicates an failure of verifying the presentation response
+  - Return `SendWebSemanticPresentationResponseErrorType.VerifierUnavailable` error when presentation response endpoint,
+    returns 504 Gateway Timeout, which indicates the verifier is unavailable. The details of the error will contain the
+    `verified` for the result of the presentation verification.
+
+### Features
+
+- Add support for mobile credential (ISO Only). This allows user to integrate the mobile credential functionality from
+  `@mattrglobal/mobile-credential-react-native` into the wallet sdk. The current functionality includes
+
+  - Retrieving mobile credentials over OpenID4VCI
+  - Manage mobile credential store
+  - Manage mobile credential trusted issuer certificates
+  - Present mobile credentials to a verifier device over bluetooth
+
+- `wallet.did.messaging.openDidCommMessage` now checks JWM message expiries_time when available and return error if the
+  message is expired.
+- `wallet.credential.webSemantic.sendPresentationResponse` now includes expires_time in the message
+
+### Notes
+
+- Dependencies upgrade and vulnerability fixes
+
 # 3.0.0
 
 ### BREAKING CHANGES

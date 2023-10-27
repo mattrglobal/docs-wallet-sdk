@@ -14,16 +14,16 @@
 
 ### DidAuth
 
-• **DidAuth**
+• **DidAuth** = ``"DIDAuth"``
 
 ___
 
 ### QueryByExample
 
-• **QueryByExample**
+• **QueryByExample** = ``"QueryByExample"``
 
 ___
 
 ### QueryByFrame
 
-• **QueryByFrame**
+• **QueryByFrame** = ``"QueryByFrame"``

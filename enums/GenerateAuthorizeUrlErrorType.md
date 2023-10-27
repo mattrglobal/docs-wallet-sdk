@@ -14,4 +14,4 @@ Error type for generate authorize url
 
 ### InvalidOptions
 
-• **InvalidOptions**
+• **InvalidOptions** = ``"InvalidOptions"``

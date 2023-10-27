@@ -7,22 +7,27 @@ MATTR Wallet SDK React Native / [Exports](modules.md)
 - [Features](#features)
 - [Getting started](#getting-started)
 - [Usage](#usage)
-  - [Codec](#codec)
   - [Wallet](#wallet)
+  - [Retrieving credentials via OpenID4VCI ](#retrieving-credentials-via-openid4vci)
   - [Retrieving credentials via OIDC Bridge](#retrieving-credentials-via-oidc-bridge)
-  - [Retrieving credentials via OpenID4VCI (Tech Preview)](#retrieving-credentials-via-openid4vci-tech-preview)
-  - [Handling a credential presentation request via DIDComm message](#handling-a-credential-presentation-request-via-didcomm-message)
+  - [DIDComm message](#didcomm-message)
+  - [Web Semantic Credential](#web-semantic-credential)
+  - [Compact Credential](#compact-credential)
+  - [Compact Semantic Credential](#compact-semantic-credential)
+  - [Mobile Credential](#mobile-credential)
   - [Error handling](#error-handling)
 
 # Features
 
-- Codec operations
-- Manage DIDs
-- Filter, derive and verify credentials
-- Discover, request and retrieve credentials from oidc providers
-- Validate a DID to domain linkage with wellKnownDidConfiguration
-- Create and send presentation request responses
-- DIDComm messaging
+- Manage local DIDs
+- DIDComm messsaging
+- Validate a DID to domain linkage
+- Retrieve credentials over OpenID4VCI
+- Retrieve credentials over OIDC Bridge
+- Verify and present web semantic credentials
+- Verify compact credentials
+- Verify compact semantic credentials
+- Hold, verify and present mobile credentials
 
 # High level overview
 
@@ -34,7 +39,7 @@ MATTR Wallet SDK React Native / [Exports](modules.md)
 
 To gain access to the MATTR Pi Wallet SDK, please follow these steps:
 
-1. Request or download the ["Terms of Agreement"](Licence.pdf).
+1. Request or download the ["Terms of Agreement"](https://learn.mattr.global/docs/terms/mattr-pi-sdk-licence-agreement).
 2. Read the "Terms of Agreement", sign it, and return it to us.
 3. Create an account at [NPMJS - Node package manager for JavaScript](https://www.npmjs.com).
 4. Ensure multi-factor authentication (MFA) is configured on NPMJS Account.
@@ -59,9 +64,9 @@ dependencies will be autolinked.
 Install the peer dependencies:
 
 ```
-yarn add react-native-securerandom@1.0.1 realm@11.10.2 react-native-fs@2.17.0 react-native-secure-key-store@2.0.10 @mattrglobal/rn-bbs-signatures@1.0.0 react-native-get-random-values@1.7.0 @mattrglobal/react-native-cryptography@1.1.0 @mattrglobal/pairing-crypto-rn@0.4.1 @mattrglobal/mobile-credential-holder-react-native@0.1.0
+yarn add react-native-securerandom@1.0.1 realm@12.2.1 react-native-fs@2.20.0 react-native-secure-key-store@2.0.10 @mattrglobal/rn-bbs-signatures@1.0.0 react-native-get-random-values@1.7.0 @mattrglobal/react-native-cryptography@1.1.0 @mattrglobal/pairing-crypto-rn@0.4.1
 
-Note: we tested with react-native 0.71.12, previous supported react-native version 0.70.6, 0.68.5
+Note: we tested with react-native 0.71.12
 ```
 
 **React Native <0.60**
@@ -83,9 +88,6 @@ allprojects {
 ```
 
 ## iOS only
-
-Update iOS `Info.plist` description for keys `NSBluetoothAlwaysUsageDescription` and
-`NSBluetoothPeripheralUsageDescription`
 
 Add the pod for bbs-signatures to the podfile in `ios/Podfile`:
 
@@ -118,17 +120,9 @@ compatibility for the newer & older versions of `react-native`.
 
 # Usage
 
-## Codec
-
-```typescript
-import { codec } from "@mattrglobal/wallet-sdk-react-native";
-
-const bytes = codec.stringToBytes("a string");
-```
-
 ## Wallet
 
-Initialise the wallet:
+Initialise a wallet instance
 
 ```typescript
 import { initialise } from "@mattrglobal/wallet-sdk-react-native";
@@ -143,122 +137,40 @@ if (initialiseWalletResult.isErr()) {
 const wallet = initialiseWalletResult.value;
 ```
 
-Use the initialised wallet:
+It's possible to maintain multiple isolated wallet instances too. This can be achieved by using a different walletId
+during initialisation. Note that in this case, you must close the current wallet instance before initialising a new one
+with a different walletId.
 
 ```typescript
-// Create a new DID
-const createDidResult = await wallet.did.createDid();
+import { initialise } from "@mattrglobal/wallet-sdk-react-native";
 
-if (createDidResult.isErr()) {
-  // Handle error from createDidResult.error
+// to use wallet1
+const initialiseWallet1Result = await initialise({ walletId: "id1" });
+
+if (initialiseWallet1Result.isErr()) {
+  // Handle error from initialiseWalletResult.error
   return;
 }
+const wallet1 = initialiseWallet1Result.value;
 
-const { did } = createDidResult.value;
+// to use wallet2
+await wallet1.close();
+const initialiseWallet2Result = await initialise({ walletId: "id2" });
+const wallet2 = initialiseWallet1Result.value;
 ```
 
-Close the wallet:
+Destroy the wallet
 
-```typescript
-import { close } from "@mattrglobal/wallet-sdk-react-native";
-
-console.log(wallet.isOpen()); // true
-
-const closeWalletResult = await wallet.close();
-
-if (closeWalletResult.isErr()) {
-  // Handle error from closeWalletResult.error
-  return;
-}
-
-console.log(wallet.isOpen()); // false
-```
-
-Destroy the wallet:
+> Note: you must close the wallet instance that is currently initialised before calling `destroy`, otherwise an
+> exception will be thrown.
 
 ```typescript
 import { destroy } from "@mattrglobal/wallet-sdk-react-native";
 
-await wallet.destroy();
+await destroy({ walletId });
 ```
 
-## Retrieving credentials via OIDC Bridge
-
-Discover OIDC credential offer
-
-```typescript
-const discoverResult = await wallet.oidc.discover("openid://discovery?issuer=https://issuer.example.com");
-
-if (discoverResult.isErr()) {
-  // Handle error from discoverResult.error
-  return;
-}
-
-const { offer } = discoverResult.value;
-```
-
-Create a local subject DID for the credential
-
-```typescript
-const createDidResult = await wallet.did.createDid();
-
-if (createDidResult.isErr()) {
-  // Handle error from createDidResult.error
-  return;
-}
-
-const { did } = createDidResult.value;
-```
-
-Generate an OpenID authorization url to request the credential
-
-```typescript
-import { Linking } from "react-native";
-
-const genUrlResult = await wallet.oidc.generateAuthorizeUrl({ offer, did });
-
-if (genUrlResult.isErr()) {
-  // Handle error from genUrlResult.error
-  return;
-}
-
-const { url, codeVerifier, nonce } = genUrlResult.value;
-await Linking.openURL(url);
-```
-
-Retrieve the credential on authorization success callback
-
-```typescript
-const retrieveResult = (retrieveCredential = await wallet.oidc.retrieveCredential({
-  offer,
-  codeVerifier,
-  nonce,
-  code: route.params.code, // code comes from part of the callback url
-  autoTrustMobileCredentialIaca: false, // optional, default false
-}));
-
-if (retrieveResult.isErr()) {
-  // Handle error from retrieveResult.error
-  return;
-}
-
-const { credential } = retrieveResult.value;
-```
-
-Verify a Web Semantic credential
-
-```typescript
-const verifyResult = await wallet.credential.webSemantic.verifyCredential({ credential });
-
-if (verifyResult.isErr()) {
-  // Handle error from verifyResult.error
-  return;
-}
-
-const { credentialVerified, status } = verifyResult.value;
-```
-
-## Retrieving credentials via OpenID4VCI (Tech Preview)
+## Retrieving credentials via OpenID4VCI
 
 Discover credential offer details via offer URI
 
@@ -269,7 +181,11 @@ Discover credential offer details via offer URI
 const uri =
   "openid-credential-offer://?credential_offer=%7B%22credential_issuer%22%3A%22https%3A%2F%2Fmyissuer.example.com%22%2C%22credentials%22%3A%5B%22707e920a-f342-443b-ae24-6946b7b5033e%22%5D%2C%22request_parameters%22%3A%7B%22login_hint%22%3A%22user%40example.com%22%2C%22prompt%22%3A%22login%22%7D%7D";
 
-const offer = unwrap(await wallet.openid.issuance.discover(uri));
+const discoveryResult = await wallet.openid.issuance.discover(uri);
+if (discoveryResult.isErr()) {
+  // Handle error from discoveryResult.error
+}
+const { offer } = discoveryResult.value;
 ```
 
 Or construct offer manually
@@ -357,26 +273,112 @@ retrieveCredentialsResult.forEach((credentialOfferResult) => {
     // Handle error from retrieveCredentialsResult.error
   } else {
     const { offer, result } = credentialOfferResult;
-    const { credential, profile, did } = result;
-
-    // present to user and/or store
   }
 });
 ```
 
-## Resolving a DIDCommUri
+## Retrieving credentials via OIDC Bridge
+
+Discover OIDC credential offer
+
+```typescript
+const discoverResult = await wallet.oidc.discover("openid://discovery?issuer=https://issuer.example.com");
+
+if (discoverResult.isErr()) {
+  // Handle error from discoverResult.error
+  return;
+}
+
+const { offer } = discoverResult.value;
+```
+
+Create a local subject DID for the credential
+
+```typescript
+const createDidResult = await wallet.did.createDid();
+
+if (createDidResult.isErr()) {
+  // Handle error from createDidResult.error
+  return;
+}
+
+const { did } = createDidResult.value;
+```
+
+Generate an OpenID authorization url to request the credential
+
+```typescript
+import { Linking } from "react-native";
+
+const genUrlResult = await wallet.oidc.generateAuthorizeUrl({ offer, did });
+
+if (genUrlResult.isErr()) {
+  // Handle error from genUrlResult.error
+  return;
+}
+
+const { url, codeVerifier, nonce } = genUrlResult.value;
+await Linking.openURL(url);
+```
+
+Retrieve the credential on authorization success callback
+
+```typescript
+const retrieveResult = (retrieveCredential = await wallet.oidc.retrieveCredential({
+  offer,
+  codeVerifier,
+  nonce,
+  code: route.params.code, // code comes from part of the callback url
+}));
+
+if (retrieveResult.isErr()) {
+  // Handle error from retrieveResult.error
+  return;
+}
+
+const { credential } = retrieveResult.value;
+```
+
+## DIDComm message
+
+Resolve a didcomm message from a didcomm URI
 
 ```typescript
 const resolveDidCommUriResult = await wallet.did.messaging.resolveDidCommUri(uri);
 if (resolveDidCommUriResult.isErr()) {
+  // Handle error from resolveDidCommUriResult.error
   return;
 }
 const message = resolveDidCommUriResult.value;
 ```
 
-## Handling a credential presentation request via DIDComm message
+Open a didcomm message that are signed or encrypted
 
-Open a presentation request DIDComm message
+```typescript
+import { isPresentationRequestJwm } from "wallet-sdk-react-native";
+const openResult = await wallet.did.messaging.openDidCommMessage(message);
+if (openResult.isErr()) {
+  // Handle error from openResult.error
+  return;
+}
+```
+
+## Web Semantic Credential
+
+Verify a Web Semantic credential
+
+```typescript
+const verifyResult = await wallet.credential.webSemantic.verifyCredential({ credential });
+
+if (verifyResult.isErr()) {
+  // Handle error from verifyResult.error
+  return;
+}
+
+const { credentialVerified, status } = verifyResult.value;
+```
+
+Parse a presentation request (DIDComm message)
 
 ```typescript
 import { isPresentationRequestJwm } from "wallet-sdk-react-native";
@@ -389,7 +391,7 @@ if (openResult.isErr() || !isPresentationRequestJwm(openResult.value)) {
 const presentationRequest = openResult.value;
 ```
 
-Look up for matching credentials
+Look up for matching credentials of a presentation request
 
 ```typescript
 const credentialData = [
@@ -404,7 +406,7 @@ const filterResult = await wallet.credential.webSemantic.filterCredentialsByQuer
 });
 ```
 
-Create and send a Web Semantic credential presentation
+Create and send a presentation response for a presenation request
 
 ```typescript
 const createPresentationResult = await wallet.credential.webSemantic.createPresentation({
@@ -424,6 +426,191 @@ const sendPresentationResult = await wallet.credential.webSemantic.sendPresentat
   presentationRequest,
   presentation,
 });
+```
+
+## Compact Credential
+
+Verify a compact credential
+
+```typescript
+const credentialPayload = "CSC:/1/....";
+const verifyResult = await wallet.credential.compact.verifyCredential({ payload: credentialPayload });
+
+if (verifyResult.isErr()) {
+  // Handle error from verifyResult.error
+  return;
+}
+
+if (result.value.verified) {
+  const { payload } = result.value;
+} else {
+  const { reason } = result.value;
+}
+```
+
+## Compact Semantic Credential
+
+Verify a compact semantic credential
+
+```typescript
+const credentialPayload = "CSS:/1/....";
+const verifyResult = await wallet.credential.compactSemantic.verifyCredential({ payload: credentialPayload });
+
+if (verifyResult.isErr()) {
+  // Handle error from verifyResult.error
+  return;
+}
+
+if (result.value.verified) {
+  const { payload } = result.value;
+} else {
+  const { reason } = result.value;
+}
+```
+
+## Mobile Credential
+
+`@mattrglobal/wallet-sdk-react-native` does not come in mobile credential support by default. To enable the mobile
+credential feature, an additional peer dependency `@mattrglobal/mobile-credential-holder-react-native` is needed.
+Install the following dependency in your app.
+
+> NOTE: mobile credential presentation utilise Bluetooth connection. For iOS make sure the
+> `NSBluetoothAlwaysUsageDescription` and `NSBluetoothPeripheralUsageDescription` description are configured inside
+> `Info.plist`.
+
+```shell
+yarn add @mattrglobal/mobile-credential-holder-react-native@1.0.0
+```
+
+include the mobile credential holder extension during initialisation
+
+```typescript
+import { initialise } from "@mattrglobal/wallet-sdk-react-native";
+import MobileCredentialHolder from "@mattrglobal/mobile-credential-holder-react-native";
+
+await initialise({ extensions: [MobileCredentialHolder], walletId });
+```
+
+the same extension is also required while destoying an wallet instance too
+
+```typescript
+import { destroy } from "@mattrglobal/wallet-sdk-react-native";
+import MobileCredentialHolder from "@mattrglobal/mobile-credential-holder-react-native";
+
+await destroy({ extensions: [MobileCredentialHolder], walletId });
+```
+
+With the mobile credential holder extension, the SDK will be able to retrieve mobile credentials over
+[OpenID4VCI](#retrieving-credentials-via-openid4vci).
+
+```typescript
+import { CredentialProfileSupported } from "@mattrglobal/wallet-sdk-react-native";
+const retrieveCredentialsResult = await wallet.openid.issuance.retrieveCredentials({
+  offer, // offer that contains mobile credentials
+  accessToken,
+  clientId,
+});
+
+retrieveCredentialsResult.forEach((credentialOfferResult) => {
+  if ("error" in credentialOfferResult) {
+    const { offer, error } = credentialOfferResult;
+    // Handle error from retrieveCredentialsResult.error
+  } else {
+    const { offer, result } = credentialOfferResult;
+    if (result.profile === CredentialProfileSupported.Mobile) {
+      const credentialId = result.credentialId;
+    }
+  }
+});
+```
+
+The SDK manages the storage of any retrieved mobile credential. They will be accessible via the following mobile
+credential functions.
+
+```typescript
+// Get a mobile credential
+const getCredentialResult = await wallet.credential.mobile.getCredential(credentialId);
+
+// Get all mobile credentials
+const getCredentialsResult = await wallet.credential.mobile.getCredentials();
+
+// Delete a mobile credential
+await wallet.credential.mobile.deleteCredential(credentialId);
+```
+
+The SDK only accept a mobile credential that can be verified successsfully by the trusted issuer certificates. The
+trusted issuer certificates list can be managed directly with the following functions
+
+```typescript
+// Add new trusted issuer certificates
+await wallet.credential.mobile.addTrustedIssuerCertificates(certificates);
+
+// Get all trusted certificates
+const certificates = await wallet.credential.mobile.getTrustedIssuerCertificates();
+
+// Rmove one of the trusted issuer certificate
+await wallet.credential.mobile.deleteTrustedIssuerCertificate(id);
+```
+
+You may also instruct the SDK to automatically download and add certificates if it's discoverable via the openid
+credential issuer metadata into the trusted list while retrieving a mobile credential via OpenID4VCI.
+
+```typescript
+const retrieveCredentialsResult = await wallet.openid.issuance.retrieveCredentials({
+  offer, // offer that contains mobile credentials
+  accessToken,
+  clientId,
+  autoTrustMobileCredentialIaca: true, // enable auto trust
+});
+```
+
+Mobile credential support presenting credential to a verifier device via bluetooth. The following example is how you
+could start and response to a credential presenation request from a verifier device.
+
+> NOTE: Only one presentation session is allowed at a time, you must terminate the current session if you want to start
+> a new one.
+
+> NOTE: When a request is received, you must response to it before a new request can come in in the same session.
+
+```typescript
+// start a new presentation session
+const createPresentationSessionResult = await wallet.credential.mobile.createProximityPresentationSession({
+  onRequestReceived: (data) => {
+    // request received with error
+    if ("error" in data) {
+      const { error } = data;
+      return;
+    }
+
+    const requests = data.request;
+    requests.map(({ request, matchedCredentials }) => {
+      // obtain each request with matching credentials in the mobile credential store
+    });
+  },
+  onConnected: (data: unknown) => {
+    // presentation session is connected
+  },
+  onSessionTerminated: (data: unknown) => {
+    // presentation session is terminated
+  },
+});
+
+if (createPresentationSessionResult.isErr()) {
+  // handle error creating presentation session
+}
+
+const { deviceEngagement } = createPresentationSessionResult.value;
+// Render device engagement string on a QRCode. A verifier app should scan and use it to establish the presentation session with this holder.
+
+// ....
+
+// construct and send a presentation response with the selected credentials
+await wallet.credential.mobile.sendProximityPresentationResponse({ credentialIds });
+
+// ...
+
+// terminate the session
+await wallet.credential.mobile.terminateProximityPresentationSession();
 ```
 
 ## Error handling
@@ -465,4 +652,4 @@ try {
 
 ## Licensing
 
-see [here](Licence.pdf) for licence information
+See [here](https://learn.mattr.global/docs/terms/mattr-pi-sdk-licence-agreement) for licence information

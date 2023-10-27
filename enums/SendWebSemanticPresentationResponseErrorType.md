@@ -7,30 +7,44 @@
 ### Enumeration Members
 
 - [EncryptError](SendWebSemanticPresentationResponseErrorType.md#encrypterror)
-- [FailedToSendPresentationResponse](SendWebSemanticPresentationResponseErrorType.md#failedtosendpresentationresponse)
 - [MissingSender](SendWebSemanticPresentationResponseErrorType.md#missingsender)
 - [NetworkError](SendWebSemanticPresentationResponseErrorType.md#networkerror)
+- [UnknownError](SendWebSemanticPresentationResponseErrorType.md#unknownerror)
+- [VerificationFailed](SendWebSemanticPresentationResponseErrorType.md#verificationfailed)
+- [VerifierUnavailable](SendWebSemanticPresentationResponseErrorType.md#verifierunavailable)
 
 ## Enumeration Members
 
 ### EncryptError
 
-• **EncryptError**
-
-___
-
-### FailedToSendPresentationResponse
-
-• **FailedToSendPresentationResponse**
+• **EncryptError** = ``"EncryptError"``
 
 ___
 
 ### MissingSender
 
-• **MissingSender**
+• **MissingSender** = ``"MissingSender"``
 
 ___
 
 ### NetworkError
 
-• **NetworkError**
+• **NetworkError** = ``"NetworkError"``
+
+___
+
+### UnknownError
+
+• **UnknownError** = ``"UnknownError"``
+
+___
+
+### VerificationFailed
+
+• **VerificationFailed** = ``"VerificationFailed"``
+
+___
+
+### VerifierUnavailable
+
+• **VerifierUnavailable** = ``"VerifierUnavailable"``

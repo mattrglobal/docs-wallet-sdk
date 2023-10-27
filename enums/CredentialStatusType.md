@@ -12,4 +12,4 @@
 
 ### RevocationList2020Status
 
-• **RevocationList2020Status**
+• **RevocationList2020Status** = ``"RevocationList2020Status"``

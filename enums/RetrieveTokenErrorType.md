@@ -15,10 +15,10 @@ Error type for retrieve token
 
 ### InvalidOptions
 
-• **InvalidOptions**
+• **InvalidOptions** = ``"InvalidOptions"``
 
 ___
 
 ### RetrieveTokenError
 
-• **RetrieveTokenError**
+• **RetrieveTokenError** = ``"RetrieveTokenError"``

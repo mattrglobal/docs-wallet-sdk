@@ -15,22 +15,22 @@
 
 ### CWT
 
-• **CWT**
+• **CWT** = ``"cwt"``
 
 ___
 
 ### CWT\_VC
 
-• **CWT\_VC**
+• **CWT\_VC** = ``"cwt_vc"``
 
 ___
 
 ### LDP\_VC
 
-• **LDP\_VC**
+• **LDP\_VC** = ``"ldp_vc"``
 
 ___
 
 ### MSO\_MDOC
 
-• **MSO\_MDOC**
+• **MSO\_MDOC** = ``"mso_mdoc"``

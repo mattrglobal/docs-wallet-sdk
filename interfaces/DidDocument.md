@@ -4,15 +4,13 @@
 
 Interface for Decentralized Identifier Document
 
-**`see`** https://w3c-ccg.github.io/did-spec/#did-documents
+**`See`**
+
+https://w3c-ccg.github.io/did-spec/#did-documents
 
 ## Indexable
 
 ▪ [key: `string`]: `any`
-
-Allows for extension fields to be added to the DID Document
-
-**`see`** https://w3c.github.io/did-core/#extensibility
 
 ## Table of contents
 
@@ -37,7 +35,9 @@ Allows for extension fields to be added to the DID Document
 
 The standard context for this DID document.
 
-**`see`** https://w3c-ccg.github.io/did-spec/#contexts
+**`See`**
+
+https://w3c-ccg.github.io/did-spec/#contexts
 
 ___
 
@@ -47,7 +47,9 @@ ___
 
 Used to express assertion method
 
-**`see`** https://w3c.github.io/did-core/#assertion
+**`See`**
+
+https://w3c.github.io/did-core/#assertion
 
 ___
 
@@ -57,7 +59,9 @@ ___
 
 Array of authentication methods.
 
-**`see`** https://w3c-ccg.github.io/did-spec/#authentication
+**`See`**
+
+https://w3c-ccg.github.io/did-spec/#authentication
 
 ___
 
@@ -67,7 +71,9 @@ ___
 
 Created date time
 
-**`see`** https://w3c-ccg.github.io/did-spec/#created-optional
+**`See`**
+
+https://w3c-ccg.github.io/did-spec/#created-optional
 
 ___
 
@@ -77,7 +83,9 @@ ___
 
 The DID for this DID document.
 
-**`see`** https://w3c-ccg.github.io/did-spec/#did-subject
+**`See`**
+
+https://w3c-ccg.github.io/did-spec/#did-subject
 
 ___
 
@@ -87,7 +95,9 @@ ___
 
 Used to express verification relationships
 
-**`see`** https://w3c.github.io/did-core/#keyagreement
+**`See`**
+
+https://w3c.github.io/did-core/#keyagreement
 
 ___
 
@@ -97,7 +107,9 @@ ___
 
 Cryptographic proof of the integrity of this DID document
 
-**`see`** https://w3c-ccg.github.io/did-spec/#proof-optional
+**`See`**
+
+https://w3c-ccg.github.io/did-spec/#proof-optional
 
 ___
 
@@ -107,7 +119,9 @@ ___
 
 Array of services associated with the DID.
 
-**`see`** https://w3c-ccg.github.io/did-spec/#service-endpoints
+**`See`**
+
+https://w3c-ccg.github.io/did-spec/#service-endpoints
 
 ___
 
@@ -117,7 +131,9 @@ ___
 
 Updated date time
 
-**`see`** https://w3c-ccg.github.io/did-spec/#updated-optional
+**`See`**
+
+https://w3c-ccg.github.io/did-spec/#updated-optional
 
 ___
 
@@ -127,4 +143,6 @@ ___
 
 Used to express verification method
 
-**`see`** https://w3c.github.io/did-core/#verification-methods
+**`See`**
+
+https://w3c.github.io/did-core/#verification-methods

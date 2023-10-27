@@ -15,22 +15,22 @@
 
 ### InvalidBase64URLDecodeError
 
-• **InvalidBase64URLDecodeError**
+• **InvalidBase64URLDecodeError** = ``"InvalidBase64URLDecodeError"``
 
 ___
 
 ### InvalidDidCommUri
 
-• **InvalidDidCommUri**
+• **InvalidDidCommUri** = ``"InvalidDidCommUri"``
 
 ___
 
 ### InvalidRequestQueryParamOnDidCommMessage
 
-• **InvalidRequestQueryParamOnDidCommMessage**
+• **InvalidRequestQueryParamOnDidCommMessage** = ``"InvalidRequestQueryParamOnDidCommMessage"``
 
 ___
 
 ### InvalidRequestQueryParamOnRedirectUrl
 
-• **InvalidRequestQueryParamOnRedirectUrl**
+• **InvalidRequestQueryParamOnRedirectUrl** = ``"InvalidRequestQueryParamOnRedirectUrl"``
